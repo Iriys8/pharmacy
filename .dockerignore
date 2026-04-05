@@ -1,0 +1,17 @@
+node_modules
+**/node_modules
+
+dist
+build
+.git
+.env
+.env.local
+.DS_Store
+*.log
+.dockerignore
+Dockerfile
+Dockerfile.*
+README.md
+LICENSE.md
+.gitignore
+.bun-cache

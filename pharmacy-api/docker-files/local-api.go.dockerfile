@@ -7,16 +7,14 @@ WORKDIR /local-api
 ARG LOCAL_API_MODULE_PATH
 ARG LOCAL_API_SERVICE_PATH
 
-COPY ./go.mod ./
-COPY ./go.sum ./
+COPY ./pharmacy-api/go.mod ./
+COPY ./pharmacy-api/go.sum ./
 
 RUN go mod download
 
-COPY ./local-api/ ./local-api/
+COPY ./pharmacy-api/local-api/ ./local-api/
 
-COPY ./shared/ ./shared/
-
-COPY .env ./
+COPY ./pharmacy-api/shared/ ./shared/
 
 RUN go build -o main ./local-api
 

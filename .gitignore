@@ -2,3 +2,7 @@
 pharmacy-local-frontend/node_modules/
 
 pharmacy-public-frontend/node_modules/
+
+.env
+
+pharmacy-api/pharmacy-content/logs/

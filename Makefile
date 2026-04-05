@@ -1,5 +1,3 @@
-.PHONY: up down create-service update-dependencies build
-
 reup-la:
 	docker compose down local-api
 	docker compose build local-api
@@ -9,6 +7,16 @@ reup-pa:
 	docker compose down public-api
 	docker compose build public-api 
 	docker compose up public-api
+
+reup-pf:
+	docker compose down public-frontend
+	docker compose build public-frontend
+	docker compose up public-frontend
+
+reup-lf:
+	docker compose down local-frontend
+	docker compose build local-frontend
+	docker compose up local-frontend
 
 up-all:
 	docker compose up -d

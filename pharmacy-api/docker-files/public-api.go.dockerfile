@@ -7,16 +7,14 @@ WORKDIR /public-api
 ARG PUBLIC_API_MODULE_PATH
 ARG PUBLIC_API_SERVICE_PATH
 
-COPY ./go.mod ./
-COPY ./go.sum ./
+COPY ./pharmacy-api/go.mod ./
+COPY ./pharmacy-api/go.sum ./
 
 RUN go mod download
 
-COPY ./public-api/ ./public-api/
+COPY ./pharmacy-api/public-api/ ./public-api/
 
-COPY ./shared/ ./shared/
-
-COPY .env ./
+COPY ./pharmacy-api/shared/ ./shared/
 
 RUN go build -o main ./public-api
 

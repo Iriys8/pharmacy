@@ -1,0 +1,17 @@
+FROM oven/bun:latest AS build-stage
+
+WORKDIR /app
+
+COPY pharmacy-public-frontend/package.json pharmacy-public-frontend/bun.lock ./
+RUN bun install
+
+COPY pharmacy-public-frontend/. .
+RUN bun run build
+
+FROM nginx:stable-alpine AS production-stage
+
+COPY --from=build-stage /app/dist /usr/share/nginx/html
+
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]
