@@ -1,0 +1,13 @@
+2025/11/29 14:20:40 Started
+2025/11/29 14:20:40 Database connected
+2025/11/29 14:20:41 Database initialized
+2025/11/29 14:20:41 Routers initialized
+2025/11/29 14:20:41 Admin created
+2025/11/29 14:20:41 Initialized
+2025/11/29 14:23:01 Loggin [Admin]
+2025/11/29 14:23:17 WorkTimes GET [admin]
+2025/11/29 14:23:18 Orders GET [admin]
+2025/11/29 14:23:19 Order GET [admin]
+2025/11/29 14:23:23 Users GET [admin]
+2025/11/29 14:23:24 Roles GET [admin]
+2025/11/29 14:23:37 WorkTimes GET [admin]
