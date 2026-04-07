@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"os"
 	"path/filepath"
-	local_models "pharmacy/local-api/models"
+	local_models "pharmacy-api/local-api/models"
 	"strconv"
 	"strings"
 

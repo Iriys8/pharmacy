@@ -3,8 +3,8 @@ package controllers
 import (
 	"log"
 	"net/http"
-	local_models "pharmacy/local-api/models"
-	shared_models "pharmacy/shared/models"
+	local_models "pharmacy-api/local-api/models"
+	shared_models "pharmacy-api/shared/models"
 	"time"
 
 	"github.com/gin-gonic/gin"

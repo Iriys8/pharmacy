@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
-	local_models "pharmacy/local-api/models"
+	local_models "pharmacy-api/local-api/models"
 	"strconv"
 
 	"github.com/gin-gonic/gin"

@@ -5,7 +5,7 @@ import (
 	"log"
 	"net/http"
 	"os"
-	local_models "pharmacy/local-api/models"
+	local_models "pharmacy-api/local-api/models"
 	"strings"
 
 	"github.com/gin-gonic/gin"

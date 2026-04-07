@@ -1,7 +1,7 @@
 package main
 
 import (
-	"pharmacy/public-api/routes"
+	"pharmacy-api/public-api/routes"
 
 	"github.com/gin-gonic/gin"
 )

@@ -4,8 +4,8 @@ import (
 	"log"
 	"os"
 
-	local_models "pharmacy/local-api/models"
-	shared_models "pharmacy/shared/models"
+	local_models "pharmacy-api/local-api/models"
+	shared_models "pharmacy-api/shared/models"
 
 	"golang.org/x/crypto/bcrypt"
 	"gorm.io/driver/mysql"

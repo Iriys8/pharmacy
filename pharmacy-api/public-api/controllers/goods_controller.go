@@ -3,8 +3,8 @@ package controllers
 import (
 	"math/rand"
 	"net/http"
-	public_models "pharmacy/public-api/models"
-	shared_models "pharmacy/shared/models"
+	public_models "pharmacy-api/public-api/models"
+	shared_models "pharmacy-api/shared/models"
 	"time"
 
 	"github.com/gin-gonic/gin"

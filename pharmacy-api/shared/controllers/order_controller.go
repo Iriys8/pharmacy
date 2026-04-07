@@ -3,7 +3,7 @@ package controllers
 import (
 	"net/http"
 
-	shared_models "pharmacy/shared/models"
+	shared_models "pharmacy-api/shared/models"
 
 	"github.com/gin-gonic/gin"
 	"gorm.io/gorm"

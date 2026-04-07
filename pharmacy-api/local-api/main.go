@@ -5,8 +5,8 @@ import (
 
 	"github.com/gin-gonic/gin"
 
-	"pharmacy/local-api/routes"
-	shared_models "pharmacy/shared/models"
+	"pharmacy-api/local-api/routes"
+	shared_models "pharmacy-api/shared/models"
 )
 
 func main() {

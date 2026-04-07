@@ -4,8 +4,8 @@ import (
 	"database/sql"
 	"log"
 	"net/http"
-	local_models "pharmacy/local-api/models"
-	shared_models "pharmacy/shared/models"
+	local_models "pharmacy-api/local-api/models"
+	shared_models "pharmacy-api/shared/models"
 	"strconv"
 
 	"github.com/gin-gonic/gin"

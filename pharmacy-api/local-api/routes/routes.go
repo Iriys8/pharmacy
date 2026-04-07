@@ -1,10 +1,10 @@
 package routes
 
 import (
-	local_controllers "pharmacy/local-api/controllers"
-	shared_controllers "pharmacy/shared/controllers"
+	local_controllers "pharmacy-api/local-api/controllers"
+	shared_controllers "pharmacy-api/shared/controllers"
 
-	"pharmacy/local-api/middleware"
+	"pharmacy-api/local-api/middleware"
 	"time"
 
 	"github.com/gin-contrib/cors"
@@ -66,7 +66,7 @@ func setupOtherRouter(OtherGroup *gin.RouterGroup, db *gorm.DB) {
 
 func SetupRoutes(router *gin.Engine, db *gorm.DB) {
 	router.Use(cors.New(cors.Config{
-		AllowOrigins:     []string{"http://localhost:5173", "http://localhost:5174"},
+		AllowOrigins:     []string{"http://localhost:5001"},
 		AllowMethods:     []string{"GET", "POST", "PUT", "PATCH", "DELETE", "HEAD", "OPTIONS"},
 		AllowHeaders:     []string{"Origin", "Content-Length", "Content-Type", "Authorization"},
 		AllowCredentials: true,

@@ -6,7 +6,7 @@ import (
 	"os"
 	"time"
 
-	local_models "pharmacy/local-api/models"
+	local_models "pharmacy-api/local-api/models"
 
 	"github.com/gin-gonic/gin"
 	"github.com/golang-jwt/jwt/v4"

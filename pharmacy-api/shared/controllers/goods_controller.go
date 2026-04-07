@@ -2,7 +2,7 @@ package controllers
 
 import (
 	"net/http"
-	shared_models "pharmacy/shared/models"
+	shared_models "pharmacy-api/shared/models"
 	"strconv"
 
 	"github.com/gin-gonic/gin"

@@ -2,7 +2,7 @@ package main
 
 import (
 	"database/sql"
-	shared_models "pharmacy/shared/models"
+	shared_models "pharmacy-api/shared/models"
 
 	"gorm.io/gorm"
 )

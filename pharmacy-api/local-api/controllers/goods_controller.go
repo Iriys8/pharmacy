@@ -3,13 +3,14 @@ package controllers
 import (
 	"log"
 	"net/http"
-	local_models "pharmacy/local-api/models"
-	shared_models "pharmacy/shared/models"
+	local_models "pharmacy-api/local-api/models"
+	shared_models "pharmacy-api/shared/models"
 
 	"github.com/gin-gonic/gin"
 	"gorm.io/gorm"
 )
 
+// расширить до полного crud
 func UpdateGoods(db *gorm.DB) gin.HandlerFunc {
 	return func(c *gin.Context) {
 		id := c.Param("id")
