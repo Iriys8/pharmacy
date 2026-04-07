@@ -4,9 +4,6 @@ RUN apt-get update && apt-get install -y tzdata
 
 WORKDIR /public-api
 
-ARG PUBLIC_API_MODULE_PATH
-ARG PUBLIC_API_SERVICE_PATH
-
 COPY ./pharmacy-api/go.mod ./
 COPY ./pharmacy-api/go.sum ./
 

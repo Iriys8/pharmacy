@@ -66,7 +66,7 @@ func setupOtherRouter(OtherGroup *gin.RouterGroup, db *gorm.DB) {
 
 func SetupRoutes(router *gin.Engine, db *gorm.DB) {
 	router.Use(cors.New(cors.Config{
-		AllowOrigins:     []string{"http://localhost:5001"},
+		AllowOrigins:     []string{"http://localhost:5001", "http://127.0.0.1:5001"},
 		AllowMethods:     []string{"GET", "POST", "PUT", "PATCH", "DELETE", "HEAD", "OPTIONS"},
 		AllowHeaders:     []string{"Origin", "Content-Length", "Content-Type", "Authorization"},
 		AllowCredentials: true,

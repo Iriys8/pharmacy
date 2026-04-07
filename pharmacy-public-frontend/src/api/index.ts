@@ -3,7 +3,7 @@ import type { GoodsResponse, AnnouncesResponse } from "@/types/api";
 import type { Goods, Order, OrderedItem, PromoItem, WorkTime } from "@/types";
 
 export const api = axios.create({
-	  baseURL: 'http://localhost:5000/api',
+	  baseURL: 'http://localhost:3000/api',
 	  withCredentials: true,
 });
 
@@ -61,6 +61,6 @@ export const announcesAPI = {
 
 export const imagesAPI = {
 	getImageSRC: (): string => {
-		return "http://localhost:5000/api/image?name=";
+		return "http://localhost:3000/api/image?name=";
 	}
 }
