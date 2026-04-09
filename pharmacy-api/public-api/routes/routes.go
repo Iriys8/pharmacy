@@ -1,34 +1,35 @@
 package routes
 
 import (
-	public_controllers "pharmacy-api/public-api/controllers"
+	controller "pharmacy-api/public-api/controller"
 	shared_controllers "pharmacy-api/shared/controllers"
+	shared_models "pharmacy-api/shared/models"
 	"time"
 
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
+	"github.com/go-redis/redis/v8"
 	"gorm.io/gorm"
 )
 
-func setupGoodsRouter(GoodsGroup *gin.RouterGroup, db *gorm.DB) {
-	GoodsGroup.GET("/goods", shared_controllers.GetGoods(db))
-	GoodsGroup.GET("/goods/:id", shared_controllers.GetGoodsByID(db))
-	GoodsGroup.GET("/goods/advert", public_controllers.GetPromoItems(db))
+func setupGoodsRouter(ApiGroup *gin.RouterGroup, redisDB *redis.Client, broker *shared_models.Broker) {
+	ApiGroup.GET("/goods", controller.MakeTask("goods", "get", redisDB, broker))
+	ApiGroup.GET("/goods/advert", controller.MakeTask("goods", "advert", redisDB, broker))
 }
 
-func setupWorkTimeRouter(WorkTimeGroup *gin.RouterGroup, db *gorm.DB) {
-	WorkTimeGroup.GET("/schedule", public_controllers.GetWorkTimesDated(db))
+func setupWorkTimeRouter(ApiGroup *gin.RouterGroup, redisDB *redis.Client, broker *shared_models.Broker) {
+	ApiGroup.GET("/schedule", controller.MakeTask("schedule", "schedule_dated", redisDB, broker))
 }
 
-func setupOrderRouter(OrderGroup *gin.RouterGroup, db *gorm.DB) {
-	OrderGroup.POST("/order/:id", shared_controllers.CreateOrder(db))
+func setupOrderRouter(ApiGroup *gin.RouterGroup, redisDB *redis.Client, broker *shared_models.Broker) {
+	ApiGroup.POST("/order", controller.MakeTask("orders", "post", redisDB, broker))
 }
 
-func setupAnnounceRouter(AnnounceGroup *gin.RouterGroup, db *gorm.DB) {
-	AnnounceGroup.GET("/announce", shared_controllers.GetAnnounces(db))
+func setupAnnounceRouter(ApiGroup *gin.RouterGroup, redisDB *redis.Client, broker *shared_models.Broker) {
+	ApiGroup.GET("/announces", controller.MakeTask("announces", "get", redisDB, broker))
 }
 
-func SetupRoutes(router *gin.Engine, db *gorm.DB) {
+func SetupRoutes(router *gin.Engine, db *gorm.DB, redisDB *redis.Client, broker *shared_models.Broker) {
 	router.Use(cors.New(cors.Config{
 		AllowOrigins:     []string{"http://localhost:5000", "http://127.0.0.1:5000"},
 		AllowMethods:     []string{"GET", "POST", "PUT", "PATCH", "DELETE", "HEAD", "OPTIONS"},
@@ -41,11 +42,11 @@ func SetupRoutes(router *gin.Engine, db *gorm.DB) {
 
 	ApiGroup.GET("/image", shared_controllers.GetImage)
 
-	setupGoodsRouter(ApiGroup, db)
+	setupGoodsRouter(ApiGroup, redisDB, broker)
 
-	setupWorkTimeRouter(ApiGroup, db)
+	setupWorkTimeRouter(ApiGroup, redisDB, broker)
 
-	setupOrderRouter(ApiGroup, db)
+	setupOrderRouter(ApiGroup, redisDB, broker)
 
-	setupAnnounceRouter(ApiGroup, db)
+	setupAnnounceRouter(ApiGroup, redisDB, broker)
 }

@@ -1,65 +1,34 @@
 package models
 
 import (
-	"database/sql"
-	"time"
+	"encoding/json"
+
+	amqp "github.com/rabbitmq/amqp091-go"
 )
 
-// MYSQL or GORM moment idk, on Postgres all alright
-type WorkTime struct {
-	ID        uint           `gorm:"primaryKey"`
-	Date      sql.NullString `gorm:"type:DATE; not null "`
-	IsOpened  bool           `gorm:"not null"`
-	TimeStart sql.NullString `gorm:"type:TIME"`
-	TimeEnd   sql.NullString `gorm:"type:TIME"`
+type Broker struct {
+	Connection *amqp.Connection
+	Channel    *amqp.Channel
 }
 
-type Producer struct {
-	ID           uint    `gorm:"primaryKey"`
-	ProducerName string  `gorm:"size:40; not null"`
-	Goods        []Goods `gorm:"foreignKey:ProducerID"`
+type RequestContext struct {
+	Query   json.RawMessage
+	Context json.RawMessage
 }
 
-type Tag struct {
-	ID      uint    `gorm:"primaryKey"`
-	TagName string  `gorm:"size:20; not null"`
-	Goods   []Goods `gorm:"many2many:goods_tags"`
+type Message struct {
+	Exchange   string
+	RoutingKey string
+	Mandatory  bool
+	Immediate  bool
+	Publishing amqp.Publishing
 }
 
-type GoodsOrders struct {
-	OrderID  uint  `gorm:"primaryKey"`
-	GoodsID  uint  `gorm:"primaryKey"`
-	Quantity uint  `gorm:"not null"`
-	Order    Order `gorm:"foreignKey:OrderID"`
-	Goods    Goods `gorm:"foreignKey:GoodsID"`
-}
-
-type Order struct {
-	ID          uint          `gorm:"primaryKey"`
-	ClientFIO   string        `gorm:"size:30; not null"`
-	ClientEmail string        `gorm:"size:30"`
-	ClientPhone string        `gorm:"size:18; not null"`
-	Goods       []GoodsOrders `gorm:"foreignKey:OrderID; constraint:OnDelete:CASCADE"`
-}
-
-type Goods struct {
-	ID                   uint          `gorm:"primaryKey"`
-	Name                 string        `gorm:"size:64; not null"`
-	Image                string        `gorm:"size:64; not null"`
-	ProducerID           uint          `gorm:"index; not null"`
-	Producer             Producer      `gorm:"foreignKey:ProducerID; not null"`
-	IsInStock            bool          `gorm:"not null"`
-	Tags                 []Tag         `gorm:"many2many:goods_tags; not null"`
-	Orders               []GoodsOrders `gorm:"foreignKey:GoodsID"`
-	Instruction          string        `gorm:"size:1024"`
-	Description          string        `gorm:"size:1024"`
-	IsPrescriptionNeeded bool          `gorm:"not null"`
-	Price                uint          `gorm:"not null"`
-}
-
-type Announcement struct {
-	ID       uint      `gorm:"primaryKey"`
-	DateTime time.Time `gorm:"not null"`
-	From     string    `gorm:"size:64; not null"`
-	Announce string    `gorm:"size:2048; not null"`
+func (b *Broker) Close() {
+	if b.Channel != nil {
+		b.Channel.Close()
+	}
+	if b.Connection != nil {
+		b.Connection.Close()
+	}
 }

@@ -1,4 +1,4 @@
-package controllers
+package controller
 
 import (
 	"math/rand"
@@ -11,12 +11,6 @@ import (
 	"gorm.io/gorm"
 )
 
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
 func GetPromoItems(db *gorm.DB) gin.HandlerFunc {
 	return func(c *gin.Context) {
 		var goods []shared_models.Goods

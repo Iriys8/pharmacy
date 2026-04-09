@@ -1,0 +1,21 @@
+name: pharmacy-services
+
+networks:
+  pharmacy-databases_external:
+    external: true
+  pharmacy-main_broker:
+    external: true
+
+# services:
+#   pickup:
+#     build:
+#       context: .
+#       dockerfile: ./pharmacy-api/services/pickup_service/pickup_service.go.dockerfile
+#     ports:
+#       - "${PICKUP_SERVICE_PORT}:8080"
+#     environment:
+#       REDIS_HOST: ${REDIS_HOST}
+#       REDIS_PORT: ${REDIS_PORT}
+#       REDIS_PASSWORD: ${REDIS_PASSWORD}
+#     networks:
+#       - pharmacy-databases_external

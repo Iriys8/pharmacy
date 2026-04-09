@@ -4,7 +4,7 @@ import type { GoodsResponse, GoodsUpdateRequest, WorkTimesResponse, OrdersRespon
 import type { Announce, Goods, Order, Role, User, WorkTime } from "@/types";
 
 export const api = axios.create({
-	  baseURL: 'http://localhost:5001/api',
+	  baseURL: 'http://localhost:3001/api',
 	  withCredentials: true,
 });
 
@@ -214,7 +214,7 @@ export const rolesAPI = {
 
 export const imagesAPI = {
 	getImageSRC: (): string => {
-		return "http://localhost:5001/api/image?name=";
+		return "http://localhost:3001/api/image?name=";
 	}
 }
 
@@ -247,9 +247,9 @@ export const logsAPI = {
 export const authAPI = {
 	login: async (loginData: LoginData): Promise<AuthResponse> => {
 		return (await axios.create({
-	  		baseURL: 'http://localhost:5001/api',
+	  		baseURL: 'http://localhost:3001/api',
 	  		withCredentials: true,
-		}).post<AuthResponse>('http://localhost:5001/api/login', loginData)).data
+		}).post<AuthResponse>('http://localhost:3001/api/login', loginData)).data
 	},
 	
 	logout: async () => {
@@ -260,7 +260,7 @@ export const authAPI = {
     	const response = await axios.post<AuthResponse>( '/api/refresh',
     	  {},
     	  { 
-    	    baseURL: 'http://localhost:5001',
+    	    baseURL: 'http://localhost:3001',
     	    withCredentials: true 
     	  }
     	)

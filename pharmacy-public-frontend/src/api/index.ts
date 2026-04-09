@@ -22,7 +22,7 @@ export const goodsAPI = {
 	},
 
 	getGood: async (id: number): Promise<Goods> => {
-		const response = (await api.get<Goods>(`/goods/${id}`)).data;
+		const response = (await api.get<Goods>(`/goods/?id=${id}`)).data;
 		response.Type = 'Goods';
 		return response;
 	},
@@ -40,7 +40,7 @@ export const scheduleAPI = {
 
 export const orderAPI = {
 	createOrder: async (order: Order) => {
-    	await api.post(`/order/${order.ID}`, order)
+    	await api.post(`/order`, order)
 	},
 }
 

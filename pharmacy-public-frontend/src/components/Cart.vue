@@ -35,7 +35,6 @@ const getItems = async () => {
 }
 
 const item = ref<Order>({
-    ID: 0,
     Name: "",
     Email: "",
     Phone: "",

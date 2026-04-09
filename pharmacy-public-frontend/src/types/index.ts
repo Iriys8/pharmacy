@@ -25,7 +25,6 @@ export interface Goods {
 }
 
 export interface Order {
-    ID: number;
     Name: string;
     Email?: string;
     Phone: string;
