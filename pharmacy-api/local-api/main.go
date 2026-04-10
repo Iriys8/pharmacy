@@ -28,7 +28,7 @@ func main() {
 	db.Model(&shared_models.Goods{}).Count(&itemsAmount)
 	if itemsAmount == 0 {
 		test_data(db)
-		log.Fatalln("TEST DATA USED!")
+		log.Println("TEST DATA USED!")
 	}
 
 	log.Println("Initialized")

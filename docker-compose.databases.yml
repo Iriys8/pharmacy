@@ -2,6 +2,7 @@ name: pharmacy-databases
 
 networks:
   external:
+    name: pharmacy_databases
     driver: bridge
   internal:
     driver: bridge

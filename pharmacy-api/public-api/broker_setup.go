@@ -1,37 +1,17 @@
 package main
 
 import (
-	"fmt"
 	"log"
-	"os"
 
 	shared_models "pharmacy-api/shared/models"
-
-	amqp "github.com/rabbitmq/amqp091-go"
 )
 
-func setupBroker() *shared_models.Broker {
-	connString := fmt.Sprintf("amqp://%s:%s@%s:5672/",
-		os.Getenv("RABBITMQ_USER"),
-		os.Getenv("RABBITMQ_PASSWORD"),
-		os.Getenv("RABBITMQ_HOST"),
-	)
-	conn, err := amqp.Dial(connString)
-	if err != nil {
-		log.Fatal("failed to connect to broker:", err)
-	}
+func setupBroker(broker *shared_models.Broker) (err error) {
 
-	ch, err := conn.Channel()
+	err = broker.Channel.ExchangeDeclare("public_exchange", "direct", true, false, false, false, nil)
 	if err != nil {
-		conn.Close()
-		log.Fatal("failed to open channel:", err)
-	}
-
-	err = ch.ExchangeDeclare("public_exchange", "direct", true, false, false, false, nil)
-	if err != nil {
-		ch.Close()
-		conn.Close()
 		log.Fatal("failed to declare exchange:", err)
+		return
 	}
 
 	queues := []struct {
@@ -45,25 +25,19 @@ func setupBroker() *shared_models.Broker {
 	}
 
 	for _, q := range queues {
-		queue, err := ch.QueueDeclare(q.name, true, false, false, false, nil)
+		queue, err := broker.Channel.QueueDeclare(q.name, true, false, false, false, nil)
 		if err != nil {
-			ch.Close()
-			conn.Close()
 			log.Fatal("failed at declare queues:", err)
+			return err
 		}
 
-		err = ch.QueueBind(queue.Name, q.routingKey, "public_exchange", false, nil)
+		err = broker.Channel.QueueBind(queue.Name, q.routingKey, "public_exchange", false, nil)
 		if err != nil {
-			ch.Close()
-			conn.Close()
 			log.Fatal("failed at bindings queues:", err)
+			return err
 		}
 	}
 
 	log.Println("RabbitMQ setup completed successfully")
-
-	return &shared_models.Broker{
-		Connection: conn,
-		Channel:    ch,
-	}
+	return
 }

@@ -26,13 +26,6 @@ type Permission struct {
 	Role   []Role `gorm:"many2many:role_permission"`
 }
 
-type Claims struct {
-	UserID   uint   `json:"user_id"`
-	Username string `json:"username"`
-	Role     string
-	jwt.RegisteredClaims
-}
-
 type RefreshClaims struct {
 	UserID uint `json:"user_id"`
 	jwt.RegisteredClaims

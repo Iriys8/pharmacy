@@ -3,6 +3,7 @@ package models
 import (
 	"encoding/json"
 
+	"github.com/golang-jwt/jwt/v4"
 	amqp "github.com/rabbitmq/amqp091-go"
 )
 
@@ -14,6 +15,13 @@ type Broker struct {
 type RequestContext struct {
 	Query   json.RawMessage
 	Context json.RawMessage
+}
+
+type Claims struct {
+	UserID   uint   `json:"user_id"`
+	Username string `json:"username"`
+	Role     string
+	jwt.RegisteredClaims
 }
 
 type Message struct {
@@ -31,4 +39,9 @@ func (b *Broker) Close() {
 	if b.Connection != nil {
 		b.Connection.Close()
 	}
+}
+
+type RefreshClaims struct {
+	UserID uint `json:"user_id"`
+	jwt.RegisteredClaims
 }

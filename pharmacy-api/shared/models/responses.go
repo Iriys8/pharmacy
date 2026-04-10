@@ -44,3 +44,21 @@ type OrderedItem struct {
 	Price       uint   `json:"Price"`
 	Quantity    uint   `json:"Quantity"`
 }
+
+type GoodsUpdateRequest struct {
+	ID                   uint   `json:"ID"`
+	Name                 string `json:"Name"`
+	Instruction          string `json:"Instruction"`
+	Description          string `json:"Description"`
+	IsPrescriptionNeeded bool   `json:"IsPrescriptionNeeded"`
+	IsInStock            bool   `json:"IsInStock"`
+	Price                uint   `json:"Price"`
+}
+
+type PromoItem struct {
+	ID          uint   `json:"id"`
+	Name        string `json:"name"`
+	Description string `json:"description"`
+	Price       uint   `json:"price"`
+	Image       string `json:"image"`
+}

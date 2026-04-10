@@ -18,6 +18,11 @@ reup-lf:
 	docker compose build local-frontend
 	docker compose up local-frontend
 
+reup-se:
+	docker compose --file docker-compose.services.yml down
+	docker compose --file docker-compose.services.yml build
+	docker compose --file docker-compose.services.yml up -d
+
 up-all:
 	docker compose --file ./docker-compose.databases.yml up -d
 	docker compose up -d

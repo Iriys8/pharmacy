@@ -1,9 +1,10 @@
 name: pharmacy-main
 
 networks:
-  pharmacy-databases_external:
+  pharmacy_databases:
     external: true
   broker:
+    name: pharmacy_broker
     driver: bridge
 
 services:
@@ -29,7 +30,7 @@ services:
     volumes:
       - ./pharmacy-api/pharmacy-content:/public-api/shared/pharmacy-content
     environment:
-      DB_HOST: database
+      DB_HOST: ${DATABASE_HOST}
       DB_PORT: ${DATABASE_PORT}
       DB_USER: ${DATABASE_USER}
       DB_PASSWORD: ${DATABASE_PASSWORD}
@@ -44,34 +45,34 @@ services:
       TZ: ${TZ}
 
     networks:
-      - pharmacy-databases_external
+      - pharmacy_databases
       - broker
   
-  local-api:
-    build:
-      context: .
-      dockerfile: ./pharmacy-api/docker-files/local-api.go.dockerfile
-    ports:
-      - "${LOCAL_API_PORT}:8080"
-    volumes:
-        - ./pharmacy-api/pharmacy-content:/local-api/shared/pharmacy-content
-    environment:
-      DB_HOST: database
-      DB_PORT: ${DATABASE_PORT}
-      DB_USER: ${DATABASE_USER}
-      DB_PASSWORD: ${DATABASE_PASSWORD}
-      DB_NAME: ${DATABASE_NAME}
+  # local-api:
+  #   build:
+  #     context: .
+  #     dockerfile: ./pharmacy-api/docker-files/local-api.go.dockerfile
+  #   ports:
+  #     - "${LOCAL_API_PORT}:8080"
+  #   volumes:
+  #       - ./pharmacy-api/pharmacy-content:/local-api/shared/pharmacy-content
+  #   environment:
+  #     DB_HOST: ${DATABASE_HOST}
+  #     DB_PORT: ${DATABASE_PORT}
+  #     DB_USER: ${DATABASE_USER}
+  #     DB_PASSWORD: ${DATABASE_PASSWORD}
+  #     DB_NAME: ${DATABASE_NAME}
 
-      ACCESSTOKEN_SECRET: ${ACCESSTOKEN_SECRET}
-      REFRESHTOKEN_SECRET: ${REFRESHTOKEN_SECRET}
+  #     ACCESSTOKEN_SECRET: ${ACCESSTOKEN_SECRET}
+  #     REFRESHTOKEN_SECRET: ${REFRESHTOKEN_SECRET}
 
-      CONTROL_PANEL_ADMIN_LOGIN: ${CONTROL_PANEL_ADMIN_LOGIN}
-      CONTROL_PANEL_ADMIN_PASSWORD: ${CONTROL_PANEL_ADMIN_PASSWORD}
+  #     CONTROL_PANEL_ADMIN_LOGIN: ${CONTROL_PANEL_ADMIN_LOGIN}
+  #     CONTROL_PANEL_ADMIN_PASSWORD: ${CONTROL_PANEL_ADMIN_PASSWORD}
 
-      TZ: ${TZ}
+  #     TZ: ${TZ}
 
-    networks:
-      - pharmacy-databases_external
+  #   networks:
+  #     - pharmacy_databases
 
   public-frontend:
     build:

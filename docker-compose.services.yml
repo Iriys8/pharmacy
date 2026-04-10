@@ -1,21 +1,30 @@
 name: pharmacy-services
 
 networks:
-  pharmacy-databases_external:
+  pharmacy_databases:
     external: true
-  pharmacy-main_broker:
+  pharmacy_broker:
     external: true
 
-# services:
-#   pickup:
-#     build:
-#       context: .
-#       dockerfile: ./pharmacy-api/services/pickup_service/pickup_service.go.dockerfile
-#     ports:
-#       - "${PICKUP_SERVICE_PORT}:8080"
-#     environment:
-#       REDIS_HOST: ${REDIS_HOST}
-#       REDIS_PORT: ${REDIS_PORT}
-#       REDIS_PASSWORD: ${REDIS_PASSWORD}
-#     networks:
-#       - pharmacy-databases_external
+services:
+  goods_service:
+    build:
+      context: .
+      dockerfile: ./pharmacy-api/services/goods_service/goods_service.go.dockerfile
+    volumes:
+       - ./pharmacy-api/pharmacy-content:/service/shared/pharmacy-content
+    environment:
+      DB_HOST: ${DATABASE_HOST}
+      DB_PORT: ${DATABASE_PORT}
+      DB_USER: ${DATABASE_USER}
+      DB_PASSWORD: ${DATABASE_PASSWORD}
+      DB_NAME: ${DATABASE_NAME}
+      REDIS_HOST: ${REDIS_HOST}
+      REDIS_PORT: ${REDIS_PORT}
+      REDIS_PASSWORD: ${REDIS_PASSWORD}
+      RABBITMQ_USER: ${RABBITMQ_USER}
+      RABBITMQ_PASSWORD: ${RABBITMQ_PASSWORD}
+      RABBITMQ_HOST: ${RABBITMQ_HOST}
+    networks:
+      - pharmacy_databases
+      - pharmacy_broker

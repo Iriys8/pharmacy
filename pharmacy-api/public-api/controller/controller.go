@@ -1,26 +1,19 @@
 package controller
 
 import (
-	"crypto/rand"
-	"encoding/hex"
 	"encoding/json"
+	"log"
 	"net/http"
+	"strconv"
 	"time"
 
+	controllers "pharmacy-api/shared/controllers"
 	shared_models "pharmacy-api/shared/models"
 
 	"github.com/gin-gonic/gin"
 	"github.com/go-redis/redis/v8"
 	amqp "github.com/rabbitmq/amqp091-go"
 )
-
-func generateTaskID() (string, error) {
-	bytes := make([]byte, 16)
-	if _, err := rand.Read(bytes); err != nil {
-		return "", err
-	}
-	return hex.EncodeToString(bytes), nil
-}
 
 func MakeTask(route string, task string, redisDB *redis.Client, broker *shared_models.Broker) gin.HandlerFunc {
 	return func(c *gin.Context) {
@@ -32,10 +25,19 @@ func MakeTask(route string, task string, redisDB *redis.Client, broker *shared_m
 		query := make(map[string]any)
 		switch task {
 		case "get":
-			query["id"] = c.Query("id")
+			var err error
+			query["id"], err = strconv.Atoi(c.Query("id"))
 			query["q"] = c.Query("q")
 			query["page"] = c.Query("page")
 			query["limit"] = c.Query("limit")
+
+			if err != nil && c.Query("id") != "" {
+				c.JSON(http.StatusBadRequest, gin.H{
+					"error":   "Invalid request",
+					"details": err.Error(),
+				})
+				return
+			}
 
 			queryJSON, _ := json.Marshal(query)
 			taskContext.Query = queryJSON
@@ -66,35 +68,36 @@ func MakeTask(route string, task string, redisDB *redis.Client, broker *shared_m
 		}
 		taskContextJSON, _ := json.Marshal(taskContext)
 
-		taskID, err := generateTaskID()
+		taskID, err := controllers.Random_gen()
 		if err != nil {
 			c.JSON(http.StatusInternalServerError, gin.H{
 				"error": "Internal error",
 			})
+			log.Print(err.Error())
 			return
 		}
 
 		key := "public_task:" + taskID
-		err = redisDB.HSet(ctx, key, map[string]interface{}{
-			"id":      taskID,
+
+		if err = redisDB.HSet(ctx, key, map[string]interface{}{
 			"status":  "pending",
 			"task":    task,
 			"route":   route,
+			"result":  "",
 			"context": taskContextJSON,
-			"api":     "public",
-		}).Err()
-		if err != nil {
+		}).Err(); err != nil {
 			c.JSON(http.StatusInternalServerError, gin.H{
-				"error": "Internal error: " + err.Error(),
+				"error": "Internal error",
 			})
+			log.Print(err.Error())
 			return
 		}
 
-		err = redisDB.Expire(ctx, key, 10*time.Minute).Err()
-		if err != nil {
+		if err = redisDB.Expire(ctx, key, 5*time.Minute).Err(); err != nil {
 			c.JSON(http.StatusInternalServerError, gin.H{
-				"error": "Internal error: " + err.Error(),
+				"error": "Internal error",
 			})
+			log.Print(err.Error())
 			return
 		}
 
@@ -105,19 +108,20 @@ func MakeTask(route string, task string, redisDB *redis.Client, broker *shared_m
 			false,
 			amqp.Publishing{
 				ContentType: "application/json",
-				Body:        []byte(taskID),
+				Body:        []byte(key),
 				Timestamp:   time.Now(),
 			},
 		)
 		if err != nil {
 			c.JSON(http.StatusInternalServerError, gin.H{
-				"error": "Internal error: " + err.Error(),
+				"error": "Internal error",
 			})
+			log.Print(err.Error())
 			return
 		}
 
 		c.JSON(http.StatusOK, gin.H{
-			"task_id": taskID,
+			"task_id": key,
 		})
 	}
 }
