@@ -1,66 +1,140 @@
-import axios from "axios";
-import type { GoodsResponse, AnnouncesResponse } from "@/types/api";
-import type { Goods, Order, OrderedItem, PromoItem, WorkTime } from "@/types";
+import axios, { type AxiosResponse } from "axios";
+import type { GoodsResponse, AnnouncesResponse, KeyResponse, TaskResponse } from "@/types/api";
+import type { Goods, Order, PromoItem, WorkTime } from "@/types";
 
 export const api = axios.create({
 	  baseURL: 'http://localhost:3000/api',
 	  withCredentials: true,
 });
 
+const delays = [0, 500, 500, 2000, 2000, 2000, 10000, 10000, 10000]
+
+const delay = (ms: number | undefined) => new Promise(resolve => setTimeout(resolve, ms));
+
+async function executeWithPickup<T>(
+  axiosRequest: Promise<AxiosResponse<KeyResponse>>
+): Promise<T> {
+  try {
+    const axiosResponse = await axiosRequest;
+    let taskKey = axiosResponse.data;
+	
+    if (!taskKey.TaskID) {
+      throw new Error('No taskID');
+    }
+
+	const pickupResponse = await api.get<TaskResponse>(`/pickup?id=${taskKey.TaskID}`);
+	let task = pickupResponse.data;	
+	
+
+	if (task.Status === 'completed') {
+    	return JSON.parse(task.Value);
+    }
+
+    if (task.Status === 'error') {
+    	throw new Error(task.Error);
+    }
+
+    if (task.Status === 'not_found') {
+    	throw new Error(task.Error);
+    }
+
+	let attempt: number = 0
+    while (task.Status === 'pending') {
+        const waitTime = attempt <= delays.length ? delays[attempt] : delays[delays.length - 1];
+
+        await delay(waitTime);
+
+        const pickupResponse = await api.get<TaskResponse>(`/pickup?id=${taskKey.TaskID}`);
+        task = pickupResponse.data;
+
+        if (task.Status === 'completed') {
+          return task.Value as T;
+        }
+
+        if (task.Status === 'error') {
+          throw new Error(task.Error);
+        }
+
+        if (task.Status === 'not_found') {
+          throw new Error(task.Error);
+        }
+
+        attempt++;
+      }
+        throw new Error(`Unexpected task status after polling: ${task.Status}`);
+	} catch (error) {
+    	console.error('Error:', error);
+    	throw error;
+  	}
+}
 export const goodsAPI = {
-	getGoods: async (searchQuery: string, page: string, limit: string): Promise<GoodsResponse> => {
-		const response = (await api.get<GoodsResponse>(`/goods?q=${searchQuery !== undefined ? searchQuery : ""}&page=${page}&limit=${limit}`)).data;
+  getGoods: async (searchQuery: string, page: string, limit: string): Promise<GoodsResponse> => {
+    const query = searchQuery !== undefined ? searchQuery : "";
+    const response = await executeWithPickup<GoodsResponse>(
+      api.get<KeyResponse>(`/goods?q=${query}&page=${page}&limit=${limit}`)
+    );
 
-		if (response.Items !== null) {
-    		response.Items = response.Items.map(item => ({
-    		  ...item,
-    		  Type: "Goods"
-    		}));
-		}
+    if (response.Items !== null) {
+      response.Items = response.Items.map(item => ({
+        ...item,
+        Type: "Goods"
+      }));
+    }
 
-    	return response;
-	},
+    return response;
+  },
 
-	getGood: async (id: number): Promise<Goods> => {
-		const response = (await api.get<Goods>(`/goods/?id=${id}`)).data;
-		response.Type = 'Goods';
-		return response;
-	},
+  getGood: async (id: number): Promise<Goods> => {
+    const response = await executeWithPickup<Goods>(
+      api.get<KeyResponse>(`/goods/?id=${id}`)
+    );
+    response.Type = 'Goods';
+    return response;
+  },
 
-	getPromoItem: async (): Promise<PromoItem[]> => {
-		return (await api.get<PromoItem[]>(`/goods/advert`)).data
-	},
+  getPromoItem: async (): Promise<PromoItem[]> => {
+    return await executeWithPickup<PromoItem[]>(
+      api.get<KeyResponse>(`/goods/advert`)
+    );
+  },
 }
 
 export const scheduleAPI = {
-	getShedule: async (startDate: string, endDate: string): Promise<WorkTime[]> => {
-		return (await api.get<WorkTime[]>(`/schedule?start=${startDate}&end=${endDate}`)).data
-	}
+  getShedule: async (startDate: string, endDate: string): Promise<WorkTime[]> => {
+    return await executeWithPickup<WorkTime[]>(
+      api.get<KeyResponse>(`/schedule?start=${startDate}&end=${endDate}`)
+    );
+  }
 }
 
 export const orderAPI = {
-	createOrder: async (order: Order) => {
-    	await api.post(`/order`, order)
-	},
+  createOrder: async (order: Order): Promise<void> => {
+    await executeWithPickup<void>(
+      api.post<KeyResponse>(`/order`, order)
+    );
+  },
 }
 
 export const announcesAPI = {
-	getAnnounces: async (searchQuery: string, page: string, limit: string): Promise<AnnouncesResponse> => {
-		const response = (await api.get<AnnouncesResponse>(`/announce?q=${searchQuery !== undefined ? searchQuery : ""}&page=${page}&limit=${limit}`)).data
+  getAnnounces: async (searchQuery: string, page: string, limit: string): Promise<AnnouncesResponse> => {
+    const query = searchQuery !== undefined ? searchQuery : "";
+    const response = await executeWithPickup<AnnouncesResponse>(
+      api.get<KeyResponse>(`/announces?q=${query}&page=${page}&limit=${limit}`)
+    );
 
-		if (response.Items !== null) {
-			response.Items = response.Items.map(item => ({
-    		  ...item,
-    		  Type: "Announce"
-    		}));
-		}
+    if (response.Items !== null) {
+      response.Items = response.Items.map(item => ({
+        ...item,
+        Type: "Announce"
+      }));
+    }
 
-    	return response;
-	},
+    return response;
+  },
 }
 
 export const imagesAPI = {
-	getImageSRC: (): string => {
-		return "http://localhost:3000/api/image?name=";
-	}
+  getImageSRC: (): string => {
+    return "http://localhost:3000/api/image?name=";
+  }
 }

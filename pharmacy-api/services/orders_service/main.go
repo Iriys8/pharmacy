@@ -3,7 +3,6 @@ package main
 import (
 	"context"
 	"encoding/json"
-	"errors"
 	"fmt"
 	"log"
 	"os"
@@ -11,9 +10,9 @@ import (
 	"syscall"
 	"time"
 
-	service_controller "pharmacy-api/services/goods_service/controller"
+	service_controller "pharmacy-api/services/orders_service/controller"
 	shared_controller "pharmacy-api/shared/controllers"
-	models "pharmacy-api/shared/models"
+	"pharmacy-api/shared/models"
 	setup "pharmacy-api/shared/setup"
 
 	"github.com/go-redis/redis/v8"
@@ -34,8 +33,8 @@ func main() {
 	broker := setup.ConnectBroker()
 	defer broker.Close()
 
-	go consumeMessages(broker.Channel, "public_goods_queue", redisDB, db, uname)
-	//go consumeMessages(broker.Channel, "private_goods_queue", redisDB, db, uname)
+	go consumeMessages(broker.Channel, "public_orders_queue", redisDB, db, uname)
+	//go consumeMessages(broker.Channel, "private_orders_queue", redisDB, db, uname)
 
 	log.Println("Service is running.")
 
@@ -82,44 +81,18 @@ func consumeMessages(ch *amqp.Channel, queueName string, redisDB *redis.Client, 
 			var execErr error
 
 			switch taskData["task"] {
-			case "get":
+			case "put":
 				var taskContext struct {
-					Query struct {
-						Id    int    `json:"id"`
-						Q     string `json:"q"`
-						Page  string `json:"page"`
-						Limit string `json:"limit"`
-					} `json:"Query"`
+					Context models.OrderResponse `json:"Context"`
 				}
 				if err := json.Unmarshal([]byte(taskData["context"]), &taskContext); err != nil {
 					log.Printf("Error parsing context for get: %v", err)
 					return
 				}
-				if taskContext.Query.Id == 0 {
-					result, execErr = service_controller.GetGoods(db, taskContext.Query.Q, taskContext.Query.Page, taskContext.Query.Limit)
-				} else {
-					result, execErr = service_controller.GetGoodsByID(db, taskContext.Query.Id)
-				}
-
-			case "advert":
-				result, execErr = service_controller.GetPromoItems(db)
-
-			// пиздец
-			case "update":
-				var context struct {
-					ID         int                       `json:"id"`
-					UpdateData models.GoodsUpdateRequest `json:"update_data"`
-					Claims     models.Claims             `json:"claims"`
-				}
-				if err := json.Unmarshal([]byte(taskData["context"]), &context); err != nil {
-					log.Printf("Error parsing context for update_goods: %v", err)
-					return
-				}
-				result, execErr = service_controller.UpdateGoods(db, context.ID, context.UpdateData, context.Claims)
+				result, execErr = service_controller.CreateOrder(db, taskContext.Context)
 
 			default:
 				log.Printf("Unknown task type: %s", taskData["task"])
-				execErr = errors.New("Unknown task")
 				return
 			}
 

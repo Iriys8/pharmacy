@@ -1,6 +1,7 @@
 package controller
 
 import (
+	"log"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -9,44 +10,57 @@ import (
 
 func Pickup(redisDB *redis.Client) gin.HandlerFunc {
 	return func(c *gin.Context) {
-		key := c.Param("key")
+
+		key := c.Query("id")
 
 		if key == "" {
 			c.JSON(http.StatusBadRequest, gin.H{
-				"error": "key is required",
+				"Error": "key is required",
 			})
 			return
 		}
 
-		val, err := redisDB.Get(c.Request.Context(), key).Result()
+		val, err := redisDB.HGetAll(c.Request.Context(), "public_task:"+key).Result()
 
 		if err == redis.Nil {
 			c.JSON(http.StatusNotFound, gin.H{
-				"error": "key not found",
-				"key":   key,
+				"Status": "not_found",
 			})
 			return
 
 		} else if err != nil {
 			c.JSON(http.StatusInternalServerError, gin.H{
-				"error": "redis error: " + err.Error(),
-				"key":   key,
+				"Error": "Internal error",
 			})
 			return
 
 		}
-		delErr := redisDB.Del(c.Request.Context(), key).Err()
-		if delErr != nil {
-			c.JSON(http.StatusInternalServerError, gin.H{
-				"error": "failed to delete key: " + delErr.Error(),
-				"key":   key,
-				"value": val,
+
+		switch val["status"] {
+		case "completed":
+			err := redisDB.HDel(c.Request.Context(), key).Err()
+			if err != nil {
+				log.Printf("Error: %v", err)
+				c.JSON(http.StatusOK, gin.H{
+					"Status": val["status"],
+					"Value":  val["result"],
+				})
+				return
+			}
+			c.JSON(http.StatusOK, gin.H{
+				"Status": val["status"],
+				"Value":  val["result"],
 			})
 			return
+		case "pending":
+			c.JSON(http.StatusOK, gin.H{
+				"Status": val["status"],
+			})
+		case "error":
+			c.JSON(http.StatusOK, gin.H{
+				"Status": val["status"],
+			})
 		}
-		c.JSON(http.StatusOK, gin.H{
-			"key":   key,
-			"value": val,
-		})
+
 	}
 }

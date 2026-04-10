@@ -115,7 +115,7 @@ func GetGoodsByID(db *gorm.DB, id int) (result map[string]any, err error) {
 	}
 
 	result = make(map[string]any)
-	result["response"] = response
+	result["Response"] = response
 
 	return
 }
@@ -143,7 +143,7 @@ func GetPromoItems(db *gorm.DB) (result map[string]any, err error) {
 	}
 
 	result = make(map[string]any)
-	result["responce"] = promoItems
+	result["Response"] = promoItems
 
 	return
 }
@@ -175,8 +175,8 @@ func UpdateGoods(db *gorm.DB, id int, updateData models.GoodsUpdateRequest, clai
 	log.Println("Good PATH [" + claims.Username + "]")
 
 	result = make(map[string]any)
-	result["message"] = "updated"
-	result["data"] = existingGood
+	result["Message"] = "updated"
+	result["Data"] = existingGood
 
 	return
 }

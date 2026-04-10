@@ -86,7 +86,6 @@ func consumeMessages(ch *amqp.Channel, queueName string, redisDB *redis.Client, 
 						Start string `json:"start"`
 						End   string `json:"end"`
 					} `json:"Query"`
-					Context []byte `json:"Context"`
 				}
 				if err := json.Unmarshal([]byte(taskData["context"]), &taskContext); err != nil {
 					log.Printf("Error parsing context for get: %v", err)
@@ -100,7 +99,11 @@ func consumeMessages(ch *amqp.Channel, queueName string, redisDB *redis.Client, 
 			}
 
 			var JSONResult []byte
-			JSONResult, execErr = json.Marshal(result)
+			if result["Response"] != nil {
+				JSONResult, execErr = json.Marshal(result["Response"])
+			} else {
+				JSONResult, execErr = json.Marshal(result)
+			}
 
 			if execErr != nil {
 				taskData["status"] = "error"

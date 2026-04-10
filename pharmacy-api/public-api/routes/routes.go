@@ -29,9 +29,13 @@ func setupAnnounceRouter(ApiGroup *gin.RouterGroup, redisDB *redis.Client, broke
 	ApiGroup.GET("/announces", controller.MakeTask("announces", "get", redisDB, broker))
 }
 
+func setupPickupRouter(ApiGroup *gin.RouterGroup, redisDB *redis.Client) {
+	ApiGroup.GET("/pickup", controller.Pickup(redisDB))
+}
+
 func SetupRoutes(router *gin.Engine, db *gorm.DB, redisDB *redis.Client, broker *shared_models.Broker) {
 	router.Use(cors.New(cors.Config{
-		AllowOrigins:     []string{"http://localhost:5000", "http://127.0.0.1:5000"},
+		AllowOrigins:     []string{"http://localhost:5000", "http://127.0.0.1:5000", "http://localhost:5173"},
 		AllowMethods:     []string{"GET", "POST", "PUT", "PATCH", "DELETE", "HEAD", "OPTIONS"},
 		AllowHeaders:     []string{"Origin", "Content-Length", "Content-Type", "Authorization"},
 		AllowCredentials: true,
@@ -49,4 +53,6 @@ func SetupRoutes(router *gin.Engine, db *gorm.DB, redisDB *redis.Client, broker 
 	setupOrderRouter(ApiGroup, redisDB, broker)
 
 	setupAnnounceRouter(ApiGroup, redisDB, broker)
+
+	setupPickupRouter(ApiGroup, redisDB)
 }
