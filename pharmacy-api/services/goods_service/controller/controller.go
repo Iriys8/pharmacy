@@ -3,14 +3,14 @@ package controller
 import (
 	"log"
 	"math/rand"
-	shared_models "pharmacy-api/shared/models"
+	models "pharmacy-api/shared/models"
 	"strconv"
 	"time"
 
 	"gorm.io/gorm"
 )
 
-func GetGoods(query string, pageStr string, limitStr string, db *gorm.DB) (result map[string]any, err error) {
+func GetGoods(db *gorm.DB, query string, pageStr string, limitStr string) (result map[string]any, err error) {
 	limit, strErr := strconv.Atoi(limitStr)
 
 	if strErr != nil || limit < 1 {
@@ -23,9 +23,9 @@ func GetGoods(query string, pageStr string, limitStr string, db *gorm.DB) (resul
 		page = 1
 	}
 	offset := (page - 1) * limit
-	var goodsByTags, goodsByProducers, goodsByName []shared_models.Goods
+	var goodsByTags, goodsByProducers, goodsByName []models.Goods
 	var totalCount int64
-	var goods []shared_models.Goods
+	var goods []models.Goods
 	var seenIDs = make(map[uint]bool)
 	if query != "" {
 		db.Preload("Producer").
@@ -68,9 +68,9 @@ func GetGoods(query string, pageStr string, limitStr string, db *gorm.DB) (resul
 	}
 	totalPages := (totalCount + int64(limit) - 1) / int64(limit)
 
-	var response []shared_models.GoodsResponse
+	var response []models.GoodsResponse
 	for _, goodsitem := range goods {
-		response = append(response, shared_models.GoodsResponse{
+		response = append(response, models.GoodsResponse{
 			ID:          goodsitem.ID,
 			Name:        goodsitem.Name,
 			Image:       goodsitem.Image,
@@ -88,9 +88,9 @@ func GetGoods(query string, pageStr string, limitStr string, db *gorm.DB) (resul
 	return
 }
 
-func GetGoodsByID(id int, db *gorm.DB) (result map[string]any, err error) {
+func GetGoodsByID(db *gorm.DB, id int) (result map[string]any, err error) {
 
-	var good shared_models.Goods
+	var good models.Goods
 
 	if err = db.Preload("Producer").Preload("Tags").Find(&good, id).Error; err != nil {
 		return
@@ -101,7 +101,7 @@ func GetGoodsByID(id int, db *gorm.DB) (result map[string]any, err error) {
 		tagNames = append(tagNames, tag.TagName)
 	}
 
-	response := shared_models.GoodsResponse{
+	response := models.GoodsResponse{
 		ID:                   good.ID,
 		Name:                 good.Name,
 		Image:                good.Image,
@@ -121,7 +121,7 @@ func GetGoodsByID(id int, db *gorm.DB) (result map[string]any, err error) {
 }
 
 func GetPromoItems(db *gorm.DB) (result map[string]any, err error) {
-	var goods []shared_models.Goods
+	var goods []models.Goods
 	if err = db.Where("is_in_stock LIKE ?", "1").Find(&goods).Error; err != nil {
 		return
 	}
@@ -131,9 +131,9 @@ func GetPromoItems(db *gorm.DB) (result map[string]any, err error) {
 	}
 	rand.NewSource(time.Now().UnixNano())
 	indices := rand.Perm(totalGoods)[:min(5, totalGoods)]
-	var promoItems []shared_models.PromoItem
+	var promoItems []models.PromoItem
 	for _, index := range indices {
-		promoItems = append(promoItems, shared_models.PromoItem{
+		promoItems = append(promoItems, models.PromoItem{
 			ID:          goods[index].ID,
 			Name:        goods[index].Name,
 			Description: goods[index].Description,
@@ -148,13 +148,13 @@ func GetPromoItems(db *gorm.DB) (result map[string]any, err error) {
 	return
 }
 
-// если накроется - добавить * к shared_models.Claims; всё равно дорабатывать
-func UpdateGoods(id int, updateData shared_models.GoodsUpdateRequest, claims shared_models.Claims, db *gorm.DB) (result map[string]any, err error) {
+// если накроется - добавить * к models.Claims; всё равно дорабатывать
+func UpdateGoods(db *gorm.DB, id int, updateData models.GoodsUpdateRequest, claims models.Claims) (result map[string]any, err error) {
 
 	// user, _ := c.Get("user")
-	// claims := user.(*shared_models.Claims)
+	// claims := user.(*models.Claims)
 
-	var existingGood shared_models.Goods
+	var existingGood models.Goods
 	if err = db.First(&existingGood, id).Error; err != nil {
 		log.Println("Good PATH error [" + claims.Username + "]" + err.Error())
 		return

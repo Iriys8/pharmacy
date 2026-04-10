@@ -13,7 +13,7 @@ type GoodsResponse struct {
 	Price                uint     `json:"Price"`
 }
 
-type WorkTimeResponse struct {
+type ScheduleResponse struct {
 	ID        uint   `json:"ID"`
 	Date      string `json:"Date"`
 	TimeStart string `json:"TimeStart"`
@@ -61,4 +61,17 @@ type PromoItem struct {
 	Description string `json:"description"`
 	Price       uint   `json:"price"`
 	Image       string `json:"image"`
+}
+
+type UserUpdateRequest struct {
+	ID       uint   `gorm:"primaryKey"`
+	Login    string `gorm:"size:40; not null; unique; index"`
+	UserName string `gorm:"size:40; not null"`
+	RoleID   uint   `gorm:"index; not null"`
+	Role     Role   `gorm:"foreignKey:RoleID; not null"`
+	Password string `gorm:"size:128; not null"`
+}
+
+type LogsResponse struct {
+	Name string `json:"Name"`
 }

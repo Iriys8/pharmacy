@@ -6,7 +6,7 @@ import (
 )
 
 // MYSQL or GORM moment idk, on Postgres all alright
-type WorkTime struct {
+type Schedule struct {
 	ID        uint           `gorm:"primaryKey"`
 	Date      sql.NullString `gorm:"type:DATE; not null "`
 	IsOpened  bool           `gorm:"not null"`

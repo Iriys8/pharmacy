@@ -1,8 +1,8 @@
-package main
+package setup
 
 import (
 	"database/sql"
-	shared_models "pharmacy-api/shared/models"
+	models "pharmacy-api/shared/models"
 
 	"gorm.io/gorm"
 )
@@ -15,18 +15,18 @@ func test_data(db *gorm.DB) {
 	db.Exec("DELETE FROM goods")
 	db.Exec("DELETE FROM tags")
 	db.Exec("DELETE FROM producers")
-	db.Exec("DELETE FROM work_times")
+	db.Exec("DELETE FROM schedules")
 
 	// WorkTime data
-	workTimes := []shared_models.WorkTime{
-		{TimeStart: sql.NullString{String: "09:00", Valid: true}, TimeEnd: sql.NullString{String: "18:00", Valid: true}, Date: sql.NullString{String: "2024-01-01", Valid: true}},
-		{TimeStart: sql.NullString{String: "09:00", Valid: true}, TimeEnd: sql.NullString{String: "18:00", Valid: true}, Date: sql.NullString{String: "2024-01-02", Valid: true}},
-		{TimeStart: sql.NullString{String: "10:00", Valid: true}, TimeEnd: sql.NullString{String: "16:00", Valid: true}, Date: sql.NullString{String: "2024-01-03", Valid: true}},
+	schedules := []models.Schedule{
+		{TimeStart: sql.NullString{String: "09:00", Valid: true}, TimeEnd: sql.NullString{String: "18:00", Valid: true}, Date: sql.NullString{String: "2026-04-10", Valid: true}},
+		{TimeStart: sql.NullString{String: "09:00", Valid: true}, TimeEnd: sql.NullString{String: "18:00", Valid: true}, Date: sql.NullString{String: "2026-04-11", Valid: true}},
+		{TimeStart: sql.NullString{String: "10:00", Valid: true}, TimeEnd: sql.NullString{String: "16:00", Valid: true}, Date: sql.NullString{String: "2026-04-12", Valid: true}},
 	}
-	db.Create(&workTimes)
+	db.Create(&schedules)
 
 	// Producers
-	producers := []shared_models.Producer{
+	producers := []models.Producer{
 		{ProducerName: "Pharmakor"},
 		{ProducerName: "Medpreparat"},
 		{ProducerName: "Biofarm"},
@@ -39,7 +39,7 @@ func test_data(db *gorm.DB) {
 	db.Create(&producers)
 
 	// Tags
-	tags := []shared_models.Tag{
+	tags := []models.Tag{
 		{TagName: "Painkiller"},
 		{TagName: "Antipyretic"},
 		{TagName: "Antibiotic"},
@@ -54,7 +54,7 @@ func test_data(db *gorm.DB) {
 	db.Create(&tags)
 
 	// Goods (40+ items)
-	goods := []shared_models.Goods{
+	goods := []models.Goods{
 		{
 			Name:                 "Paracetamol 500mg",
 			Image:                "/goods/pill1.jpg",
@@ -489,7 +489,7 @@ func test_data(db *gorm.DB) {
 	}
 
 	// Orders
-	orders := []shared_models.Order{
+	orders := []models.Order{
 		{ClientFIO: "Ivanov Ivan Ivanovich", ClientEmail: "ivanov@mail.ru", ClientPhone: "+79161234567"},
 		{ClientFIO: "Petrova Maria Sergeevna", ClientEmail: "petrova@gmail.com", ClientPhone: "+79037654321"},
 		{ClientFIO: "Sidorov Alexey Petrovich", ClientEmail: "", ClientPhone: "+79219876543"},
@@ -497,7 +497,7 @@ func test_data(db *gorm.DB) {
 	db.Create(&orders)
 
 	// GoodsOrders
-	goodsOrders := []shared_models.GoodsOrders{
+	goodsOrders := []models.GoodsOrders{
 		{OrderID: 1, GoodsID: 1, Quantity: 2},
 		{OrderID: 1, GoodsID: 5, Quantity: 1},
 		{OrderID: 2, GoodsID: 2, Quantity: 1},

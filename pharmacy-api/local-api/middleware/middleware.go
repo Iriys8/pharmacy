@@ -5,7 +5,7 @@ import (
 	"log"
 	"net/http"
 	"os"
-	local_models "pharmacy-api/local-api/models"
+	models "pharmacy-api/shared/models"
 	"strings"
 
 	"github.com/gin-gonic/gin"
@@ -32,7 +32,7 @@ func AuthMiddleware(db *gorm.DB, requiredPermission string) gin.HandlerFunc {
 		}
 		tokenString := parts[1]
 
-		claims := &local_models.Claims{}
+		claims := &models.Claims{}
 		token, err := jwt.ParseWithClaims(tokenString, claims, func(token *jwt.Token) (any, error) {
 			return jwtSecret, nil
 		})
@@ -47,7 +47,7 @@ func AuthMiddleware(db *gorm.DB, requiredPermission string) gin.HandlerFunc {
 			}
 		}
 		if requiredPermission != "" {
-			var role local_models.Role
+			var role models.Role
 			if err := db.Preload("Permissions").
 				Where("roles.name = ?", claims.Role).Find(&role).Error; err != nil {
 				if errors.Is(err, gorm.ErrRecordNotFound) {

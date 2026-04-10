@@ -6,19 +6,13 @@ import (
 
 	"github.com/gin-gonic/gin"
 
-	shared_models "pharmacy-api/shared/models"
 	setup "pharmacy-api/shared/setup"
 )
 
 func main() {
 	db := setup.ConnectDB()
 
-	var itemsAmount int64
-	db.Model(&shared_models.Goods{}).Count(&itemsAmount)
-	if itemsAmount == 0 {
-		test_data(db)
-		log.Println("TEST DATA USED!")
-	}
+	setup.SetupDB(db)
 
 	redisDB := setup.ConnectRedis()
 	defer redisDB.Close()

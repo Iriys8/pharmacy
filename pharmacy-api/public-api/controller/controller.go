@@ -68,7 +68,7 @@ func MakeTask(route string, task string, redisDB *redis.Client, broker *shared_m
 		}
 		taskContextJSON, _ := json.Marshal(taskContext)
 
-		taskID, err := controllers.Random_gen()
+		taskID, err := controllers.RandomGen()
 		if err != nil {
 			c.JSON(http.StatusInternalServerError, gin.H{
 				"error": "Internal error",
