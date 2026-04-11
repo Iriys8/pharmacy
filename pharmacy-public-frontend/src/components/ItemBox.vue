@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import errorbox from "@/components/Error.vue";
+import messagebox from "@/components/Message.vue";
 import { useCartStore } from "@/stores/CartStore";
 import type { Goods } from "@/types";
 import { imagesAPI } from "@/api/";
@@ -59,7 +59,7 @@ const tags = ref<string[]>([]);
             </div>
         </div>
         <div v-else>
-            <errorbox />
+            <messagebox :is-error="true" />
         </div>
     </div>
 </template>

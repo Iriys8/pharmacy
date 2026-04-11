@@ -1,7 +1,7 @@
 <script setup lang="ts" generic="T extends Goods | Announce">
 import { ref, onMounted, watch } from "vue";
 import { useRoute, useRouter } from "vue-router";
-import errorbox from "@/components/Error.vue";
+import messagebox from "@/components/Message.vue";
 import type{ Announce, Goods} from "@/types";
 import miniitem from "@/components/MiniItem.vue";
 import { announcesAPI, goodsAPI } from "@/api/"
@@ -36,6 +36,7 @@ const currentPage = ref<number>(1);
 const perPage = ref<number>(10);
 
 const fetchData = async (): Promise<void> => {
+    isLoaded.value = false;
     const searchQuery = route.query.q as string;
     const page = (route.query.page as string | undefined) ?? "1";
     const limit = (route.query.limit as string | undefined) ?? perPage.value.toString();
@@ -88,7 +89,9 @@ watch(() => [route.query.q, route.query.page, route.query.limit], fetchData);
 <template>
     <div class="main_content" v-if="isLoaded">
         <div v-if="error">
-            <errorbox />
+            <messagebox :is-error="true" #text>
+                An error occurred, please reload the page
+            </messagebox>
         </div>
         <div v-else-if="noResults">
             <div class="no_results">
@@ -133,6 +136,11 @@ watch(() => [route.query.q, route.query.page, route.query.limit], fetchData);
                 </button>
             </div>
         </div>
+    </div>
+    <div v-else>
+        <messagebox :is-error="false" #text>
+            Loading...
+        </messagebox>
     </div>
 </template>
 

@@ -1,16 +1,19 @@
 <script setup lang="ts">
-import errorbox from '@/components/Error.vue';
+import messagebox from '@/components/Message.vue';
 import { RouterLink } from 'vue-router';
 import { ref, onMounted } from "vue";
 import type { PromoItem } from '@/types';
 import { goodsAPI, imagesAPI } from '@/api/';
 
-
 const promoItems = ref<PromoItem[]>([]);
+
+const loaded = ref<boolean>(false)
+const err = ref<string>("");
 
 const loadPromoItems = async () => {
     try {
-        promoItems.value = await goodsAPI.getPromoItem()
+        promoItems.value = await goodsAPI.getPromoItem();
+        loaded.value = true;
     } catch (error) {
         console.log(error);
     }
@@ -20,11 +23,11 @@ onMounted(loadPromoItems);
 </script>
 
 <template>
-    <div v-if="promoItems.length" class="content_placement">
+    <div class="content_placement">
         <div class="title">
             <slot name="title"></slot>
         </div>
-        <div v-for="item in promoItems" :key="item.id" class="advert_item_box">
+        <div v-for="item in promoItems" v-if="loaded" :key="item.id" class="advert_item_box">
             <RouterLink :to="'/item/' + item.id" class="advert_item_title_box">
                 <img :src="imagesAPI.getImageSRC() + item.image" alt="No image" class="advert_item_picture" />
                 <p class="advert_item_title">{{ item.name }}</p>
@@ -33,9 +36,16 @@ onMounted(loadPromoItems);
                 : item.description }} </p>
             <p class="advert_item_price">{{ item.price }} Rub.</p>
         </div>
-    </div>
-    <div v-else>
-        <errorbox />
+        <div v-else-if="err">
+            <messagebox :is-error="true" #text>
+                An error occurred, please reload the page
+            </messagebox>
+        </div>
+        <div v-else>
+            <messagebox :is-error="false" #text>
+                Loading...
+            </messagebox>
+        </div>
     </div>
 </template>
 

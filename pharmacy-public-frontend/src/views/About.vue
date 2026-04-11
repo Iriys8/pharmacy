@@ -20,7 +20,7 @@ import advertbox from "@/components/AdvertBox.vue";
                                     peering into the darkness, ignorant and doomed despite their eternal vigilance. Will we follow in the footsteps of the trilobites? 
                                     Are all the achievements of mankind destined to become mere shards of plastic scattered on the petrified bed between the Burgess Shale 
                                     and the thousand-year-old mud? To be true to ourselves and our destiny, we must strive for more. We have outgrown our cradle. It is useless 
-                                    to demand mother's milk when true help awaits us among the opiates. And only a universal union, which the narrow-minded call "hallucinations," 
+                                    to demand mother's milk when true help awaits us among the opiates. And only a universal union, which the narrow-minded call "hallucinations", 
                                     will help us achieve them." - Dr. Wallace Breen, head of Citadel corp.
                                 </template>
                             </textbox>

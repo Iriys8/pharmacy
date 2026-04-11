@@ -81,7 +81,7 @@ func consumeMessages(ch *amqp.Channel, queueName string, redisDB *redis.Client, 
 			var execErr error
 
 			switch taskData["task"] {
-			case "put":
+			case "post":
 				var taskContext struct {
 					Context models.OrderResponse `json:"Context"`
 				}

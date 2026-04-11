@@ -2,7 +2,7 @@ export interface CartState {
   items: Record<number, number>;
 }
 
-export interface WorkTime {
+export interface shedule {
 	ID: number;
 	Date: string;
     TimeStart: string | null;

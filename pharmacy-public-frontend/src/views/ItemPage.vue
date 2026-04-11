@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, watch } from "vue";
 import { useRoute } from "vue-router";
-import errorbox from "@/components/Error.vue";
+import messagebox from "@/components/Message.vue";
 import itembox from "@/components/ItemBox.vue";
 import advertbox from "@/components/AdvertBox.vue";
 import { goodsAPI } from "@/api";
@@ -22,11 +22,17 @@ const item = ref<Goods>({
 	Type: "Goods"
 });
 
+const isLoaded = ref<boolean>(false)
+const err = ref<boolean>(false)
+
 const fetchProduct = async () => {
     try {
+        isLoaded.value = false
         item.value = await goodsAPI.getGood(Number(route.params.id)) as Goods
+        isLoaded.value = true
     } catch (error) {
         console.error(error);
+        err.value = true
     }
 };
 
@@ -38,8 +44,13 @@ watch(() => route.params.id, fetchProduct, { immediate: true });
         <div class="content_placement">
             <div class="main_content">
                 <div class="item_box">
-                    <itembox v-if="item" :product="item" />
-                    <errorbox v-else />
+                    <itembox v-if="isLoaded" :product="item" />
+                    <messagebox :is-error="true" v-else-if="err" #text>
+                        Loading...
+                    </messagebox>
+                    <messagebox :is-error="false" v-else #text>
+                        An error occurred, please reload the page.
+                    </messagebox>
                 </div>
             </div>
             <div class="additional_content">

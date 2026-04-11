@@ -40,7 +40,7 @@ const addDays = (date: Date, days: number): Date => {
                 </div>  
                 <div class="schedule_box">
                     <div class="schedule_box_content">
-                        <scheduletable   :start-date="formatDate(now)" :end-date="formatDate(addDays(now, 10))" >
+                        <scheduletable :start-date="formatDate(now)" :end-date="formatDate(addDays(now, 10))" >
                             <template #title>
                                 Schedule for the next month
                             </template>10 working days

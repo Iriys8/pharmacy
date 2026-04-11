@@ -1,9 +1,13 @@
 <script setup lang="ts">
-import { onMounted, ref, watch } from "vue";
-import type { WorkTime } from "@/types";
+import { ref, watch } from "vue";
+import type { shedule } from "@/types";
 import { scheduleAPI } from "@/api";
+import messagebox from "@/components/Message.vue"
 
-const scheduleData = ref<WorkTime[]>([]);
+const scheduleData = ref<shedule[]>([]);
+
+const loaded = ref<boolean>(false)
+const err = ref<string>("");
 
 const props = defineProps<{
     startDate: string,
@@ -11,14 +15,15 @@ const props = defineProps<{
 }>();
 
 const fetchData = async () => {
-    if (props.startDate != "" && props.endDate != ""){
-        scheduleData.value =  await scheduleAPI.getShedule(props.startDate, props.endDate)
+    if (props.startDate != "" && props.endDate != "") {
+        try {
+            scheduleData.value =  await scheduleAPI.getShedule(props.startDate, props.endDate)
+            loaded.value = true
+        } catch(error){
+            err.value = String(error)
+        }
     }
 }
-
-onMounted( () => {
-    fetchData();
-})
 
 watch([() => props.startDate, () => props.endDate], () => fetchData(), { immediate: true });
 </script>
@@ -28,7 +33,7 @@ watch([() => props.startDate, () => props.endDate], () => fetchData(), { immedia
         <div class="box_title">
             <slot name="title"></slot>
         </div>
-        <table class="schedule_table">
+        <table class="schedule_table" v-if="loaded">
             <caption class="schedule_table_name">Work schedule for {{ startDate }} - {{ endDate }}</caption>
             <thead>
                 <tr class="schedule_table_title_box">
@@ -46,6 +51,16 @@ watch([() => props.startDate, () => props.endDate], () => fetchData(), { immedia
                 </tr>
             </tbody>
         </table>
+        <div v-else-if="err">
+            <messagebox :is-error="true" #text>
+                An error occurred, please reload the page
+            </messagebox>
+        </div>
+        <div v-else>
+            <messagebox :is-error="false" #text>
+                Loading...
+            </messagebox>
+        </div>
     </div>
 </template>
 

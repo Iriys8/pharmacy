@@ -1,6 +1,5 @@
 <script setup lang="ts" generic="T extends Goods | Announce | OrderedItem">
 import { imagesAPI } from "@/api"
-import { defineEmits } from 'vue'
 
 import type { Announce, Goods, OrderedItem } from "@/types";
 import { useCartStore } from "@/stores/CartStore";

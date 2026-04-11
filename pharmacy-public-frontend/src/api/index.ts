@@ -1,6 +1,6 @@
 import axios, { type AxiosResponse } from "axios";
 import type { GoodsResponse, AnnouncesResponse, KeyResponse, TaskResponse } from "@/types/api";
-import type { Goods, Order, PromoItem, WorkTime } from "@/types";
+import type { Goods, Order, PromoItem, shedule } from "@/types";
 
 export const api = axios.create({
 	  baseURL: 'http://localhost:3000/api',
@@ -17,7 +17,7 @@ async function executeWithPickup<T>(
   try {
     const axiosResponse = await axiosRequest;
     let taskKey = axiosResponse.data;
-	
+    
     if (!taskKey.TaskID) {
       throw new Error('No taskID');
     }
@@ -48,7 +48,7 @@ async function executeWithPickup<T>(
         task = pickupResponse.data;
 
         if (task.Status === 'completed') {
-          return task.Value as T;
+          return JSON.parse(task.Value);
         }
 
         if (task.Status === 'error') {
@@ -100,8 +100,8 @@ export const goodsAPI = {
 }
 
 export const scheduleAPI = {
-  getShedule: async (startDate: string, endDate: string): Promise<WorkTime[]> => {
-    return await executeWithPickup<WorkTime[]>(
+  getShedule: async (startDate: string, endDate: string): Promise<shedule[]> => {
+    return await executeWithPickup<shedule[]>(
       api.get<KeyResponse>(`/schedule?start=${startDate}&end=${endDate}`)
     );
   }

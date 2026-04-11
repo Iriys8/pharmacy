@@ -22,7 +22,7 @@ func Pickup(redisDB *redis.Client) gin.HandlerFunc {
 
 		val, err := redisDB.HGetAll(c.Request.Context(), "public_task:"+key).Result()
 
-		if err == redis.Nil {
+		if len(val) == 0 {
 			c.JSON(http.StatusNotFound, gin.H{
 				"Status": "not_found",
 			})
@@ -38,7 +38,7 @@ func Pickup(redisDB *redis.Client) gin.HandlerFunc {
 
 		switch val["status"] {
 		case "completed":
-			err := redisDB.HDel(c.Request.Context(), key).Err()
+			err := redisDB.Del(c.Request.Context(), "public_task:"+key).Err()
 			if err != nil {
 				log.Printf("Error: %v", err)
 				c.JSON(http.StatusOK, gin.H{

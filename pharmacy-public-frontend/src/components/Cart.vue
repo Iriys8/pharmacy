@@ -2,7 +2,7 @@
 import { ref, computed, watch } from "vue";
 import { useCartStore } from "@/stores/CartStore";
 import orderedItem from '@/components/MiniItem.vue';
-import errorbox from '@/components/Error.vue';
+import errorbox from '@/components/Message.vue';
 import type { Order, OrderedItem } from "@/types";
 import { goodsAPI, orderAPI } from "@/api";
 
@@ -13,6 +13,13 @@ const inProgress = ref<boolean>(false);
 const totalPrice = computed(() =>
     item.value.Items.reduce((sum, item) => sum + item.Price * item.Quantity, 0)
 );
+
+const item = ref<Order>({
+    Name: "",
+    Email: "",
+    Phone: "",
+    Items: [],
+})
 
 const getItems = async () => {
     const cartData: Record<string, number> = JSON.parse(localStorage.getItem("cart") || "{}");
@@ -33,13 +40,6 @@ const getItems = async () => {
         error.value = true;
     }
 }
-
-const item = ref<Order>({
-    Name: "",
-    Email: "",
-    Phone: "",
-    Items: [],
-})
 
 const submitOrder = async () => {
     if (inProgress.value) return;
@@ -77,7 +77,7 @@ watch(
 
 <template>
     <div v-if="error">
-        <errorbox />
+        <errorbox :is-error="true" />
     </div>
     <div v-else-if="item.Items.length && isLoaded">
         <div class="products_box">
@@ -86,16 +86,16 @@ watch(
                     <slot name="title"></slot>
                 </div>
             </div>
-            <div v-for="item in item.Items" :key="item.ID" class="product_box">
-                <ordered-item :item="item" :is_add_action="false" :is_in_window="true" :is_in_advert_box="false" class="product" />
+            <div v-for="product in item.Items" :key="product.ID" class="product_box">
+                <ordered-item :item="product" :is_add_action="false" :is_in_window="true" :is_in_advert_box="false" class="product" />
                 <div class="product_info_box">
                     <div class="product_info_box_title">
                         <p>Quantity:</p>
                         <p>Price:</p>
                     </div>
                     <div class="product_info_box_info">
-                        <p>{{ item.Quantity }}</p>
-                        <p>{{ item.Quantity * item.Price }} Rub.</p>
+                        <p>{{ product.Quantity }}</p>
+                        <p>{{ product.Quantity * product.Price }} Rub.</p>
                     </div>
                 </div>
             </div>

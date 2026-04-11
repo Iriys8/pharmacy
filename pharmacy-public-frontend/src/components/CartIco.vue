@@ -43,6 +43,6 @@ watch(
 }
 
 .nav_cart_quantity_box {
-    @apply flex bg-red-600 p-1 aspect-square w-8 rounded-full shadow-md items-center justify-center absolute top-[2.750rem] right-[11.750rem] dark:text-white;
+    @apply flex bg-red-600 p-1 aspect-square w-8 rounded-full shadow-md items-center justify-center absolute top-11 right-47 dark:text-white;
 }
 </style>
