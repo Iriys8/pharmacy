@@ -3,7 +3,7 @@ package controllers
 import (
 	"log"
 	"net/http"
-	local_models "pharmacy-api/local-api/models"
+	models "pharmacy-api/shared/models"
 	"strconv"
 
 	"github.com/gin-gonic/gin"
@@ -18,7 +18,7 @@ func GetUsers(db *gorm.DB) gin.HandlerFunc {
 		limitStr := c.Query("limit")
 
 		user, _ := c.Get("user")
-		claims := user.(*local_models.Claims)
+		claims := user.(*models.Claims)
 
 		limit, err := strconv.Atoi(limitStr)
 		if err != nil || limit < 1 {
@@ -33,7 +33,7 @@ func GetUsers(db *gorm.DB) gin.HandlerFunc {
 		}
 		offset := (page - 1) * limit
 
-		var users []local_models.User
+		var users []models.User
 		var totalCount int64
 
 		if query != "" {
@@ -53,7 +53,7 @@ func GetUsers(db *gorm.DB) gin.HandlerFunc {
 			}
 			users = users[start:end]
 		} else {
-			db.Model(&local_models.User{}).Count(&totalCount)
+			db.Model(&models.User{}).Count(&totalCount)
 			if err := db.Preload("Role").Order("id DESC").Limit(limit).Offset(offset).Find(&users).Error; err != nil {
 				log.Println("Users GET error [" + claims.Username + "]" + err.Error())
 				c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
@@ -73,11 +73,11 @@ func GetUsers(db *gorm.DB) gin.HandlerFunc {
 
 func GetUserByID(db *gorm.DB) gin.HandlerFunc {
 	return func(c *gin.Context) {
-		var response local_models.User
+		var response models.User
 		id := c.Param("id")
 
 		user, _ := c.Get("user")
-		claims := user.(*local_models.Claims)
+		claims := user.(*models.Claims)
 
 		if id != "0" {
 			if err := db.Preload("Role").First(&response, id).Error; err != nil {
@@ -87,8 +87,8 @@ func GetUserByID(db *gorm.DB) gin.HandlerFunc {
 
 			response.PasswordHash = []byte("")
 		}
-		var roles []local_models.Role
-		var requstedUser local_models.User
+		var roles []models.Role
+		var requstedUser models.User
 		if err := db.Preload("Role.Permissions").First(&requstedUser, claims.UserID).Error; err != nil {
 			log.Println("User GET error [" + claims.Username + "]" + err.Error())
 			c.JSON(http.StatusUnauthorized, gin.H{"error": "Requested user not found"})
@@ -114,14 +114,14 @@ func GetUserByID(db *gorm.DB) gin.HandlerFunc {
 
 func CreateUser(db *gorm.DB) gin.HandlerFunc {
 	return func(c *gin.Context) {
-		var newUserRequest local_models.UserUpdateRequest
+		var newUserRequest models.UserUpdateRequest
 		if err := c.ShouldBindJSON(&newUserRequest); err != nil {
 			c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid request"})
 			return
 		}
 
 		user, _ := c.Get("user")
-		claims := user.(*local_models.Claims)
+		claims := user.(*models.Claims)
 
 		pass, err := bcrypt.GenerateFromPassword([]byte(newUserRequest.Password), bcrypt.DefaultCost)
 
@@ -130,7 +130,7 @@ func CreateUser(db *gorm.DB) gin.HandlerFunc {
 			c.JSON(http.StatusInternalServerError, gin.H{"error": "Can't generate password"})
 			return
 		}
-		newUser := local_models.User{
+		newUser := models.User{
 			Login:        newUserRequest.Login,
 			UserName:     newUserRequest.UserName,
 			RoleID:       newUserRequest.RoleID,
@@ -153,9 +153,9 @@ func DeleteUser(db *gorm.DB) gin.HandlerFunc {
 		id := c.Param("id")
 
 		user, _ := c.Get("user")
-		claims := user.(*local_models.Claims)
+		claims := user.(*models.Claims)
 
-		if err := db.Delete(&local_models.User{}, id).Error; err != nil {
+		if err := db.Delete(&models.User{}, id).Error; err != nil {
 			log.Println("User DELETE error [" + claims.Username + "]" + err.Error())
 			c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 			return
@@ -169,17 +169,17 @@ func DeleteUser(db *gorm.DB) gin.HandlerFunc {
 func UpdateUser(db *gorm.DB) gin.HandlerFunc {
 	return func(c *gin.Context) {
 		id := c.Param("id")
-		var userUpdateRequest local_models.UserUpdateRequest
+		var userUpdateRequest models.UserUpdateRequest
 
 		user, _ := c.Get("user")
-		claims := user.(*local_models.Claims)
+		claims := user.(*models.Claims)
 
 		if err := c.ShouldBindJSON(&user); err != nil {
 			c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 			return
 		}
 
-		var updateData local_models.User
+		var updateData models.User
 
 		if userUpdateRequest.Password != "" {
 			pass, err := bcrypt.GenerateFromPassword([]byte(userUpdateRequest.Password), bcrypt.DefaultCost)
@@ -189,21 +189,21 @@ func UpdateUser(db *gorm.DB) gin.HandlerFunc {
 				c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to update password"})
 				return
 			}
-			updateData = local_models.User{
+			updateData = models.User{
 				Login:        userUpdateRequest.Login,
 				UserName:     userUpdateRequest.UserName,
 				RoleID:       userUpdateRequest.RoleID,
 				PasswordHash: pass,
 			}
 		} else {
-			updateData = local_models.User{
+			updateData = models.User{
 				Login:    userUpdateRequest.Login,
 				UserName: userUpdateRequest.UserName,
 				RoleID:   userUpdateRequest.RoleID,
 			}
 		}
 
-		if err := db.Model(&local_models.User{}).Where("id = ?", id).Updates(updateData).Error; err != nil {
+		if err := db.Model(&models.User{}).Where("id = ?", id).Updates(updateData).Error; err != nil {
 			log.Println("User PATCH error [" + claims.Username + "]" + err.Error())
 			c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to update order: " + err.Error()})
 			return

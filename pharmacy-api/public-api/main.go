@@ -10,10 +10,6 @@ import (
 )
 
 func main() {
-	db := setup.ConnectDB()
-
-	setup.SetupDB(db)
-
 	redisDB := setup.ConnectRedis()
 	defer redisDB.Close()
 
@@ -27,7 +23,7 @@ func main() {
 
 	router := gin.Default()
 
-	routes.SetupRoutes(router, db, redisDB, broker)
+	routes.SetupRoutes(router, redisDB, broker)
 
 	router.Run(":8080")
 }

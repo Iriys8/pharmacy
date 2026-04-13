@@ -2,8 +2,10 @@ package setup
 
 import (
 	"log"
+	"os"
 	"pharmacy-api/shared/models"
 
+	"golang.org/x/crypto/bcrypt"
 	"gorm.io/gorm"
 )
 
@@ -56,4 +58,28 @@ func SetupDB(db *gorm.DB) {
 		test_data(db)
 		log.Println("TEST DATA USED!")
 	}
+}
+
+func SetupAdmin(db *gorm.DB) {
+	pass, err := bcrypt.GenerateFromPassword([]byte(os.Getenv("CONTROL_PANEL_ADMIN_PASSWORD")), bcrypt.DefaultCost)
+
+	if err != nil {
+		log.Fatalf("failed to generate admin password: %v", err)
+	}
+
+	var permissions []models.Permission
+	db.Find(&permissions)
+
+	adminRole := models.Role{
+		Name:        "Admin",
+		Permissions: permissions,
+	}
+
+	user := models.User{
+		Login:        os.Getenv("CONTROL_PANEL_ADMIN_LOGIN"),
+		Role:         adminRole,
+		UserName:     "Admin",
+		PasswordHash: pass,
+	}
+	db.Create(&user)
 }

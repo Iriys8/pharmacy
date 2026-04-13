@@ -6,7 +6,7 @@ import (
 )
 
 func RandomGen() (string, error) {
-	bytes := make([]byte, 16)
+	bytes := make([]byte, 8)
 	if _, err := rand.Read(bytes); err != nil {
 		return "", err
 	}

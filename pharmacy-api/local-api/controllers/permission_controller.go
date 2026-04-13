@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
-	local_models "pharmacy-api/local-api/models"
+	models "pharmacy-api/shared/models"
 	"strconv"
 
 	"github.com/gin-gonic/gin"
@@ -18,7 +18,7 @@ func GetPermissions(db *gorm.DB) gin.HandlerFunc {
 		limitStr := c.Query("limit")
 
 		user, _ := c.Get("user")
-		claims := user.(*local_models.Claims)
+		claims := user.(*models.Claims)
 
 		limit, err := strconv.Atoi(limitStr)
 		if err != nil || limit < 1 {
@@ -33,7 +33,7 @@ func GetPermissions(db *gorm.DB) gin.HandlerFunc {
 		}
 		offset := (page - 1) * limit
 
-		var permissions []local_models.Permission
+		var permissions []models.Permission
 		var totalCount int64
 
 		if query != "" {
@@ -54,7 +54,7 @@ func GetPermissions(db *gorm.DB) gin.HandlerFunc {
 			fmt.Println(permissions)
 			permissions = permissions[start:end]
 		} else {
-			db.Model(&local_models.Permission{}).Count(&totalCount)
+			db.Model(&models.Permission{}).Count(&totalCount)
 			if err := db.Order("id DESC").Limit(limit).Offset(offset).Find(&permissions).Error; err != nil {
 				log.Println("Permissions GET error [" + claims.Username + "]" + err.Error())
 				c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})

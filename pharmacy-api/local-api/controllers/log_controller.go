@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"os"
 	"path/filepath"
-	local_models "pharmacy-api/local-api/models"
+	models "pharmacy-api/shared/models"
 	"strconv"
 	"strings"
 
@@ -20,7 +20,7 @@ func GetLogs(c *gin.Context) {
 	limitStr := c.Query("limit")
 
 	user, _ := c.Get("user")
-	claims := user.(*local_models.Claims)
+	claims := user.(*models.Claims)
 
 	limit, err := strconv.Atoi(limitStr)
 	if err != nil || limit < 1 {
@@ -41,12 +41,12 @@ func GetLogs(c *gin.Context) {
 		c.JSON(http.StatusNotFound, gin.H{"error": "not found"})
 		return
 	}
-	var allLogs []local_models.LogsResponse
+	var allLogs []models.LogsResponse
 	for _, file := range files {
 		if !file.IsDir() {
 			name := file.Name()
 			if query == "" || strings.Contains(strings.ToLower(name), strings.ToLower(query)) {
-				allLogs = append(allLogs, local_models.LogsResponse{Name: name})
+				allLogs = append(allLogs, models.LogsResponse{Name: name})
 			}
 		}
 	}
@@ -75,7 +75,7 @@ func GetLogs(c *gin.Context) {
 
 func GetLog(c *gin.Context) {
 	user, _ := c.Get("user")
-	claims := user.(*local_models.Claims)
+	claims := user.(*models.Claims)
 
 	logFile := c.Query("name")
 	if logFile == "" {

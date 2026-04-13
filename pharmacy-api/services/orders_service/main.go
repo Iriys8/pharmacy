@@ -21,11 +21,13 @@ import (
 )
 
 func main() {
-	uname, _ := shared_controller.RandomGen()
+	uname_public, _ := shared_controller.RandomGen()
+	uname_local, _ := shared_controller.RandomGen()
 
-	setup.SetupLogs(uname)
-	log.Printf("Service name: %v", uname)
-	fmt.Printf("Service name: %v", uname)
+	logFile := setup.SetupLogs(uname_public + "_" + uname_local)
+	defer logFile.Close()
+	log.Printf("Service public name: %v, local name: %v", uname_public, uname_local)
+	fmt.Printf("Service public name: %v, local name: %v", uname_public, uname_local)
 
 	db := setup.ConnectDB()
 	redisDB := setup.ConnectRedis()
@@ -33,8 +35,8 @@ func main() {
 	broker := setup.ConnectBroker()
 	defer broker.Close()
 
-	go consumeMessages(broker.Channel, "public_orders_queue", redisDB, db, uname)
-	//go consumeMessages(broker.Channel, "private_orders_queue", redisDB, db, uname)
+	go consumeMessages(broker.Channel, "public_orders_queue", redisDB, db, uname_public)
+	go consumeMessages(broker.Channel, "local_orders_queue", redisDB, db, uname_local)
 
 	log.Println("Service is running.")
 
@@ -117,7 +119,7 @@ func consumeMessages(ch *amqp.Channel, queueName string, redisDB *redis.Client, 
 				return
 			}
 
-			if err = redisDB.Expire(ctx, string(msg.Body), 2*time.Minute).Err(); err != nil {
+			if err = redisDB.Expire(ctx, string(msg.Body), 20*time.Second).Err(); err != nil {
 				log.Printf("Error updating task result in Redis: %v", err)
 				return
 			}

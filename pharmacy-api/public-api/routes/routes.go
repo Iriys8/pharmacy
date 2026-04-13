@@ -1,39 +1,38 @@
 package routes
 
 import (
-	controller "pharmacy-api/public-api/controller"
+	controllers "pharmacy-api/public-api/controllers"
 	shared_controllers "pharmacy-api/shared/controllers"
-	shared_models "pharmacy-api/shared/models"
+	models "pharmacy-api/shared/models"
 	"time"
 
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 	"github.com/go-redis/redis/v8"
-	"gorm.io/gorm"
 )
 
-func setupGoodsRouter(ApiGroup *gin.RouterGroup, redisDB *redis.Client, broker *shared_models.Broker) {
-	ApiGroup.GET("/goods", controller.MakeTask("goods", "get", redisDB, broker))
-	ApiGroup.GET("/goods/advert", controller.MakeTask("goods", "advert", redisDB, broker))
+func setupGoodsRouter(ApiGroup *gin.RouterGroup, redisDB *redis.Client, broker *models.Broker) {
+	ApiGroup.GET("/goods", controllers.MakeTask("goods", "get", redisDB, broker))
+	ApiGroup.GET("/goods/advert", controllers.MakeTask("goods", "advert", redisDB, broker))
 }
 
-func setupWorkTimeRouter(ApiGroup *gin.RouterGroup, redisDB *redis.Client, broker *shared_models.Broker) {
-	ApiGroup.GET("/schedule", controller.MakeTask("schedule", "schedule_dated", redisDB, broker))
+func setupSheduleRouter(ApiGroup *gin.RouterGroup, redisDB *redis.Client, broker *models.Broker) {
+	ApiGroup.GET("/schedule", controllers.MakeTask("schedule", "schedule_dated", redisDB, broker))
 }
 
-func setupOrderRouter(ApiGroup *gin.RouterGroup, redisDB *redis.Client, broker *shared_models.Broker) {
-	ApiGroup.POST("/order", controller.MakeTask("orders", "post", redisDB, broker))
+func setupOrderRouter(ApiGroup *gin.RouterGroup, redisDB *redis.Client, broker *models.Broker) {
+	ApiGroup.POST("/order", controllers.MakeTask("orders", "post", redisDB, broker))
 }
 
-func setupAnnounceRouter(ApiGroup *gin.RouterGroup, redisDB *redis.Client, broker *shared_models.Broker) {
-	ApiGroup.GET("/announces", controller.MakeTask("announces", "get", redisDB, broker))
+func setupAnnounceRouter(ApiGroup *gin.RouterGroup, redisDB *redis.Client, broker *models.Broker) {
+	ApiGroup.GET("/announces", controllers.MakeTask("announces", "get", redisDB, broker))
 }
 
 func setupPickupRouter(ApiGroup *gin.RouterGroup, redisDB *redis.Client) {
-	ApiGroup.GET("/pickup", controller.Pickup(redisDB))
+	ApiGroup.GET("/pickup", controllers.Pickup(redisDB))
 }
 
-func SetupRoutes(router *gin.Engine, db *gorm.DB, redisDB *redis.Client, broker *shared_models.Broker) {
+func SetupRoutes(router *gin.Engine, redisDB *redis.Client, broker *models.Broker) {
 	router.Use(cors.New(cors.Config{
 		AllowOrigins:     []string{"http://localhost:5000", "http://127.0.0.1:5000", "http://localhost:5173"},
 		AllowMethods:     []string{"GET", "POST", "PUT", "PATCH", "DELETE", "HEAD", "OPTIONS"},
@@ -48,7 +47,7 @@ func SetupRoutes(router *gin.Engine, db *gorm.DB, redisDB *redis.Client, broker 
 
 	setupGoodsRouter(ApiGroup, redisDB, broker)
 
-	setupWorkTimeRouter(ApiGroup, redisDB, broker)
+	setupSheduleRouter(ApiGroup, redisDB, broker)
 
 	setupOrderRouter(ApiGroup, redisDB, broker)
 

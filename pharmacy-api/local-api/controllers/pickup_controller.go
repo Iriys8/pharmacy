@@ -1,4 +1,4 @@
-package controller
+package controllers
 
 import (
 	"log"
@@ -11,7 +11,7 @@ import (
 func Pickup(redisDB *redis.Client) gin.HandlerFunc {
 	return func(c *gin.Context) {
 
-		key := c.Query("id")
+		key := c.Query("key")
 
 		if key == "" {
 			c.JSON(http.StatusBadRequest, gin.H{
@@ -20,7 +20,7 @@ func Pickup(redisDB *redis.Client) gin.HandlerFunc {
 			return
 		}
 
-		val, err := redisDB.HGetAll(c.Request.Context(), "public_task:"+key).Result()
+		val, err := redisDB.HGetAll(c.Request.Context(), "local_task:"+key).Result()
 
 		if len(val) == 0 {
 			c.JSON(http.StatusNotFound, gin.H{
@@ -38,7 +38,7 @@ func Pickup(redisDB *redis.Client) gin.HandlerFunc {
 
 		switch val["status"] {
 		case "completed":
-			err := redisDB.Del(c.Request.Context(), "public_task:"+key).Err()
+			err := redisDB.Del(c.Request.Context(), "local_task:"+key).Err()
 			if err != nil {
 				log.Printf("Error: %v", err)
 				c.JSON(http.StatusOK, gin.H{

@@ -6,7 +6,7 @@ import (
 	"os"
 	"time"
 
-	local_models "pharmacy-api/local-api/models"
+	models "pharmacy-api/shared/models"
 
 	"github.com/gin-gonic/gin"
 	"github.com/golang-jwt/jwt/v4"
@@ -31,7 +31,7 @@ func Login(db *gorm.DB) gin.HandlerFunc {
 			return
 		}
 
-		var user local_models.User
+		var user models.User
 		if err := db.Preload("Role.Permissions").Where("login = ?", loginData.Login).First(&user).Error; err != nil {
 			c.JSON(http.StatusUnauthorized, gin.H{"error": "Invalid credentials"})
 			return
@@ -91,7 +91,7 @@ func RefreshToken(db *gorm.DB) gin.HandlerFunc {
 			return
 		}
 
-		token, err := jwt.ParseWithClaims(refreshToken, &local_models.RefreshClaims{}, func(token *jwt.Token) (any, error) {
+		token, err := jwt.ParseWithClaims(refreshToken, &models.RefreshClaims{}, func(token *jwt.Token) (any, error) {
 			return refreshSecret, nil
 		})
 
@@ -100,13 +100,13 @@ func RefreshToken(db *gorm.DB) gin.HandlerFunc {
 			return
 		}
 
-		claims, ok := token.Claims.(*local_models.RefreshClaims)
+		claims, ok := token.Claims.(*models.RefreshClaims)
 		if !ok {
 			c.JSON(http.StatusUnauthorized, gin.H{"error": "Invalid token claims"})
 			return
 		}
 
-		var user local_models.User
+		var user models.User
 		if err := db.Preload("Role.Permissions").First(&user, claims.UserID).Error; err != nil {
 			c.JSON(http.StatusUnauthorized, gin.H{"error": "User not found"})
 			return
@@ -145,10 +145,10 @@ func RefreshToken(db *gorm.DB) gin.HandlerFunc {
 	}
 }
 
-func generateAccessToken(user *local_models.User) (string, error) {
+func generateAccessToken(user *models.User) (string, error) {
 	expirationTime := time.Now().Add(15 * time.Minute)
 
-	claims := &local_models.Claims{
+	claims := &models.Claims{
 		UserID:   user.ID,
 		Username: user.Login,
 		Role:     user.Role.Name,
@@ -162,10 +162,10 @@ func generateAccessToken(user *local_models.User) (string, error) {
 	return token.SignedString(jwtSecret)
 }
 
-func generateRefreshToken(user *local_models.User) (string, error) {
+func generateRefreshToken(user *models.User) (string, error) {
 	expirationTime := time.Now().Add(8 * time.Hour)
 
-	claims := &local_models.RefreshClaims{
+	claims := &models.RefreshClaims{
 		UserID: user.ID,
 		RegisteredClaims: jwt.RegisteredClaims{
 			ExpiresAt: jwt.NewNumericDate(expirationTime),

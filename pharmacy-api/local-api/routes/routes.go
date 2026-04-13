@@ -3,70 +3,70 @@ package routes
 import (
 	local_controllers "pharmacy-api/local-api/controllers"
 	shared_controllers "pharmacy-api/shared/controllers"
+	models "pharmacy-api/shared/models"
 
 	"pharmacy-api/local-api/middleware"
 	"time"
 
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
+	"github.com/go-redis/redis/v8"
 	"gorm.io/gorm"
 )
 
-func setupGoodsRouter(GoodsGroup *gin.RouterGroup, db *gorm.DB) {
-	GoodsGroup.GET("/goods", middleware.AuthMiddleware(db, ""), shared_controllers.GetGoods(db))
-	GoodsGroup.GET("/goods/:id", middleware.AuthMiddleware(db, ""), shared_controllers.GetGoodsByID(db))
-	GoodsGroup.PATCH("/goods/:id", middleware.AuthMiddleware(db, "Update_Goods"), local_controllers.UpdateGoods(db))
+func setupGoodsRouter(ApiGroup *gin.RouterGroup, db *gorm.DB, redisDB *redis.Client, broker *models.Broker) {
+	ApiGroup.GET("/goods", middleware.AuthMiddleware(db, ""), local_controllers.MakeTask("goods", "get", redisDB, broker))
+	ApiGroup.PATCH("/goods", middleware.AuthMiddleware(db, "Update_Goods"), local_controllers.MakeTask("goods", "patch", redisDB, broker))
 }
 
-func setupWorkTimeRouter(SheduleGroup *gin.RouterGroup, db *gorm.DB) {
-	SheduleGroup.GET("/schedule", middleware.AuthMiddleware(db, ""), local_controllers.GetWorkTimes(db))
-	SheduleGroup.GET("/schedule/:id", middleware.AuthMiddleware(db, ""), local_controllers.GetWorkTimeByID(db))
-	SheduleGroup.POST("/schedule/:id", middleware.AuthMiddleware(db, "Create_WorkTime"), local_controllers.CreateWorkTime(db))
-	SheduleGroup.PATCH("/schedule/:id", middleware.AuthMiddleware(db, "Update_WorkTime"), local_controllers.UpdateWorkTime(db))
-	SheduleGroup.DELETE("/schedule/:id", middleware.AuthMiddleware(db, "Delete_WorkTime"), local_controllers.DeleteWorkTime(db))
+func setupSheduleRouter(ApiGroup *gin.RouterGroup, db *gorm.DB, redisDB *redis.Client, broker *models.Broker) {
+	ApiGroup.GET("/schedule", middleware.AuthMiddleware(db, ""), local_controllers.MakeTask("schedule", "get", redisDB, broker))
+	ApiGroup.POST("/schedule", middleware.AuthMiddleware(db, "Create_Shedule"), local_controllers.MakeTask("schecule", "post", redisDB, broker))
+	ApiGroup.PATCH("/schedule", middleware.AuthMiddleware(db, "Update_Shedule"), local_controllers.MakeTask("schedule", "patch", redisDB, broker))
+	ApiGroup.DELETE("/schedule", middleware.AuthMiddleware(db, "Delete_Shedule"), local_controllers.MakeTask("schedule", "delete", redisDB, broker))
 }
 
-func setupAnnounceRouter(AnnounceGroup *gin.RouterGroup, db *gorm.DB) {
-	AnnounceGroup.GET("/announce", middleware.AuthMiddleware(db, ""), shared_controllers.GetAnnounces(db))
-	AnnounceGroup.GET("/announce/:id", middleware.AuthMiddleware(db, ""), local_controllers.GetAnnounceByID(db))
-	AnnounceGroup.POST("/announce/:id", middleware.AuthMiddleware(db, "Create_Announces"), local_controllers.CreateAnnounce(db))
-	AnnounceGroup.PATCH("/announce/:id", middleware.AuthMiddleware(db, "Update_Announces"), local_controllers.UpdateAnnounce(db))
-	AnnounceGroup.DELETE("/announce/:id", middleware.AuthMiddleware(db, "Delete_Announces"), local_controllers.DeleteAnnounce(db))
+func setupAnnounceRouter(ApiGroup *gin.RouterGroup, db *gorm.DB, redisDB *redis.Client, broker *models.Broker) {
+	ApiGroup.GET("/announce", middleware.AuthMiddleware(db, ""), local_controllers.MakeTask("announces", "get", redisDB, broker))
+	ApiGroup.POST("/announce", middleware.AuthMiddleware(db, "Create_Announces"), local_controllers.MakeTask("announces", "post", redisDB, broker))
+	ApiGroup.PATCH("/announce", middleware.AuthMiddleware(db, "Update_Announces"), local_controllers.MakeTask("announces", "patch", redisDB, broker))
+	ApiGroup.DELETE("/announce", middleware.AuthMiddleware(db, "Delete_Announces"), local_controllers.MakeTask("announces", "delete", redisDB, broker))
 }
 
-func setupOrderRouter(OrderGroup *gin.RouterGroup, db *gorm.DB) {
-	OrderGroup.GET("/order", middleware.AuthMiddleware(db, "Read_Orders"), local_controllers.GetOrders(db))
-	OrderGroup.GET("/order/:id", middleware.AuthMiddleware(db, "Read_Orders"), local_controllers.GetOrderByID(db))
-	OrderGroup.POST("/order/:id", middleware.AuthMiddleware(db, "Create_Orders"), shared_controllers.CreateOrder(db))
-	OrderGroup.PATCH("/order/:id", middleware.AuthMiddleware(db, "Update_Orders"), local_controllers.UpdateOrder(db))
-	OrderGroup.DELETE("/order/:id", middleware.AuthMiddleware(db, "Delete_Orders"), local_controllers.DeleteOrder(db))
+func setupOrderRouter(ApiGroup *gin.RouterGroup, db *gorm.DB, redisDB *redis.Client, broker *models.Broker) {
+	ApiGroup.GET("/order", middleware.AuthMiddleware(db, "Read_Orders"), local_controllers.MakeTask("orders", "get", redisDB, broker))
+	ApiGroup.POST("/order", middleware.AuthMiddleware(db, "Create_Orders"), local_controllers.MakeTask("orders", "post", redisDB, broker))
+	ApiGroup.PATCH("/order", middleware.AuthMiddleware(db, "Update_Orders"), local_controllers.MakeTask("orders", "patch", redisDB, broker))
+	ApiGroup.DELETE("/order", middleware.AuthMiddleware(db, "Delete_Orders"), local_controllers.MakeTask("orders", "delete", redisDB, broker))
 }
 
-func setupUserRouter(UserGroup *gin.RouterGroup, db *gorm.DB) {
-	UserGroup.GET("/user", middleware.AuthMiddleware(db, "Change_Users"), local_controllers.GetUsers(db))
-	UserGroup.GET("/user/:id", middleware.AuthMiddleware(db, "Change_Users"), local_controllers.GetUserByID(db))
-	UserGroup.POST("/user/:id", middleware.AuthMiddleware(db, "Change_Users"), local_controllers.CreateUser(db))
-	UserGroup.PATCH("/user/:id", middleware.AuthMiddleware(db, "Change_Users"), local_controllers.UpdateUser(db))
-	UserGroup.DELETE("/user/:id", middleware.AuthMiddleware(db, "Change_Users"), local_controllers.DeleteUser(db))
+func setupUserRouter(ApiGroup *gin.RouterGroup, db *gorm.DB, redisDB *redis.Client, broker *models.Broker) {
+	ApiGroup.GET("/user", middleware.AuthMiddleware(db, "Change_Users"), local_controllers.MakeTask("users", "get", redisDB, broker))
+	ApiGroup.POST("/user", middleware.AuthMiddleware(db, "Change_Users"), local_controllers.MakeTask("users", "post", redisDB, broker))
+	ApiGroup.PATCH("/user", middleware.AuthMiddleware(db, "Change_Users"), local_controllers.MakeTask("users", "patch", redisDB, broker))
+	ApiGroup.DELETE("/user", middleware.AuthMiddleware(db, "Change_Users"), local_controllers.MakeTask("users", "delete", redisDB, broker))
 }
 
-func setupRoleRouter(RoleGroup *gin.RouterGroup, db *gorm.DB) {
-	RoleGroup.GET("/role", middleware.AuthMiddleware(db, "Change_Roles"), local_controllers.GetRoles(db))
-	RoleGroup.GET("/role/:id", middleware.AuthMiddleware(db, "Change_Roles"), local_controllers.GetRoleByID(db))
-	RoleGroup.POST("/role/:id", middleware.AuthMiddleware(db, "Change_Roles"), local_controllers.CreateRole(db))
-	RoleGroup.PATCH("/role/:id", middleware.AuthMiddleware(db, "Change_Roles"), local_controllers.UpdateRole(db))
-	RoleGroup.DELETE("/role/:id", middleware.AuthMiddleware(db, "Change_Roles"), local_controllers.DeleteRole(db))
+func setupRoleRouter(ApiGroup *gin.RouterGroup, db *gorm.DB, redisDB *redis.Client, broker *models.Broker) {
+	ApiGroup.GET("/role", middleware.AuthMiddleware(db, "Change_Roles"), local_controllers.MakeTask("roles", "get", redisDB, broker))
+	ApiGroup.POST("/role", middleware.AuthMiddleware(db, "Change_Roles"), local_controllers.MakeTask("roles", "post", redisDB, broker))
+	ApiGroup.PATCH("/role", middleware.AuthMiddleware(db, "Change_Roles"), local_controllers.MakeTask("roles", "patch", redisDB, broker))
+	ApiGroup.DELETE("/role", middleware.AuthMiddleware(db, "Change_Roles"), local_controllers.MakeTask("roles", "delete", redisDB, broker))
+	ApiGroup.GET("/permission", middleware.AuthMiddleware(db, "Change_Roles"), local_controllers.MakeTask("permissions", "get", redisDB, broker))
 }
 
-func setupOtherRouter(OtherGroup *gin.RouterGroup, db *gorm.DB) {
-	OtherGroup.GET("/permission", middleware.AuthMiddleware(db, "Change_Roles"), local_controllers.GetPermissions(db))
-	OtherGroup.GET("/logs", middleware.AuthMiddleware(db, "Download_Logs"), local_controllers.GetLogs)
-	OtherGroup.GET("/log", middleware.AuthMiddleware(db, "Download_Logs"), local_controllers.GetLog)
+func setupOtherRouter(ApiGroup *gin.RouterGroup, db *gorm.DB) {
+	ApiGroup.GET("/logs", middleware.AuthMiddleware(db, "Download_Logs"), local_controllers.GetLogs)
+	ApiGroup.GET("/log", middleware.AuthMiddleware(db, "Download_Logs"), local_controllers.GetLog)
 }
 
-func SetupRoutes(router *gin.Engine, db *gorm.DB) {
+func setupPickupRouter(ApiGroup *gin.RouterGroup, redisDB *redis.Client) {
+	ApiGroup.GET("/pickup", local_controllers.Pickup(redisDB))
+}
+
+func SetupRoutes(router *gin.Engine, db *gorm.DB, redisDB *redis.Client, broker *models.Broker) {
 	router.Use(cors.New(cors.Config{
-		AllowOrigins:     []string{"http://localhost:5001", "http://127.0.0.1:5001"},
+		AllowOrigins:     []string{"http://localhost:5001", "http://127.0.0.1:5001", "http://localhost:5174", "http://localhost:5173"},
 		AllowMethods:     []string{"GET", "POST", "PUT", "PATCH", "DELETE", "HEAD", "OPTIONS"},
 		AllowHeaders:     []string{"Origin", "Content-Length", "Content-Type", "Authorization"},
 		AllowCredentials: true,
@@ -80,17 +80,19 @@ func SetupRoutes(router *gin.Engine, db *gorm.DB) {
 	ApiGroup.POST("/logout", local_controllers.Logout())
 	ApiGroup.GET("/image", shared_controllers.GetImage)
 
-	setupGoodsRouter(ApiGroup, db)
+	setupGoodsRouter(ApiGroup, db, redisDB, broker)
 
-	setupWorkTimeRouter(ApiGroup, db)
+	setupSheduleRouter(ApiGroup, db, redisDB, broker)
 
-	setupAnnounceRouter(ApiGroup, db)
+	setupAnnounceRouter(ApiGroup, db, redisDB, broker)
 
-	setupOrderRouter(ApiGroup, db)
+	setupOrderRouter(ApiGroup, db, redisDB, broker)
 
-	setupUserRouter(ApiGroup, db)
+	setupUserRouter(ApiGroup, db, redisDB, broker)
 
-	setupRoleRouter(ApiGroup, db)
+	setupRoleRouter(ApiGroup, db, redisDB, broker)
 
 	setupOtherRouter(ApiGroup, db)
+
+	setupPickupRouter(ApiGroup, redisDB)
 }

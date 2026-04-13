@@ -3,33 +3,41 @@ package main
 import (
 	"log"
 
-	"github.com/gin-gonic/gin"
-
 	"pharmacy-api/local-api/routes"
-	shared_models "pharmacy-api/shared/models"
+	shared_controlers "pharmacy-api/shared/controllers"
+	setup "pharmacy-api/shared/setup"
+
+	"github.com/gin-gonic/gin"
 )
 
 func main() {
-	logFile := setupLogs()
+	name, _ := shared_controlers.RandomGen()
+	logFile := setup.SetupLogs("local-api" + name)
 	defer logFile.Close()
 	log.Println("Started")
 
-	db := setupDatabase()
+	db := setup.ConnectDB()
+	log.Println("Database connected")
+	setup.SetupDB(db)
+
+	redisDB := setup.ConnectRedis()
+	defer redisDB.Close()
 	log.Println("Database initialized")
 
+	broker := setup.ConnectBroker()
+	defer broker.Close()
+
+	err := setupBroker(broker)
+	if err != nil {
+		log.Fatalf("failed to setup broker: %v", err)
+	}
+
 	router := gin.Default()
-	routes.SetupRoutes(router, db)
+	routes.SetupRoutes(router, db, redisDB, broker)
 	log.Println("Routers initialized")
 
-	setupAdmin(db)
+	setup.SetupAdmin(db)
 	log.Println("Admin created")
-
-	var itemsAmount int64
-	db.Model(&shared_models.Goods{}).Count(&itemsAmount)
-	if itemsAmount == 0 {
-		test_data(db)
-		log.Println("TEST DATA USED!")
-	}
 
 	log.Println("Initialized")
 	router.Run(":8080")

@@ -3,7 +3,7 @@ package controllers
 import (
 	"log"
 	"net/http"
-	local_models "pharmacy-api/local-api/models"
+	models "pharmacy-api/shared/models"
 	"strconv"
 
 	"github.com/gin-gonic/gin"
@@ -17,7 +17,7 @@ func GetRoles(db *gorm.DB) gin.HandlerFunc {
 		limitStr := c.Query("limit")
 
 		user, _ := c.Get("user")
-		claims := user.(*local_models.Claims)
+		claims := user.(*models.Claims)
 
 		limit, err := strconv.Atoi(limitStr)
 		if err != nil || limit < 1 {
@@ -32,7 +32,7 @@ func GetRoles(db *gorm.DB) gin.HandlerFunc {
 		}
 		offset := (page - 1) * limit
 
-		var roles []local_models.Role
+		var roles []models.Role
 		var totalCount int64
 
 		if query != "" {
@@ -52,7 +52,7 @@ func GetRoles(db *gorm.DB) gin.HandlerFunc {
 			}
 			roles = roles[start:end]
 		} else {
-			db.Model(&local_models.Role{}).Count(&totalCount)
+			db.Model(&models.Role{}).Count(&totalCount)
 			if err := db.Preload("Permissions").Order("id DESC").Limit(limit).Offset(offset).Find(&roles).Error; err != nil {
 				log.Println("Roles GET error [" + claims.Username + "]" + err.Error())
 				c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
@@ -73,10 +73,10 @@ func GetRoles(db *gorm.DB) gin.HandlerFunc {
 func GetRoleByID(db *gorm.DB) gin.HandlerFunc {
 	return func(c *gin.Context) {
 		id := c.Param("id")
-		var role local_models.Role
+		var role models.Role
 
 		user, _ := c.Get("user")
-		claims := user.(*local_models.Claims)
+		claims := user.(*models.Claims)
 
 		if err := db.Preload("Permissions").First(&role, id).Error; err != nil {
 			c.JSON(http.StatusNotFound, gin.H{"error": "Role not found"})
@@ -90,10 +90,10 @@ func GetRoleByID(db *gorm.DB) gin.HandlerFunc {
 
 func CreateRole(db *gorm.DB) gin.HandlerFunc {
 	return func(c *gin.Context) {
-		var role local_models.Role
+		var role models.Role
 
 		user, _ := c.Get("user")
-		claims := user.(*local_models.Claims)
+		claims := user.(*models.Claims)
 
 		if err := c.ShouldBindJSON(&role); err != nil {
 			c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid request"})
@@ -122,9 +122,9 @@ func DeleteRole(db *gorm.DB) gin.HandlerFunc {
 		id := c.Param("id")
 
 		user, _ := c.Get("user")
-		claims := user.(*local_models.Claims)
+		claims := user.(*models.Claims)
 
-		var role local_models.Role
+		var role models.Role
 		if err := db.Preload("Permissions").First(&role, id).Error; err != nil {
 			c.JSON(http.StatusNotFound, gin.H{"error": "Role not found"})
 			return
@@ -150,23 +150,23 @@ func DeleteRole(db *gorm.DB) gin.HandlerFunc {
 func UpdateRole(db *gorm.DB) gin.HandlerFunc {
 	return func(c *gin.Context) {
 		id := c.Param("id")
-		var role local_models.Role
+		var role models.Role
 
 		user, _ := c.Get("user")
-		claims := user.(*local_models.Claims)
+		claims := user.(*models.Claims)
 
 		if err := c.ShouldBindJSON(&role); err != nil {
 			c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 			return
 		}
 
-		var existingRole local_models.Role
+		var existingRole models.Role
 		if err := db.Preload("Permissions").First(&existingRole, id).Error; err != nil {
 			c.JSON(http.StatusNotFound, gin.H{"error": "Role not found"})
 			return
 		}
 
-		if err := db.Model(&existingRole).Updates(local_models.Role{Name: role.Name}).Error; err != nil {
+		if err := db.Model(&existingRole).Updates(models.Role{Name: role.Name}).Error; err != nil {
 			log.Println("Role PATCH error [" + claims.Username + "]" + err.Error())
 			c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to update role: " + err.Error()})
 			return

@@ -8,7 +8,7 @@ import (
 
 func setupBroker(broker *models.Broker) (err error) {
 
-	err = broker.Channel.ExchangeDeclare("public_exchange", "direct", true, false, false, false, nil)
+	err = broker.Channel.ExchangeDeclare("local_exchange", "direct", true, false, false, false, nil)
 	if err != nil {
 		log.Fatal("failed to declare exchange:", err)
 		return
@@ -18,10 +18,13 @@ func setupBroker(broker *models.Broker) (err error) {
 		name       string
 		routingKey string
 	}{
-		{"public_goods_queue", "goods"},
-		{"public_schedule_queue", "schedule"},
-		{"public_orders_queue", "orders"},
-		{"public_announces_queue", "announces"},
+		{"local_goods_queue", "goods"},
+		{"local_schedule_queue", "schedule"},
+		{"local_orders_queue", "orders"},
+		{"local_announces_queue", "announces"},
+		{"local_users_queue", "users"},
+		{"local_roles_queue", "roles"},
+		{"local_permissions_queue", "permissions"},
 	}
 
 	for _, q := range queues {
@@ -31,7 +34,7 @@ func setupBroker(broker *models.Broker) (err error) {
 			return err
 		}
 
-		err = broker.Channel.QueueBind(queue.Name, q.routingKey, "public_exchange", false, nil)
+		err = broker.Channel.QueueBind(queue.Name, q.routingKey, "local_exchange", false, nil)
 		if err != nil {
 			log.Fatal("failed at bindings queues:", err)
 			return err
