@@ -83,15 +83,60 @@ func consumeMessages(ch *amqp.Channel, queueName string, redisDB *redis.Client, 
 			var execErr error
 
 			switch taskData["task"] {
-			case "post":
+			case "get":
 				var taskContext struct {
-					Context models.OrderResponse `json:"Context"`
+					Query struct {
+						Id    int    `json:"id"`
+						Q     string `json:"q"`
+						Page  string `json:"page"`
+						Limit string `json:"limit"`
+					} `json:"query"`
+					Claims models.Claims `json:"claims"`
 				}
 				if err := json.Unmarshal([]byte(taskData["context"]), &taskContext); err != nil {
 					log.Printf("Error parsing context for get: %v", err)
 					return
 				}
+				if taskContext.Query.Id == 0 {
+					result, execErr = service_controller.GetOrders(db, taskContext.Query.Q, taskContext.Query.Page, taskContext.Query.Limit, taskContext.Claims)
+				} else {
+					result, execErr = service_controller.GetOrderByID(db, taskContext.Query.Id, taskContext.Claims)
+				}
+			case "post":
+				var taskContext struct {
+					Context models.OrderResponse `json:"context"`
+					Claims  models.Claims        `json:"claims"`
+				}
+				if err := json.Unmarshal([]byte(taskData["context"]), &taskContext); err != nil {
+					log.Printf("Error parsing context for post: %v", err)
+					return
+				}
 				result, execErr = service_controller.CreateOrder(db, taskContext.Context)
+			case "patch":
+				var taskContext struct {
+					Query struct {
+						Id int `json:"id"`
+					} `json:"query"`
+					Context models.OrderResponse `json:"context"`
+					Claims  models.Claims        `json:"claims"`
+				}
+				if err := json.Unmarshal([]byte(taskData["context"]), &taskContext); err != nil {
+					log.Printf("Error parsing context for patch: %v", err)
+					return
+				}
+				result, execErr = service_controller.UpdateOrder(db, taskContext.Query.Id, taskContext.Context, taskContext.Claims)
+			case "delete":
+				var taskContext struct {
+					Query struct {
+						Id int `json:"id"`
+					} `json:"query"`
+					Claims models.Claims `json:"claims"`
+				}
+				if err := json.Unmarshal([]byte(taskData["context"]), &taskContext); err != nil {
+					log.Printf("Error parsing context for delete: %v", err)
+					return
+				}
+				result, execErr = service_controller.DeleteOrder(db, taskContext.Query.Id, taskContext.Claims)
 
 			default:
 				log.Printf("Unknown task type: %s", taskData["task"])

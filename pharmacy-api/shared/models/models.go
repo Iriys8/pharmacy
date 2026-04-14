@@ -15,6 +15,7 @@ type Broker struct {
 type RequestContext struct {
 	Query   json.RawMessage
 	Context json.RawMessage
+	Claims  json.RawMessage
 }
 
 type Claims struct {

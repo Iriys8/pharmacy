@@ -21,9 +21,9 @@ func setupGoodsRouter(ApiGroup *gin.RouterGroup, db *gorm.DB, redisDB *redis.Cli
 
 func setupSheduleRouter(ApiGroup *gin.RouterGroup, db *gorm.DB, redisDB *redis.Client, broker *models.Broker) {
 	ApiGroup.GET("/schedule", middleware.AuthMiddleware(db, ""), local_controllers.MakeTask("schedule", "get", redisDB, broker))
-	ApiGroup.POST("/schedule", middleware.AuthMiddleware(db, "Create_Shedule"), local_controllers.MakeTask("schecule", "post", redisDB, broker))
-	ApiGroup.PATCH("/schedule", middleware.AuthMiddleware(db, "Update_Shedule"), local_controllers.MakeTask("schedule", "patch", redisDB, broker))
-	ApiGroup.DELETE("/schedule", middleware.AuthMiddleware(db, "Delete_Shedule"), local_controllers.MakeTask("schedule", "delete", redisDB, broker))
+	ApiGroup.POST("/schedule", middleware.AuthMiddleware(db, "Create_Schedule"), local_controllers.MakeTask("schedule", "post", redisDB, broker))
+	ApiGroup.PATCH("/schedule", middleware.AuthMiddleware(db, "Update_Schedule"), local_controllers.MakeTask("schedule", "patch", redisDB, broker))
+	ApiGroup.DELETE("/schedule", middleware.AuthMiddleware(db, "Delete_Schedule"), local_controllers.MakeTask("schedule", "delete", redisDB, broker))
 }
 
 func setupAnnounceRouter(ApiGroup *gin.RouterGroup, db *gorm.DB, redisDB *redis.Client, broker *models.Broker) {
@@ -52,7 +52,7 @@ func setupRoleRouter(ApiGroup *gin.RouterGroup, db *gorm.DB, redisDB *redis.Clie
 	ApiGroup.POST("/role", middleware.AuthMiddleware(db, "Change_Roles"), local_controllers.MakeTask("roles", "post", redisDB, broker))
 	ApiGroup.PATCH("/role", middleware.AuthMiddleware(db, "Change_Roles"), local_controllers.MakeTask("roles", "patch", redisDB, broker))
 	ApiGroup.DELETE("/role", middleware.AuthMiddleware(db, "Change_Roles"), local_controllers.MakeTask("roles", "delete", redisDB, broker))
-	ApiGroup.GET("/permission", middleware.AuthMiddleware(db, "Change_Roles"), local_controllers.MakeTask("permissions", "get", redisDB, broker))
+	ApiGroup.GET("/permission", middleware.AuthMiddleware(db, "Change_Roles"), local_controllers.MakeTask("roles", "permissions", redisDB, broker))
 }
 
 func setupOtherRouter(ApiGroup *gin.RouterGroup, db *gorm.DB) {

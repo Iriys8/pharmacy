@@ -7,10 +7,11 @@ import (
 	"log"
 	"os"
 	"os/signal"
+	"strconv"
 	"syscall"
 	"time"
 
-	service_controller "pharmacy-api/services/announces_service/controller"
+	service_controller "pharmacy-api/services/users_service/controller"
 	shared_controller "pharmacy-api/shared/controllers"
 	"pharmacy-api/shared/models"
 	setup "pharmacy-api/shared/setup"
@@ -21,13 +22,12 @@ import (
 )
 
 func main() {
-	uname_public, _ := shared_controller.RandomGen()
 	uname_local, _ := shared_controller.RandomGen()
 
-	logFile := setup.SetupLogs(uname_public + "_" + uname_local)
+	logFile := setup.SetupLogs(uname_local)
 	defer logFile.Close()
-	log.Printf("Service public name: %v, local name: %v", uname_public, uname_local)
-	fmt.Printf("Service public name: %v, local name: %v", uname_public, uname_local)
+	log.Printf("Service local name: %v", uname_local)
+	fmt.Printf("Service local name: %v", uname_local)
 
 	db := setup.ConnectDB()
 	redisDB := setup.ConnectRedis()
@@ -35,8 +35,7 @@ func main() {
 	broker := setup.ConnectBroker()
 	defer broker.Close()
 
-	go consumeMessages(broker.Channel, "public_announces_queue", redisDB, db, uname_public)
-	go consumeMessages(broker.Channel, "local_announces_queue", redisDB, db, uname_local)
+	go consumeMessages(broker.Channel, "local_users_queue", redisDB, db, uname_local)
 
 	log.Println("Service is running.")
 
@@ -86,7 +85,7 @@ func consumeMessages(ch *amqp.Channel, queueName string, redisDB *redis.Client, 
 			case "get":
 				var taskContext struct {
 					Query struct {
-						Id    int    `json:"id"`
+						Id    string `json:"id"`
 						Q     string `json:"q"`
 						Page  string `json:"page"`
 						Limit string `json:"limit"`
@@ -97,34 +96,35 @@ func consumeMessages(ch *amqp.Channel, queueName string, redisDB *redis.Client, 
 					log.Printf("Error parsing context for get: %v", err)
 					return
 				}
-				if taskContext.Query.Id == 0 {
-					result, execErr = service_controller.GetAnnounces(db, taskContext.Query.Q, taskContext.Query.Page, taskContext.Query.Limit)
+				if taskContext.Query.Id == "" {
+					result, execErr = service_controller.GetUsers(db, taskContext.Query.Q, taskContext.Query.Page, taskContext.Query.Limit, taskContext.Claims)
 				} else {
-					result, execErr = service_controller.GetAnnounceByID(db, taskContext.Query.Id, taskContext.Claims)
+					ID, _ := strconv.Atoi(taskContext.Query.Id)
+					result, execErr = service_controller.GetUserByID(db, ID, taskContext.Claims)
 				}
 			case "post":
 				var taskContext struct {
-					Context models.AnnouncementResponse `json:"context"`
-					Claims  models.Claims               `json:"claims"`
+					Context models.UserUpdateRequest `json:"context"`
+					Claims  models.Claims            `json:"claims"`
 				}
 				if err := json.Unmarshal([]byte(taskData["context"]), &taskContext); err != nil {
 					log.Printf("Error parsing context for post: %v", err)
 					return
 				}
-				result, execErr = service_controller.CreateAnnounce(db, taskContext.Context, taskContext.Claims)
+				result, execErr = service_controller.CreateUser(db, taskContext.Context, taskContext.Claims)
 			case "patch":
 				var taskContext struct {
 					Query struct {
 						Id int `json:"id"`
 					} `json:"query"`
-					Context models.AnnouncementResponse `json:"context"`
-					Claims  models.Claims               `json:"claims"`
+					Context models.UserUpdateRequest `json:"context"`
+					Claims  models.Claims            `json:"claims"`
 				}
 				if err := json.Unmarshal([]byte(taskData["context"]), &taskContext); err != nil {
 					log.Printf("Error parsing context for patch: %v", err)
 					return
 				}
-				result, execErr = service_controller.UpdateAnnounce(db, taskContext.Query.Id, taskContext.Context, taskContext.Claims)
+				result, execErr = service_controller.UpdateUser(db, taskContext.Query.Id, taskContext.Context, taskContext.Claims)
 			case "delete":
 				var taskContext struct {
 					Query struct {
@@ -136,8 +136,7 @@ func consumeMessages(ch *amqp.Channel, queueName string, redisDB *redis.Client, 
 					log.Printf("Error parsing context for delete: %v", err)
 					return
 				}
-				result, execErr = service_controller.DeleteAnnounce(db, taskContext.Query.Id, taskContext.Claims)
-
+				result, execErr = service_controller.DeleteUser(db, taskContext.Query.Id, taskContext.Claims)
 			default:
 				log.Printf("Unknown task type: %s", taskData["task"])
 				return

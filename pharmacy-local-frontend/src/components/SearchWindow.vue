@@ -1,14 +1,14 @@
-<script setup lang="ts" generic="T extends Goods | Order | WorkTime | Announce | User | Role | Permission | Log">
+<script setup lang="ts" generic="T extends Goods | Order | Schedule | Announce | User | Role | Permission | Log">
 import { ref, onMounted, watch } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import errorbox from "@/components/Error.vue";
 import searchline from "@/components/SearchLine.vue";
 
-import type{ Goods, Order, WorkTime, Announce, User, Role, Permission, Log } from "@/types";
+import type{ Goods, Order, Schedule, Announce, User, Role, Permission, Log } from "@/types";
 import miniitem from "@/components/MiniItem.vue";
 import { announcesAPI, goodsAPI, logsAPI, orderAPI, rolesAPI, scheduleAPI, usersAPI } from "@/api";
 
-type itemsType = 'Goods' | 'Order' | 'WorkTime' | 'Announce' | 'User' | 'Role' | 'Permission' | 'Log';
+type itemsType = 'Goods' | 'Order' | 'Schedule' | 'Announce' | 'User' | 'Role' | 'Permission' | 'Log';
 
 const props = defineProps<{
     is_advert_box: boolean;
@@ -50,7 +50,7 @@ const fetchData = async (): Promise<void> => {
             case 'Order':
                 response = await orderAPI.getOrders(searchQuery, page, limit);
                 break;
-            case 'WorkTime':
+            case 'Schedule':
                 response = await scheduleAPI.getSchedule(searchQuery, page, limit);
                 break;
             case 'Announce':

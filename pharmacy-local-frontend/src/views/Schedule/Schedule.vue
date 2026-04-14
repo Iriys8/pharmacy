@@ -13,8 +13,8 @@ const Create = async () => {
 <template>
     <div class="main_box">
         <div class="content_placement">
-            <button class="create_button" @click="Create" v-if="useAuthStore().user?.permissions?.includes('Create_WorkTime')">Create</button>
-            <SearchWindow :is_advert_box="false" :is_search_line="true" :is_search_window=false page_addres="/schedule" type="WorkTime" />
+            <button class="create_button" @click="Create" v-if="useAuthStore().user?.permissions?.includes('Create_Schedule')">Create</button>
+            <SearchWindow :is_advert_box="false" :is_search_line="true" :is_search_window=false page_addres="/schedule" type="Schedule" />
         </div>
     </div>
 </template>

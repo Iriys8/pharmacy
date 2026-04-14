@@ -24,7 +24,6 @@ func setupBroker(broker *models.Broker) (err error) {
 		{"local_announces_queue", "announces"},
 		{"local_users_queue", "users"},
 		{"local_roles_queue", "roles"},
-		{"local_permissions_queue", "permissions"},
 	}
 
 	for _, q := range queues {

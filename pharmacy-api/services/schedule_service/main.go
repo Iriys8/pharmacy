@@ -12,6 +12,7 @@ import (
 
 	service_controller "pharmacy-api/services/schedule_service/controller"
 	shared_controller "pharmacy-api/shared/controllers"
+	"pharmacy-api/shared/models"
 	setup "pharmacy-api/shared/setup"
 
 	"github.com/go-redis/redis/v8"
@@ -82,6 +83,60 @@ func consumeMessages(ch *amqp.Channel, queueName string, redisDB *redis.Client, 
 			var execErr error
 
 			switch taskData["task"] {
+			case "get":
+				var taskContext struct {
+					Query struct {
+						Id    int    `json:"id"`
+						Q     string `json:"q"`
+						Page  string `json:"page"`
+						Limit string `json:"limit"`
+					} `json:"query"`
+					Claims models.Claims `json:"claims"`
+				}
+				if err := json.Unmarshal([]byte(taskData["context"]), &taskContext); err != nil {
+					log.Printf("Error parsing context for get: %v", err)
+					return
+				}
+				if taskContext.Query.Id == 0 {
+					result, execErr = service_controller.GetSchedule(db, taskContext.Query.Q, taskContext.Query.Page, taskContext.Query.Limit, taskContext.Claims)
+				} else {
+					result, execErr = service_controller.GetScheduleByID(db, taskContext.Query.Id, taskContext.Claims)
+				}
+			case "post":
+				var taskContext struct {
+					Context models.ScheduleResponse `json:"context"`
+					Claims  models.Claims           `json:"claims"`
+				}
+				if err := json.Unmarshal([]byte(taskData["context"]), &taskContext); err != nil {
+					log.Printf("Error parsing context for post: %v", err)
+					return
+				}
+				result, execErr = service_controller.CreateSchedule(db, taskContext.Context, taskContext.Claims)
+			case "patch":
+				var taskContext struct {
+					Query struct {
+						Id int `json:"id"`
+					} `json:"query"`
+					Context models.ScheduleResponse `json:"context"`
+					Claims  models.Claims           `json:"claims"`
+				}
+				if err := json.Unmarshal([]byte(taskData["context"]), &taskContext); err != nil {
+					log.Printf("Error parsing context for patch: %v", err)
+					return
+				}
+				result, execErr = service_controller.UpdateSchedule(db, taskContext.Query.Id, taskContext.Context, taskContext.Claims)
+			case "delete":
+				var taskContext struct {
+					Query struct {
+						Id int `json:"id"`
+					} `json:"query"`
+					Claims models.Claims `json:"claims"`
+				}
+				if err := json.Unmarshal([]byte(taskData["context"]), &taskContext); err != nil {
+					log.Printf("Error parsing context for delete: %v", err)
+					return
+				}
+				result, execErr = service_controller.DeleteSchedule(db, taskContext.Query.Id, taskContext.Claims)
 			case "schedule_dated":
 				var taskContext struct {
 					Query struct {
@@ -90,7 +145,7 @@ func consumeMessages(ch *amqp.Channel, queueName string, redisDB *redis.Client, 
 					} `json:"Query"`
 				}
 				if err := json.Unmarshal([]byte(taskData["context"]), &taskContext); err != nil {
-					log.Printf("Error parsing context for get: %v", err)
+					log.Printf("Error parsing context for dated: %v", err)
 					return
 				}
 				result, execErr = service_controller.GetScheduleDated(db, taskContext.Query.Start, taskContext.Query.End)

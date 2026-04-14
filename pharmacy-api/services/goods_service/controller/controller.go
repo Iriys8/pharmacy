@@ -148,15 +148,11 @@ func GetPromoItems(db *gorm.DB) (result map[string]any, err error) {
 	return
 }
 
-// если накроется - добавить * к models.Claims; всё равно дорабатывать
 func UpdateGoods(db *gorm.DB, id int, updateData models.GoodsUpdateRequest, claims models.Claims) (result map[string]any, err error) {
-
-	// user, _ := c.Get("user")
-	// claims := user.(*models.Claims)
 
 	var existingGood models.Goods
 	if err = db.First(&existingGood, id).Error; err != nil {
-		log.Println("Good PATH error [" + claims.Username + "]" + err.Error())
+		log.Println("Good error [" + claims.Username + "]" + err.Error())
 		return
 	}
 
@@ -168,15 +164,13 @@ func UpdateGoods(db *gorm.DB, id int, updateData models.GoodsUpdateRequest, clai
 	existingGood.Price = updateData.Price
 
 	if err = db.Save(&existingGood).Error; err != nil {
-		log.Println("Good PATH error [" + claims.Username + "]" + err.Error())
+		log.Println("Good error [" + claims.Username + "]" + err.Error())
 		return
 	}
 
 	log.Println("Good PATH [" + claims.Username + "]")
 
 	result = make(map[string]any)
-	result["Message"] = "updated"
-	result["Data"] = existingGood
-
+	result["Response"] = "Good updated"
 	return
 }

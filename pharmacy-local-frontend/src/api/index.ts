@@ -1,16 +1,75 @@
-import axios from "axios";
+import axios, { type AxiosResponse } from "axios";
 import type { AuthResponse, LoginData } from "@/types/auth";
-import type { GoodsResponse, GoodsUpdateRequest, WorkTimesResponse, OrdersResponse, AnnouncesResponse, UsersResponse, UserResponse, RolesResponse, PermissionsResponse, LogsResponse } from "@/types/api";
-import type { Announce, Goods, Order, Role, User, WorkTime } from "@/types";
+import type { GoodsResponse, GoodsUpdateRequest, ScheduleResponse, OrdersResponse, AnnouncesResponse, UsersResponse, UserResponse, RolesResponse, PermissionsResponse, LogsResponse, TaskResponse, KeyResponse } from "@/types/api";
+import type { Announce, Goods, Order, Role, User, Schedule } from "@/types";
 
 export const api = axios.create({
 	  baseURL: 'http://localhost:3001/api',
 	  withCredentials: true,
 });
 
+const delays = [0, 500, 500, 2000, 2000, 2000, 10000, 10000, 10000]
+
+const delay = (ms: number | undefined) => new Promise(resolve => setTimeout(resolve, ms));
+
+async function executeWithPickup<T>(axiosRequest: Promise<AxiosResponse<KeyResponse>>): Promise<T> {
+  try {
+    const axiosResponse = await axiosRequest;
+    let taskKey = axiosResponse.data;
+    
+    if (!taskKey.TaskID) {
+      throw new Error('No taskID');
+    }
+
+	const pickupResponse = await api.get<TaskResponse>(`/pickup?key=${taskKey.TaskID}`);
+	let task = pickupResponse.data;	
+	
+
+	if (task.Status === 'completed') {
+    	return JSON.parse(task.Value);
+    }
+
+    if (task.Status === 'error') {
+    	throw new Error(task.Error);
+    }
+
+    if (task.Status === 'not_found') {
+    	throw new Error(task.Error);
+    }
+
+	let attempt: number = 0
+    while (task.Status === 'pending') {
+        const waitTime = attempt <= delays.length ? delays[attempt] : delays[delays.length - 1];
+
+        await delay(waitTime);
+
+        const pickupResponse = await api.get<TaskResponse>(`/pickup?key=${taskKey.TaskID}`);
+        task = pickupResponse.data;
+
+        if (task.Status === 'completed') {
+          return JSON.parse(task.Value);
+        }
+
+        if (task.Status === 'error') {
+          throw new Error(task.Error);
+        }
+
+        if (task.Status === 'not_found') {
+          throw new Error(task.Error);
+        }
+
+        attempt++;
+      }
+        throw new Error(`Unexpected task status after polling: ${task.Status}`);
+	} catch (error) {
+    	console.error('Error:', error);
+    	throw error;
+  	}
+}
+
 export const goodsAPI = {
 	getGoods: async (searchQuery: string, page: string, limit: string): Promise<GoodsResponse> => {
-		const response = (await api.get<GoodsResponse>(`/goods?q=${searchQuery !== undefined ? searchQuery : ""}&page=${page}&limit=${limit}`)).data;
+		const response = await executeWithPickup<GoodsResponse>(api.get<KeyResponse>(`/goods?q=${searchQuery !== undefined ? searchQuery : ""}&page=${page}&limit=${limit}`))
 
 		if (response.Items !== null) {
     		response.Items = response.Items.map(item => ({
@@ -23,49 +82,47 @@ export const goodsAPI = {
 	},
 
 	getGood: async (id: number): Promise<Goods> => {
-		return (await api.get<Goods>(`/goods/${id}`)).data
+		return await executeWithPickup<Goods>(api.get<KeyResponse>((`/goods?id=${id}`)))
 	},
 
 	updateGood: async (good: GoodsUpdateRequest) => {
-    	await api.patch(`/goods/${good.ID}`, good)
+    	await api.patch(`/goods?id=${good.ID}`, good)
 	}
 }
 
 export const scheduleAPI = {
-	getSchedule: async (searchQuery: string, page: string, limit: string): Promise<WorkTimesResponse> => {
-		const response = (await api.get<WorkTimesResponse>(`/schedule?q=${searchQuery !== undefined ? searchQuery : ""}&page=${page}&limit=${limit}`)).data
-		
+	getSchedule: async (searchQuery: string, page: string, limit: string): Promise<ScheduleResponse> => {
+		const response = await executeWithPickup<ScheduleResponse>(api.get<KeyResponse>(`/schedule?q=${searchQuery !== undefined ? searchQuery : ""}&page=${page}&limit=${limit}`))
 		if (response.Items !== null) {
 			response.Items = response.Items.map(item => ({
     		  ...item,
-    		  Type: "WorkTime"
+    		  Type: "Schedule"
     		}));
 		}
-
     	return response;
 	},
 
-	getScheduleByID: async (id: number): Promise<WorkTime> => {
-		return (await api.get<WorkTime>(`/schedule/${id}`)).data
+	getScheduleByID: async (id: number): Promise<Schedule> => {
+		return await executeWithPickup<Schedule>(api.get<KeyResponse>(`/schedule?id=${id}`))
 	},
 
-	updateScheduleByID: async (sheduleDate: WorkTime) => {
-    	await api.patch(`/schedule/${sheduleDate.ID}`, sheduleDate)
+	updateScheduleByID: async (sheduleDate: Schedule) => {
+    	await api.patch(`/schedule?id=${sheduleDate.ID}`, sheduleDate)
 	},
 
-	createSchedule: async (sheduleDate: WorkTime) => {
-    	await api.post(`/schedule/${sheduleDate.ID}`, sheduleDate)
+	createSchedule: async (sheduleDate: Schedule) => {
+    	await api.post(`/schedule`, sheduleDate)
 	},
 
-	deleteScheduleByID: async (sheduleDate: WorkTime) => {
-    	await api.delete(`/schedule/${sheduleDate.ID}`)
+	deleteScheduleByID: async (sheduleDate: Schedule) => {
+    	await api.delete(`/schedule?id=${sheduleDate.ID}`)
 	}
 }
 
 export const orderAPI = {
 	getOrders: async (searchQuery: string, page: string, limit: string): Promise<OrdersResponse> => {
 
-		const response = (await api.get<OrdersResponse>(`/order?q=${searchQuery !== undefined ? searchQuery : ""}&page=${page}&limit=${limit}`)).data
+		const response = await executeWithPickup<OrdersResponse>(api.get<KeyResponse>(`/order?q=${searchQuery !== undefined ? searchQuery : ""}&page=${page}&limit=${limit}`))
 		if (response.Items !== null) {
 			response.Items = response.Items.map(item => ({
     		  ...item,
@@ -76,7 +133,7 @@ export const orderAPI = {
 	},
 
 	getOrderByID: async (id: number): Promise<Order> => {
-		const response = (await api.get<Order>(`/order/${id}`)).data
+		const response = await executeWithPickup<Order>(api.get<KeyResponse>(`/order/${id}`))
 		response.Items = response.Items.map(item => ({
     	  ...item,
     	  Type: "OrderedItem"
@@ -85,21 +142,21 @@ export const orderAPI = {
 	},
 
 	updateOrderByID: async (order: Order) => {
-    	await api.patch(`/order/${order.ID}`, order)
+    	await api.patch(`/order?id=${order.ID}`, order)
 	},
 
 	createOrder: async (order: Order) => {
-    	await api.post(`/order/${order.ID}`, order)
+    	await api.post(`/order`, order)
 	},
 
 	deleteOrderByID: async (order: Order) => {
-    	await api.delete(`/order/${order.ID}`)
+    	await api.delete(`/order?id=${order.ID}`)
 	}
 }
 
 export const announcesAPI = {
 	getAnnounces: async (searchQuery: string, page: string, limit: string): Promise<AnnouncesResponse> => {
-		const response = (await api.get<AnnouncesResponse>(`/announce?q=${searchQuery !== undefined ? searchQuery : ""}&page=${page}&limit=${limit}`)).data
+		const response = await executeWithPickup<AnnouncesResponse>(api.get<KeyResponse>(`/announce?q=${searchQuery !== undefined ? searchQuery : ""}&page=${page}&limit=${limit}`))
 
 		if (response.Items !== null) {
 			response.Items = response.Items.map(item => ({
@@ -112,25 +169,25 @@ export const announcesAPI = {
 	},
 
 	getAnnounceByID: async (id: number): Promise<Announce> => {
-		return (await api.get<Announce>(`/announce/${id}`)).data
+		return (await executeWithPickup<Announce>(api.get<KeyResponse>(`/announce?id=${id}`)))
 	},
 
 	updateAnnounceByID: async (announce: Announce) => {
-    	await api.patch(`/announce/${announce.ID}`, announce)
+    	await api.patch(`/announce?id=${announce.ID}`, announce)
 	},
 
 	createAnnounce: async (announce: Announce) => {
-    	await api.post(`/announce/${announce.ID}`, announce)
+    	await api.post(`/announce`, announce)
 	},
 
 	deleteAnnounceByID: async (announce: Announce) => {
-    	await api.delete(`/announce/${announce.ID}`)
+    	await api.delete(`/announce?id=${announce.ID}`)
 	}
 }
 
 export const usersAPI = {
 	getUsers: async (searchQuery: string, page: string, limit: string): Promise<UsersResponse> => {
-		const response = (await api.get<UsersResponse>(`/user?q=${searchQuery !== undefined ? searchQuery : ""}&page=${page}&limit=${limit}`)).data
+		const response = (await executeWithPickup<UsersResponse>(api.get<KeyResponse>(`/user?q=${searchQuery !== undefined ? searchQuery : ""}&page=${page}&limit=${limit}`)))
 
 		if (response.Items !== null) {
 			response.Items = response.Items.map(item => ({
@@ -143,25 +200,25 @@ export const usersAPI = {
 	},
 
 	getUserByID: async (id: number): Promise<UserResponse> => {
-		return (await api.get<UserResponse>(`/user/${id}`)).data
+		return (await executeWithPickup<UserResponse>(api.get<KeyResponse>(`/user?id=${id}`)))
 	},
 
 	updateUserByID: async (user: User) => {
-    	await api.patch(`/user/${user.ID}`, user)
+    	await api.patch(`/user?id=${user.ID}`, user)
 	},
 
 	createUser: async (user: User) => {
-    	await api.post(`/user/${user.ID}`, user)
+    	await api.post(`/user`, user)
 	},
 
 	deleteUserByID: async (user: User) => {
-    	await api.delete(`/user/${user.ID}`)
+    	await api.delete(`/user?id=${user.ID}`)
 	}
 }
 
 export const rolesAPI = {
 	getRoles: async (searchQuery: string, page: string, limit: string): Promise<RolesResponse> => {
-		const response = (await api.get<RolesResponse>(`/role?q=${searchQuery !== undefined ? searchQuery : ""}&page=${page}&limit=${limit}`)).data
+		const response = (await executeWithPickup<RolesResponse>(api.get<KeyResponse>(`/role?q=${searchQuery !== undefined ? searchQuery : ""}&page=${page}&limit=${limit}`)))
 
 		if (response.Items !== null) {
 			response.Items = response.Items.map(item => ({
@@ -174,7 +231,7 @@ export const rolesAPI = {
 	},
 
 	getRoleByID: async (id: number): Promise<Role> => {
-		const response = (await api.get<Role>(`/role/${id}`)).data
+		const response = (await executeWithPickup<Role>(api.get<KeyResponse>(`/role?id=${id}`)))
 
 		if (response.Permissions !== null) {
 			response.Permissions = response.Permissions.map(item => ({
@@ -187,19 +244,19 @@ export const rolesAPI = {
 	},
 
 	updateRoleByID: async (role: Role) => {
-    	await api.patch(`/role/${role.ID}`, role)
+    	await api.patch(`/role?id=${role.ID}`, role)
 	},
 
 	createRole: async (role: Role) => {
-    	await api.post(`/role/${role.ID}`, role)
+    	await api.post(`/role`, role)
 	},
 
 	deleteRoleByID: async (role: Role) => {
-    	await api.delete(`/role/${role.ID}`)
+    	await api.delete(`/role?id=${role.ID}`)
 	},
 
 	getPermissions: async (searchQuery: string, page: string, limit: string): Promise<PermissionsResponse> => {
-		const response = (await api.get<PermissionsResponse>(`/permission?q=${searchQuery !== undefined ? searchQuery : ""}&page=${page}&limit=${limit}`)).data
+		const response = (await executeWithPickup<PermissionsResponse>(api.get<KeyResponse>(`/permission?q=${searchQuery !== undefined ? searchQuery : ""}&page=${page}&limit=${limit}`)))
 
 		if (response.Items !== null) {
 			response.Items = response.Items.map(item => ({

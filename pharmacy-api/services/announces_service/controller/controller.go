@@ -2,12 +2,10 @@ package controller
 
 import (
 	"log"
-	"net/http"
 	models "pharmacy-api/shared/models"
 	"strconv"
 	"time"
 
-	"github.com/gin-gonic/gin"
 	"gorm.io/gorm"
 )
 
@@ -70,7 +68,7 @@ func GetAnnounces(db *gorm.DB, query string, pageStr string, limitStr string) (r
 	return
 }
 
-func GetAnnounceByID(db *gorm.DB, id int, claims *models.Claims) (result map[string]any, err error) {
+func GetAnnounceByID(db *gorm.DB, id int, claims models.Claims) (result map[string]any, err error) {
 
 	var Announce models.Announcement
 	if err = db.Find(&Announce, id).Error; err != nil {
@@ -89,82 +87,55 @@ func GetAnnounceByID(db *gorm.DB, id int, claims *models.Claims) (result map[str
 	return
 }
 
-func CreateAnnounce(db *gorm.DB) gin.HandlerFunc {
-	return func(c *gin.Context) {
-		var announcementResponse models.AnnouncementResponse
-		user, _ := c.Get("user")
-		claims := user.(*models.Claims)
+func CreateAnnounce(db *gorm.DB, announcementResponse models.AnnouncementResponse, claims models.Claims) (result map[string]any, err error) {
+	now := time.Now().Local()
+	dateTime := time.Date(
+		now.Year(), now.Month(), now.Day(),
+		now.Hour(), now.Minute(), 0, 0, time.Local,
+	)
 
-		if err := c.ShouldBindJSON(&announcementResponse); err != nil {
-			log.Println("Announce POST error [" + claims.Username + "]" + err.Error())
-			c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
-			return
-		}
-
-		now := time.Now().Local()
-		dateTime := time.Date(
-			now.Year(), now.Month(), now.Day(),
-			now.Hour(), now.Minute(), 0, 0, time.Local,
-		)
-
-		announce := models.Announcement{
-			DateTime: dateTime,
-			From:     claims.Username,
-			Announce: announcementResponse.Announce,
-		}
-
-		if err := db.Create(&announce).Error; err != nil {
-			log.Println("Announce POST error [" + claims.Username + "]" + err.Error())
-			c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
-			return
-		}
-		log.Println("Announce POST [" + claims.Username + "]")
-		c.JSON(http.StatusCreated, gin.H{"message": "Announce created", "data": announce})
+	announce := models.Announcement{
+		DateTime: dateTime,
+		From:     claims.Username,
+		Announce: announcementResponse.Announce,
 	}
+
+	if err = db.Create(&announce).Error; err != nil {
+		log.Println("Announce POST error [" + claims.Username + "]" + err.Error())
+		return
+	}
+	log.Println("Announce POST [" + claims.Username + "]")
+
+	result = make(map[string]any)
+	result["Response"] = "announce created"
+	return
 }
 
-func UpdateAnnounce(db *gorm.DB) gin.HandlerFunc {
-	return func(c *gin.Context) {
-		id := c.Param("id")
-		var announcementResponse models.AnnouncementResponse
-
-		user, _ := c.Get("user")
-		claims := user.(*models.Claims)
-
-		if err := c.ShouldBindJSON(&announcementResponse); err != nil {
-			log.Println("Announce PATCH error [" + claims.Username + "]" + err.Error())
-			c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
-			return
-		}
-
-		announce := models.Announcement{
-			ID:       announcementResponse.ID,
-			Announce: announcementResponse.Announce,
-		}
-
-		if err := db.Model(&models.Announcement{}).Where("id = ?", id).Updates(announce).Error; err != nil {
-			log.Println("Announce PATCH error [" + claims.Username + "]" + err.Error())
-			c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
-			return
-		}
-		log.Println("Announce PATCH [" + claims.Username + "]")
-		c.JSON(http.StatusOK, gin.H{"message": "Announce updated", "data": announce})
+func UpdateAnnounce(db *gorm.DB, id int, announcementResponse models.AnnouncementResponse, claims models.Claims) (result map[string]any, err error) {
+	announce := models.Announcement{
+		ID:       announcementResponse.ID,
+		Announce: announcementResponse.Announce,
 	}
+
+	if err = db.Model(&models.Announcement{}).Where("id = ?", id).Updates(announce).Error; err != nil {
+		log.Println("Announce PATCH error [" + claims.Username + "]" + err.Error())
+		return
+	}
+	log.Println("Announce PATCH [" + claims.Username + "]")
+
+	result = make(map[string]any)
+	result["Response"] = "announce updated"
+	return
 }
 
-func DeleteAnnounce(db *gorm.DB) gin.HandlerFunc {
-	return func(c *gin.Context) {
-		id := c.Param("id")
-
-		user, _ := c.Get("user")
-		claims := user.(*models.Claims)
-
-		if err := db.Delete(&models.Announcement{}, id).Error; err != nil {
-			log.Println("Announce DELETE error [" + claims.Username + "]" + err.Error())
-			c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
-			return
-		}
-		log.Println("Announce DELETE [" + claims.Username + "]")
-		c.JSON(http.StatusOK, gin.H{"message": "Announce deleted"})
+func DeleteAnnounce(db *gorm.DB, id int, claims models.Claims) (result map[string]any, err error) {
+	if err = db.Delete(&models.Announcement{}, id).Error; err != nil {
+		log.Println("Announce DELETE error [" + claims.Username + "]" + err.Error())
+		return
 	}
+	log.Println("Announce DELETE [" + claims.Username + "]")
+
+	result = make(map[string]any)
+	result["Response"] = "announce deleted"
+	return
 }

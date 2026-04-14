@@ -13,6 +13,7 @@ const isPasswordChange = ref(false);
 
 const getItem = async () => {
     item.value = await usersAPI.getUserByID(Number(route.params.id));
+
 	isLoaded.value = true;
 }
 
@@ -29,7 +30,7 @@ const item = ref<UserResponse>({
     Roles: undefined,
 })
 
-onMounted(async () => {
+onMounted(async () => {        
     await getItem();
     if (Number(route.params.id) === 0) {
         isPasswordChange.value = true

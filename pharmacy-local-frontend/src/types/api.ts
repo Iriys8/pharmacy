@@ -1,4 +1,4 @@
-import type { Announce, Goods, Order, WorkTime, User, Role, Permission, Log } from "@/types"
+import type { Announce, Goods, Order, Schedule, User, Role, Permission, Log } from "@/types"
 
 export interface GoodsResponse {
 	Items: Goods[];
@@ -16,8 +16,8 @@ export interface GoodsUpdateRequest {
     Price: number;
 }
 
-export interface WorkTimesResponse {
-	Items: WorkTime[];
+export interface ScheduleResponse {
+	Items: Schedule[];
 	TotalPages: number;
 	CurrentPage: number;
 }
@@ -61,4 +61,17 @@ export interface LogsResponse {
 	Items: Log[];
 	TotalPages: number;
 	CurrentPage: number;
+}
+
+export interface KeyResponse {
+  TaskID: string;
+}
+
+type TaskStatus = 'completed' | 'pending' | 'error' | 'not_found';
+
+
+export interface TaskResponse {
+  Status: TaskStatus;
+  Value: string;
+  Error?: string;
 }

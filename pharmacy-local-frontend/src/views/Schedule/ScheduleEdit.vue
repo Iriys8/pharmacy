@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { onMounted, ref, watch } from "vue";
-import type { WorkTime } from "@/types";
+import type { Schedule } from "@/types";
 import { scheduleAPI } from '@/api';
 import { useRoute, useRouter } from "vue-router";
 import { useAuthStore } from "@/stores";
@@ -19,13 +19,13 @@ onMounted(async () => {
     await getItem();
 });
 
-const item = ref<WorkTime>({
+const item = ref<Schedule>({
     ID: 0,
     Date: "",
     TimeStart: "",
     TimeEnd: "",
     IsOpened: false,
-    Type: "WorkTime"
+    Type: "Schedule"
 })
 
 const inProgress = ref(false);
@@ -111,11 +111,11 @@ const Delete = async () => {
     <div class="main_box">
         <div class="content_placement">
             <div class="main_content">
-					<div class="control_panel" v-if="item.ID !== 0 || (useAuthStore().user?.permissions?.includes('Create_WorkTime') && item.ID === 0)">
+					<div class="control_panel" v-if="item.ID !== 0 || (useAuthStore().user?.permissions?.includes('Create_Schedule') && item.ID === 0)">
                         <div class="update_form">
                             <h2 class="form_name">{{ item.ID !== 0 ? item.Date : 'Create new special shedule' }}</h2>
                         
-	                		<div v-if="useAuthStore().user?.permissions?.includes('Update_WorkTime') || (useAuthStore().user?.permissions?.includes('Create_WorkTime') && item.ID === 0)">
+	                		<div v-if="useAuthStore().user?.permissions?.includes('Update_Schedule') || (useAuthStore().user?.permissions?.includes('Create_Schedule') && item.ID === 0)">
                                 <label class="form_label" for="dateat">Date:</label>
                                 <input
                                     class="form_input"
@@ -130,7 +130,7 @@ const Delete = async () => {
                                 <p class="form_input">{{ item.Date }}</p>
                             </div>
                         
-                            <div v-if="useAuthStore().user?.permissions?.includes('Update_WorkTime') || (useAuthStore().user?.permissions?.includes('Create_WorkTime') && item.ID === 0)">
+                            <div v-if="useAuthStore().user?.permissions?.includes('Update_Schedule') || (useAuthStore().user?.permissions?.includes('Create_Schedule') && item.ID === 0)">
                                 <label class="form_label" for="timestart">Open time:</label>
                                 <input
                                     class="form_input"
@@ -146,7 +146,7 @@ const Delete = async () => {
                                 <p class="form_input">{{ item.TimeStart }}</p>
                             </div>
                         
-                            <div v-if="useAuthStore().user?.permissions?.includes('Update_WorkTime') || (useAuthStore().user?.permissions?.includes('Create_WorkTime') && item.ID === 0)">
+                            <div v-if="useAuthStore().user?.permissions?.includes('Update_Schedule') || (useAuthStore().user?.permissions?.includes('Create_Schedule') && item.ID === 0)">
                                 <label class="form_label" for="timeend">Close time:</label>
                                 <input
                                     class="form_input"
@@ -162,7 +162,7 @@ const Delete = async () => {
                                 <p class="form_input">{{ item.TimeEnd }}</p>
                             </div>
                         
-                            <div class="form_radio_box_group" v-if="useAuthStore().user?.permissions?.includes('Update_WorkTime') || (useAuthStore().user?.permissions?.includes('Create_WorkTime') && item.ID === 0)">
+                            <div class="form_radio_box_group" v-if="useAuthStore().user?.permissions?.includes('Update_Schedule') || (useAuthStore().user?.permissions?.includes('Create_Schedule') && item.ID === 0)">
                                 <label class="form_label" for="isopened">Is opened?</label>
                                 <input
                                     class="form_radio_button"
@@ -172,13 +172,13 @@ const Delete = async () => {
                                 />
                             </div>
                         
-                        	<button @click.prevent="Create" class="form_blue_button" :disabled="inProgress" v-if="useAuthStore().user?.permissions?.includes('Create_WorkTime') && item.ID === 0">
+                        	<button @click.prevent="Create" class="form_blue_button" :disabled="inProgress" v-if="useAuthStore().user?.permissions?.includes('Create_Schedule') && item.ID === 0">
                                 Create
                             </button>
-                            <button @click.prevent="Update" class="form_blue_button" :disabled="inProgress" v-if="useAuthStore().user?.permissions?.includes('Update_WorkTime') && item.ID !== 0">
+                            <button @click.prevent="Update" class="form_blue_button" :disabled="inProgress" v-if="useAuthStore().user?.permissions?.includes('Update_Schedule') && item.ID !== 0">
                                 Update
                             </button>
-	                		<button @click.prevent="Delete" class="form_red_button" :disabled="inProgress" v-if="useAuthStore().user?.permissions?.includes('Delete_WorkTime') && item.ID !== 0">
+	                		<button @click.prevent="Delete" class="form_red_button" :disabled="inProgress" v-if="useAuthStore().user?.permissions?.includes('Delete_Schedule') && item.ID !== 0">
                                 Delete
                             </button>
                         </div>

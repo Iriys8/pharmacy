@@ -152,7 +152,7 @@ func GetScheduleByID(db *gorm.DB, id int, claims models.Claims) (result map[stri
 	return
 }
 
-func CreateSchedule(db *gorm.DB, claims models.Claims, scheduleString models.ScheduleResponse) (result map[string]any, err error) {
+func CreateSchedule(db *gorm.DB, scheduleString models.ScheduleResponse, claims models.Claims) (result map[string]any, err error) {
 	schedule := models.Schedule{
 		IsOpened:  scheduleString.IsOpened,
 		Date:      sql.NullString{String: scheduleString.Date, Valid: true},
@@ -167,12 +167,11 @@ func CreateSchedule(db *gorm.DB, claims models.Claims, scheduleString models.Sch
 	log.Println("Schedule POST [" + claims.Username + "]")
 
 	result = make(map[string]any)
-	result["Message"] = "schedule created"
-	result["Data"] = schedule
+	result["Response"] = "schedule created"
 	return
 }
 
-func UpdateSchedule(db *gorm.DB, id int, claims models.Claims, scheduleString models.ScheduleResponse) (result map[string]any, err error) {
+func UpdateSchedule(db *gorm.DB, id int, scheduleString models.ScheduleResponse, claims models.Claims) (result map[string]any, err error) {
 	schedule := models.Schedule{
 		IsOpened:  scheduleString.IsOpened,
 		Date:      sql.NullString{String: scheduleString.Date, Valid: true},
@@ -186,9 +185,7 @@ func UpdateSchedule(db *gorm.DB, id int, claims models.Claims, scheduleString mo
 	log.Println("Schedule PATCH [" + claims.Username + "]")
 
 	result = make(map[string]any)
-	result["Message"] = "schedule updated"
-	result["Data"] = schedule
-
+	result["Response"] = "schedule updated"
 	return
 }
 
@@ -202,6 +199,6 @@ func DeleteSchedule(db *gorm.DB, id int, claims models.Claims) (result map[strin
 	log.Println("Schedule DELETE [" + claims.Username + "]")
 
 	result = make(map[string]any)
-	result["Message"] = "schedule deleted"
+	result["Response"] = "schedule deleted"
 	return
 }

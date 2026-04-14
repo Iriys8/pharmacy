@@ -106,18 +106,19 @@ func consumeMessages(ch *amqp.Channel, queueName string, redisDB *redis.Client, 
 			case "advert":
 				result, execErr = service_controller.GetPromoItems(db)
 
-			// пиздец
-			case "update":
-				var context struct {
-					ID         int                       `json:"id"`
-					UpdateData models.GoodsUpdateRequest `json:"update_data"`
-					Claims     models.Claims             `json:"claims"`
+			case "patch":
+				var taskContext struct {
+					Query struct {
+						Id int `json:"id"`
+					} `json:"query"`
+					Context models.GoodsUpdateRequest `json:"context"`
+					Claims  models.Claims             `json:"claims"`
 				}
-				if err := json.Unmarshal([]byte(taskData["context"]), &context); err != nil {
-					log.Printf("Error parsing context for update_goods: %v", err)
+				if err := json.Unmarshal([]byte(taskData["context"]), &taskContext); err != nil {
+					log.Printf("Error parsing context for patch: %v", err)
 					return
 				}
-				result, execErr = service_controller.UpdateGoods(db, context.ID, context.UpdateData, context.Claims)
+				result, execErr = service_controller.UpdateGoods(db, taskContext.Query.Id, taskContext.Context, taskContext.Claims)
 
 			default:
 				log.Printf("Unknown task type: %s", taskData["task"])

@@ -12,13 +12,13 @@ export interface Goods {
     Type: "Goods"
 }
 
-export interface WorkTime {
+export interface Schedule {
 	ID: number;
 	Date: string;
     TimeStart: string | null;
     TimeEnd: string | null;
 	IsOpened: boolean;
-    Type: "WorkTime";
+    Type: "Schedule";
 }
 
 export interface Order {

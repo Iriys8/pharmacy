@@ -1,4 +1,4 @@
-import type { Announce, Goods, Order, PromoItem, WorkTime } from "@/types"
+import type { Announce, Goods } from "@/types"
 
 export interface GoodsResponse {
 	Items: Goods[];

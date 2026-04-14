@@ -1,8 +1,8 @@
-<script setup lang="ts" generic="T extends Goods | OrderedItem | Order | WorkTime | Announce | User | Role | Permission | Log">
+<script setup lang="ts" generic="T extends Goods | OrderedItem | Order | Schedule | Announce | User | Role | Permission | Log">
 import { imagesAPI, logsAPI } from "@/api"
 import { defineEmits } from 'vue'
 
-import type { Goods, Order, OrderedItem, WorkTime, Announce, User, Role, Permission, Log } from "@/types";
+import type { Goods, Order, OrderedItem, Schedule, Announce, User, Role, Permission, Log } from "@/types";
 
 const props = defineProps<{
     item: T;
@@ -56,8 +56,8 @@ const selectItem = () => {
         </div>
     </div>
 
-    <!-- WorkTime search -->
-    <div class="item_box" v-if="item.Type === 'WorkTime'">
+    <!-- Schedule search -->
+    <div class="item_box" v-if="item.Type === 'Schedule'">
         <div class="item_text_box">
             <p class="item_name">
                 <router-link :to="'/scheduleedit/' + item.ID" class="item_name_link">

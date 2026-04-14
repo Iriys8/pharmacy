@@ -11,9 +11,7 @@ const delays = [0, 500, 500, 2000, 2000, 2000, 10000, 10000, 10000]
 
 const delay = (ms: number | undefined) => new Promise(resolve => setTimeout(resolve, ms));
 
-async function executeWithPickup<T>(
-  axiosRequest: Promise<AxiosResponse<KeyResponse>>
-): Promise<T> {
+async function executeWithPickup<T>(axiosRequest: Promise<AxiosResponse<KeyResponse>>): Promise<T> {
   try {
     const axiosResponse = await axiosRequest;
     let taskKey = axiosResponse.data;
@@ -22,7 +20,7 @@ async function executeWithPickup<T>(
       throw new Error('No taskID');
     }
 
-	const pickupResponse = await api.get<TaskResponse>(`/pickup?id=${taskKey.TaskID}`);
+	const pickupResponse = await api.get<TaskResponse>(`/pickup?key=${taskKey.TaskID}`);
 	let task = pickupResponse.data;	
 	
 
@@ -44,7 +42,7 @@ async function executeWithPickup<T>(
 
         await delay(waitTime);
 
-        const pickupResponse = await api.get<TaskResponse>(`/pickup?id=${taskKey.TaskID}`);
+        const pickupResponse = await api.get<TaskResponse>(`/pickup?key=${taskKey.TaskID}`);
         task = pickupResponse.data;
 
         if (task.Status === 'completed') {
