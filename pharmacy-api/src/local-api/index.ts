@@ -9,6 +9,7 @@ import { setupDB } from '@pharmacy/src/shared/setup/db_setup';
 import { setupRoutes } from '@pharmacy/src/local-api/routes/routes';
 import { setupBroker } from '@pharmacy/src/local-api/broker_setup';
 import { Broker } from '@pharmacy/src/shared/models/models';
+import cookieParser from 'cookie-parser';
 
 let dataSource: DataSource | null = null;
 let redisDB: Redis | null = null;
@@ -37,6 +38,7 @@ async function main(): Promise<void> {
     
     app.use(express.json());
     app.use(express.urlencoded({ extended: true }));
+    app.use(cookieParser())
     
     setupRoutes(app, dataSource, redisDB, broker.channel);
     console.log('Routers initialized');

@@ -130,7 +130,6 @@ export function logout() {
 
 export function refreshToken(dataSource: DataSource) {
   return async (req: Request, res: Response): Promise<void> => {
-    console.log(req.cookies)
     const refreshToken = req.cookies?.pharmacy_refresh_token;
 
     if (!refreshToken) {
