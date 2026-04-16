@@ -24,11 +24,11 @@ services:
   public-api:
     build:
       context: .
-      dockerfile: ./pharmacy-api/docker-files/public-api.go.dockerfile
+      dockerfile: ./pharmacy-api/src/public-api/public-api.dockerfile
     ports:
       - "${PUBLIC_API_PORT}:8080"
     volumes:
-      - ./pharmacy-api/pharmacy-content:/public-api/shared/pharmacy-content
+      - ./pharmacy-api/pharmacy-content:/public-api/pharmacy-content
     environment:
       REDIS_HOST: ${REDIS_HOST}
       REDIS_PORT: ${REDIS_PORT}
@@ -43,38 +43,38 @@ services:
       - pharmacy_databases
       - broker
   
-  local-api:
-    build:
-      context: .
-      dockerfile: ./pharmacy-api/docker-files/local-api.go.dockerfile
-    ports:
-      - "${LOCAL_API_PORT}:8080"
-    volumes:
-        - ./pharmacy-api/pharmacy-content:/local-api/shared/pharmacy-content
-    environment:
-      DB_HOST: ${DATABASE_HOST}
-      DB_PORT: ${DATABASE_PORT}
-      DB_USER: ${DATABASE_USER}
-      DB_PASSWORD: ${DATABASE_PASSWORD}
-      DB_NAME: ${DATABASE_NAME}
-      REDIS_HOST: ${REDIS_HOST}
-      REDIS_PORT: ${REDIS_PORT}
-      REDIS_PASSWORD: ${REDIS_PASSWORD}
-      RABBITMQ_USER: ${RABBITMQ_USER}
-      RABBITMQ_PASSWORD: ${RABBITMQ_PASSWORD}
-      RABBITMQ_HOST: ${RABBITMQ_HOST}
+  # local-api:
+  #   build:
+  #     context: .
+  #     dockerfile: ./pharmacy-api/docker-files/local-api.go.dockerfile
+  #   ports:
+  #     - "${LOCAL_API_PORT}:8080"
+  #   volumes:
+  #       - ./pharmacy-api/pharmacy-content:/local-api/shared/pharmacy-content
+  #   environment:
+  #     DB_HOST: ${DATABASE_HOST}
+  #     DB_PORT: ${DATABASE_PORT}
+  #     DB_USER: ${DATABASE_USER}
+  #     DB_PASSWORD: ${DATABASE_PASSWORD}
+  #     DB_NAME: ${DATABASE_NAME}
+  #     REDIS_HOST: ${REDIS_HOST}
+  #     REDIS_PORT: ${REDIS_PORT}
+  #     REDIS_PASSWORD: ${REDIS_PASSWORD}
+  #     RABBITMQ_USER: ${RABBITMQ_USER}
+  #     RABBITMQ_PASSWORD: ${RABBITMQ_PASSWORD}
+  #     RABBITMQ_HOST: ${RABBITMQ_HOST}
 
-      ACCESSTOKEN_SECRET: ${ACCESSTOKEN_SECRET}
-      REFRESHTOKEN_SECRET: ${REFRESHTOKEN_SECRET}
+  #     ACCESSTOKEN_SECRET: ${ACCESSTOKEN_SECRET}
+  #     REFRESHTOKEN_SECRET: ${REFRESHTOKEN_SECRET}
 
-      CONTROL_PANEL_ADMIN_LOGIN: ${CONTROL_PANEL_ADMIN_LOGIN}
-      CONTROL_PANEL_ADMIN_PASSWORD: ${CONTROL_PANEL_ADMIN_PASSWORD}
+  #     CONTROL_PANEL_ADMIN_LOGIN: ${CONTROL_PANEL_ADMIN_LOGIN}
+  #     CONTROL_PANEL_ADMIN_PASSWORD: ${CONTROL_PANEL_ADMIN_PASSWORD}
 
-      TZ: ${TZ}
+  #     TZ: ${TZ}
 
-    networks:
-      - pharmacy_databases
-      - broker
+  #   networks:
+  #     - pharmacy_databases
+  #     - broker
 
   public-frontend:
     build:

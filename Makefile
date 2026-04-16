@@ -35,7 +35,7 @@ down-all:
 
 build-all:
 	docker compose --file docker-compose.databases.yml build
-	docker compose --file docker-compose.services.yml build
+	docker compose --file docker-compose.services.yml build 
 	docker compose build
 
 reup-all:

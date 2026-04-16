@@ -17,6 +17,8 @@ services:
       MYSQL_PASSWORD: ${DATABASE_PASSWORD}
     volumes:
       - database_pharmacy:/var/lib/mysql
+    ports:
+      - "3306:3306"
     networks:
       - external
       - internal

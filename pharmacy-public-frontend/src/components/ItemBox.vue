@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { ref } from "vue";
 import messagebox from "@/components/Message.vue";
 import { useCartStore } from "@/stores/CartStore";
 import type { Goods } from "@/types";
@@ -14,7 +13,6 @@ const cartStore = useCartStore();
 const addToCart = (id: number) => {
     cartStore.addToCart(id);
 }
-const tags = ref<string[]>([]);
 
 </script>
 
@@ -43,8 +41,10 @@ const tags = ref<string[]>([]);
                     </div>
                 </div>
             </div>
-            <div v-if="tags.length > 0" class="item_tags_position">
-                <div class="item_tags_box" v-for="tag in tags" :key="tag">
+            <p>
+            </p>
+            <div v-if="product.Tags !== undefined" class="item_tags_position">
+                <div class="item_tags_box" v-for="tag in product.Tags" :key="tag">
                     <router-link :to="{ path: '/catalog', query: { q: tag } }" class="item_tags_text">{{ tag
                     }}</router-link>
                 </div>
