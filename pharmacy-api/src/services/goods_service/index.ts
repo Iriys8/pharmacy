@@ -34,7 +34,7 @@ async function main(): Promise<void> {
 
     if (broker.channel) {
       consumeMessages(broker.channel, 'public_goods_queue', redisDB, dataSource, uname_public);
-      //consumeMessages(broker.channel, 'local_goods_queue', redisDB, dataSource, uname_local);
+      consumeMessages(broker.channel, 'local_goods_queue', redisDB, dataSource, uname_local);
     }
 
     console.log('Service is running.');
