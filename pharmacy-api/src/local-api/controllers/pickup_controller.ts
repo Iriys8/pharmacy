@@ -24,7 +24,6 @@ export function pickup(redisDB: Redis) {
 
       switch (val.status) {
         case "completed":
-          // Удаляем ключ после получения результата
           await redisDB.del(`local_task:${key}`).catch((err) => {
             console.error(`Error deleting key local_task:${key}:`, err);
           });

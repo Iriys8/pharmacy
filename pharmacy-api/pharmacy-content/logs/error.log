@@ -1,0 +1,4 @@
+2026-04-17T10:01:27.363Z [ERROR]: Local-api: Failed to start server: connect ECONNREFUSED 172.19.0.3:3306
+2026-04-17T10:51:46.703Z [ERROR]: Schedule_service: Error: date.getFullYear is not a function. (In 'date.getFullYear()', 'date.getFullYear' is undefined)
+2026-04-17T10:51:49.553Z [ERROR]: Schedule_service: Error: date.getFullYear is not a function. (In 'date.getFullYear()', 'date.getFullYear' is undefined)
+2026-04-17T10:55:31.580Z [ERROR]: Schedule_service: Error: date.getMonth is not a function. (In 'date.getMonth()', 'date.getMonth' is undefined)

@@ -2,6 +2,7 @@ import { DataSource } from 'typeorm';
 import { Goods } from '@pharmacy/src/shared/models/database_models';
 import { GoodsResponse, PromoItem, GoodsUpdateRequest } from '@pharmacy/src/shared/models/responses';
 import { Claims } from "@pharmacy/src/shared/models/models"
+import { Logger } from '@pharmacy/src/shared/controllers/logs_controller'
 
 export async function getGoods(
   dataSource: DataSource,
@@ -169,7 +170,7 @@ export async function updateGoods(
   });
 
   if (!existingGood) {
-    console.log(`Good error [${claims.username}] Good not found with id: ${id}`);
+    Logger.info(`Goods_service: Good error [${claims.username}] Good not found with id: ${id}`);
     throw new Error('Good not found');
   }
 
@@ -182,7 +183,7 @@ export async function updateGoods(
 
   await goodsRepository.save(existingGood);
 
-  console.log(`Good PATH [${claims.username}] - Updated good ID: ${id}`);
+  Logger.info(`Goods_service: Good PATH [${claims.username}] - Updated good ID: ${id}`);
 
   return "Good updated";
 }

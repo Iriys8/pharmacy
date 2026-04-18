@@ -4,6 +4,7 @@ import * as bcrypt from 'bcrypt';
 import * as jwt from 'jsonwebtoken';
 import { User } from '@pharmacy/src/shared/models/database_models';
 import { Claims, RefreshClaims } from '@pharmacy/src/shared/models/models';
+import { Logger } from '@pharmacy/src/shared/controllers/logs_controller'
 
 const jwtSecret = process.env.ACCESSTOKEN_SECRET || 'default_access_secret';
 const refreshSecret = process.env.REFRESHTOKEN_SECRET || 'default_refresh_secret';
@@ -24,7 +25,7 @@ interface TokenResponse {
 }
 
 function generateAccessToken(user: User): string {
-  const expirationTime = Math.floor(Date.now() / 1000) + 15 * 60; // 15 минут
+  const expirationTime = Math.floor(Date.now() / 1000) + 15 * 60;
 
   const claims: Claims = {
     userId: user.id,
@@ -38,7 +39,7 @@ function generateAccessToken(user: User): string {
 }
 
 function generateRefreshToken(user: User): string {
-  const expirationTime = Math.floor(Date.now() / 1000) + 8 * 60 * 60; // 8 часов
+  const expirationTime = Math.floor(Date.now() / 1000) + 8 * 60 * 60;
 
   const claims: RefreshClaims = {
     userId: user.id,
@@ -95,7 +96,7 @@ export function login(dataSource: DataSource) {
         domain: 'localhost',
       });
 
-      console.log(`Login [${user.userName}]`);
+      Logger.info(`Local-api: Login [${user.userName}]`);
 
       res.status(200).json({
         access_token: accessToken,
@@ -107,7 +108,7 @@ export function login(dataSource: DataSource) {
         },
       });
     } catch (err) {
-      console.error("Login error:", err);
+      Logger.error("Local-api: Login error:", err);
       res.status(500).json({ error: "Internal server error" });
     }
   };
@@ -185,7 +186,7 @@ export function refreshToken(dataSource: DataSource) {
       } else if (err instanceof jwt.JsonWebTokenError) {
         res.status(401).json({ error: "Invalid refresh token" });
       } else {
-        console.error("Refresh error:", err);
+        Logger.error("Local-api: Refresh error:", err);
         res.status(500).json({ error: "Could not generate token" });
       }
     }

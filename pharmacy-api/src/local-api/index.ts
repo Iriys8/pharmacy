@@ -1,7 +1,6 @@
 import express from 'express';
 import { DataSource } from 'typeorm';
 import { Redis } from 'ioredis';
-import { randomGen } from '@pharmacy/src/shared/controllers/random_generator';
 import { connectDB } from '@pharmacy/src/shared/setup/db_connect';
 import { connectRedis } from '@pharmacy/src/shared/setup/redis_connect';
 import { connectBroker } from '@pharmacy/src/shared/setup/broker_connect';
@@ -9,6 +8,7 @@ import { setupDB } from '@pharmacy/src/shared/setup/db_setup';
 import { setupRoutes } from '@pharmacy/src/local-api/routes/routes';
 import { setupBroker } from '@pharmacy/src/local-api/broker_setup';
 import { Broker } from '@pharmacy/src/shared/models/models';
+import { Logger } from '@pharmacy/src/shared/controllers/logs_controller'
 import cookieParser from 'cookie-parser';
 
 let dataSource: DataSource | null = null;
@@ -16,41 +16,38 @@ let redisDB: Redis | null = null;
 let broker: Broker | null = null;
 
 async function main(): Promise<void> {
-  const name = randomGen();
-
   try {
     dataSource = await connectDB();
-    console.log('Database connected');
+    Logger.info(`Local-api: Database connected`);
     
     await setupDB(dataSource);
-    console.log('Database initialized');
+    Logger.info(`Local-api: Database initialized`);
 
     redisDB = await connectRedis();
-    console.log('Redis connected');
+    Logger.info(`Local-api: Redis connected`);
 
     broker = await connectBroker();
-    console.log('RabbitMQ connected');
+    Logger.info(`Local-api: RabbitMQ connected`);
 
     await setupBroker(broker);
-    console.log('RabbitMQ setup completed');
+    Logger.info(`Local-api: RabbitMQ setup completed`);
 
     const app = express();
     
     app.use(express.json());
     app.use(express.urlencoded({ extended: true }));
     app.use(cookieParser())
-    
+
     setupRoutes(app, dataSource, redisDB, broker.channel);
-    console.log('Routers initialized');
+    Logger.info(`Local-api: Routers initialized`);
 
     const PORT = 8080;
-    const server = app.listen(PORT, () => {
-      console.log(`Local API server running on port ${PORT}`);
-      console.log('Initialized');
+    app.listen(PORT, () => {
+      Logger.info(`Local-api: Local API server running on port ${PORT}`);
+      Logger.info(`Local-api: Initialized`);
     });
-
   } catch (err) {
-    console.error('Failed to start server:', err);
+    Logger.error(`Local-api: Failed to start server:`, err);
     process.exit(1);
   }
 }

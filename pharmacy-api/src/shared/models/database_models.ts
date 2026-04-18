@@ -7,7 +7,7 @@ export class Schedule {
   id: number;
 
   @Column({ type: 'date', nullable: true })
-  date: string | null;
+  date: Date | null;
 
   @Column()
   isOpened: boolean;

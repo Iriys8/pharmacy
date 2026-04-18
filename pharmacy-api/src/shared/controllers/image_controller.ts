@@ -15,7 +15,7 @@ export async function getImage(req: Request, res: Response): Promise<void> {
   const filePath = path.join(IMAGE_FOLDER, imageName);
   
   if (!fs.existsSync(filePath)) {
-    res.status(404).json({ error: filePath });
+    res.status(404).json({ error: "" });
     return;
   }
   

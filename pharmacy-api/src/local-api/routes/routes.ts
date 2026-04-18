@@ -1,4 +1,3 @@
-// local-api/routes/routes.ts
 import { Express, Router } from 'express';
 import { DataSource } from 'typeorm';
 import { Redis } from 'ioredis';
@@ -9,6 +8,7 @@ import { login, logout, refreshToken } from '@pharmacy/src/local-api/controllers
 import { pickup } from '@pharmacy/src/local-api/controllers/pickup_controller';
 import { makeTask } from '@pharmacy/src/local-api/controllers/task_controller';
 import { getImage } from '@pharmacy/src/shared/controllers/image_controller';
+import { getLog, getLogs } from '@pharmacy/src/local-api/controllers/log_conroller';
 
 function setupGoodsRouter(apiGroup: Router, dataSource: DataSource, redisDB: Redis, channel: Channel): void {
   apiGroup.get('/goods', authMiddleware(dataSource, ''), makeTask('goods', 'get', redisDB, channel));
@@ -51,6 +51,11 @@ function setupRoleRouter(apiGroup: Router, dataSource: DataSource, redisDB: Redi
   apiGroup.get('/permission', authMiddleware(dataSource, 'Change_Roles'), makeTask('roles', 'permissions', redisDB, channel));
 }
 
+function setupOtherRouter(apiGroup: Router, dataSource: DataSource): void {
+  apiGroup.get('/logs', authMiddleware(dataSource, 'Download_Logs'), getLogs);
+  apiGroup.get('/log', authMiddleware(dataSource, 'Download_Logs'), getLog);
+}
+
 function setupPickupRouter(apiGroup: Router, redisDB: Redis ): void {
   apiGroup.get('/pickup', pickup(redisDB));
 }
@@ -77,6 +82,7 @@ export function setupRoutes(app: Express, dataSource: DataSource, redisDB: Redis
   setupOrderRouter(apiGroup, dataSource, redisDB, channel);
   setupUserRouter(apiGroup, dataSource, redisDB, channel);
   setupRoleRouter(apiGroup, dataSource, redisDB, channel);
+  setupOtherRouter(apiGroup, dataSource);
   setupPickupRouter(apiGroup, redisDB);
 
   app.use('/api', apiGroup);
