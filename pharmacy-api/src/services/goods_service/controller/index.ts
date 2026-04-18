@@ -4,12 +4,7 @@ import { GoodsResponse, PromoItem, GoodsUpdateRequest } from '@pharmacy/src/shar
 import { Claims } from "@pharmacy/src/shared/models/models"
 import { Logger } from '@pharmacy/src/shared/controllers/logs_controller'
 
-export async function getGoods(
-  dataSource: DataSource,
-  query: string,
-  pageStr: string,
-  limitStr: string
-): Promise<{ Items: GoodsResponse[]; TotalPages: number; CurrentPage: number }> {
+export async function getGoods(dataSource: DataSource, query: string, pageStr: string, limitStr: string): Promise<{ Items: GoodsResponse[]; TotalPages: number; CurrentPage: number }> {
   let limit = parseInt(limitStr);
   if (isNaN(limit) || limit < 1) {
     limit = 10;
@@ -95,10 +90,7 @@ export async function getGoods(
   };
 }
 
-export async function getGoodsByID(
-  dataSource: DataSource,
-  id: number
-): Promise<GoodsResponse> {
+export async function getGoodsByID(dataSource: DataSource, id: number): Promise<GoodsResponse> {
   const goodsRepository = dataSource.getRepository(Goods);
   
   const good = await goodsRepository.findOne({
@@ -157,12 +149,7 @@ export async function getPromoItems(dataSource: DataSource): Promise<PromoItem[]
   return promoItems;
 }
 
-export async function updateGoods(
-  dataSource: DataSource,
-  id: number,
-  updateData: GoodsUpdateRequest,
-  claims: Claims
-): Promise<string> {
+export async function updateGoods(dataSource: DataSource, id: number, updateData: GoodsUpdateRequest, claims: Claims): Promise<string> {
   const goodsRepository = dataSource.getRepository(Goods);
   
   const existingGood = await goodsRepository.findOne({

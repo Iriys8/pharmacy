@@ -3,13 +3,14 @@ import { Redis } from 'ioredis';
 import { Channel, Message } from 'amqplib';
 import { randomGen } from '@pharmacy/src/shared/controllers/random_generator';
 import { connectDB } from '@pharmacy/src/shared/setup/db_connect';
-import { connectRedis, closeRedis } from '@pharmacy/src/shared/setup/redis_connect';
+import { connectRedis } from '@pharmacy/src/shared/setup/redis_connect';
+import { createUser, deleteUser, getUserByID, getUsers, updateUser } from '@pharmacy/src/services/users_service/controller';
 import { connectBroker } from '@pharmacy/src/shared/setup/broker_connect';
-import { getGoods, getGoodsByID, getPromoItems, updateGoods } from '@pharmacy/src/services/goods_service/controller';
-import { GoodsUpdateRequest } from '@pharmacy/src/shared/models/responses';
+import { UserUpdateRequest } from '@pharmacy/src/shared/models/responses';
 import { Claims, Broker } from '@pharmacy/src/shared/models/models';
 import { Logger } from '@pharmacy/src/shared/controllers/logs_controller'
 import * as fs from 'fs';
+
 
 let logFile: fs.WriteStream | null = null;
 
@@ -17,7 +18,7 @@ async function main(): Promise<void> {
   const uname_public = randomGen();
   const uname_local = randomGen();
 
-  console.log(`Service public name: ${uname_public}, local name: ${uname_local}`);
+  console.log(`Service local name: ${uname_local}`);
 
   let dataSource: DataSource | null = null;
   let redisDB: Redis | null = null;
@@ -25,20 +26,19 @@ async function main(): Promise<void> {
   try {
 
     dataSource = await connectDB();
-    Logger.info('Goods_service: Database connected');
+    Logger.info('Users service: Database connected');
 
     redisDB = await connectRedis();
-    Logger.info('Goods_service: Redis connected');
+    Logger.info('Users service: Redis connected');
 
     broker = await connectBroker();
-    Logger.info('Goods_service: RabbitMQ connected');
+    Logger.info('Users service: RabbitMQ connected');
 
     if (broker.channel) {
-      consumeMessages(broker.channel, 'public_goods_queue', redisDB, dataSource, uname_public);
-      consumeMessages(broker.channel, 'local_goods_queue', redisDB, dataSource, uname_local);
+      consumeMessages(broker.channel, 'local_users_queue', redisDB, dataSource, uname_local);
     }
 
-    Logger.info('Goods_service: Service is running.');
+    Logger.info('Users service: Service is running.');
 
   } catch (err) {
     process.exit(1);
@@ -52,18 +52,18 @@ async function consumeMessages(ch: Channel, queueName: string, redisDB: Redis, d
 
       try {
         const taskKey = msg.content.toString();
-        Logger.info(`Goods_service: Received task: ${taskKey}`);
+        Logger.info(`Users service: Received task: ${taskKey}`);
 
         const taskData = await redisDB.hgetall(taskKey);
 
         if (!taskData || Object.keys(taskData).length === 0) {
-          Logger.info(`Goods_service: Task ${taskKey} not found in Redis`);
+          Logger.info(`Users service: Task ${taskKey} not found in Redis`);
           ch.ack(msg);
           return;
         }
 
         if (taskData.status !== 'pending') {
-          Logger.info(`Goods_service: Task ${taskKey} is not pending (status: ${taskData.status}), skipping`);
+          Logger.info(`Users service: Task ${taskKey} is not pending (status: ${taskData.status}), skipping`);
           ch.ack(msg);
           return;
         }
@@ -76,17 +76,23 @@ async function consumeMessages(ch: Channel, queueName: string, redisDB: Redis, d
             case 'get': {
               const taskContext = JSON.parse(taskData.context);
               const query = taskContext.Query || taskContext.query || {};
-              
-              if (!query.id || query.id === 0) {
-                result = await getGoods(dataSource, query.q || '', query.page || '1', query.limit || '10');
+              const claims = taskContext.Claims || taskContext.claims;
+
+              if (query.id === undefined) {
+                result = await getUsers(dataSource, query.q || '', query.page || '1', query.limit || '10', claims);
               } else {
-                result = await getGoodsByID(dataSource, query.id);
+                result = await getUserByID(dataSource, parseInt(query.id), claims);
               }
               break;
             }
 
-            case 'advert': {
-              result = await getPromoItems(dataSource);
+            case 'post': {
+              const taskContext = JSON.parse(taskData.context);
+              const context = taskContext.Context || taskContext.context;
+              const claims = taskContext.Claims || taskContext.claims;
+              
+              const createResult = await createUser(dataSource, context as UserUpdateRequest, claims);
+              result = { Response: createResult };
               break;
             }
 
@@ -96,19 +102,29 @@ async function consumeMessages(ch: Channel, queueName: string, redisDB: Redis, d
               const context = taskContext.Context || taskContext.context;
               const claims = taskContext.Claims || taskContext.claims;
               
-              const updateResult = await updateGoods(dataSource, query.id, context as GoodsUpdateRequest, claims as Claims);
+              const updateResult = await updateUser(dataSource,query.id, context as UserUpdateRequest, claims as Claims);
               result = { Response: updateResult };
               break;
             }
 
+            case 'delete': {
+              const taskContext = JSON.parse(taskData.context);
+              const query = taskContext.Query || taskContext.query || {};
+              const claims = taskContext.Claims || taskContext.claims;
+              
+              const deleteResult = await deleteUser(dataSource, query.id, claims as Claims);
+              result = { Response: deleteResult };
+              break;
+            }
+
             default: {
-              Logger.info(`Goods_service: Unknown task type: ${taskData.task}`);
+              Logger.info(`Users service: Unknown task type: ${taskData.task}`);
               execError = new Error('Unknown task');
             }
           }
         } catch (err) {
           execError = err as Error;
-          Logger.error(`Goods_service: Error:`, err)
+          Logger.error(`Users service: Error:`, err)
         }
 
         let jsonResult: string;
@@ -126,16 +142,16 @@ async function consumeMessages(ch: Channel, queueName: string, redisDB: Redis, d
         await redisDB.hset(taskKey, taskData);
         await redisDB.expire(taskKey, 20);
 
-        Logger.info(`Goods_service: Task ${taskKey} completed successfully with status: ${taskData.status}`);
+        Logger.info(`Users service: Task ${taskKey} completed successfully with status: ${taskData.status}`);
         ch.ack(msg);
 
       } catch (err) {
-        Logger.error(`Goods_service: Error processing message:`, err);
+        Logger.error(`Users service: Error processing message:`, err);
         ch.ack(msg);
       }
     });
   } catch (err) {
-    Logger.error(`Goods_service: Failed to register consumer for ${queueName}:`, err);
+    Logger.error(`Users service: Failed to register consumer for ${queueName}:`, err);
     throw err;
   }
 }

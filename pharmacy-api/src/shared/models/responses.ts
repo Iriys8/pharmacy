@@ -72,6 +72,26 @@ export interface UserUpdateRequest {
   Password: string;
 }
 
+export interface UserResponse {
+  ID: number;
+  Login: string;
+  UserName: string;
+  RoleID: number;
+  Role: RoleResponse;
+  Password: string;
+}
+
+export interface RoleResponse {
+  ID: number;
+  Name: string;
+  Permissions: PermissionRespons[];
+}
+
+export interface PermissionRespons {
+  ID: number;
+  Action: string;
+}
+
 export interface LogsResponse {
   Name: string;
 }

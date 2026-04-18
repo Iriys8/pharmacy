@@ -2,3 +2,97 @@
 2026-04-17T10:51:46.703Z [ERROR]: Schedule_service: Error: date.getFullYear is not a function. (In 'date.getFullYear()', 'date.getFullYear' is undefined)
 2026-04-17T10:51:49.553Z [ERROR]: Schedule_service: Error: date.getFullYear is not a function. (In 'date.getFullYear()', 'date.getFullYear' is undefined)
 2026-04-17T10:55:31.580Z [ERROR]: Schedule_service: Error: date.getMonth is not a function. (In 'date.getMonth()', 'date.getMonth' is undefined)
+2026-04-18T13:54:48.602Z [ERROR]: Local-api: Failed to start server: connect ECONNREFUSED 172.20.0.3:5672
+2026-04-18T14:56:35.162Z [ERROR]: Orders_service: Error: Property "goods" was not found in "Order". Make sure your query is correct.
+2026-04-18T14:56:37.659Z [ERROR]: Orders_service: Error: Property "goods" was not found in "Order". Make sure your query is correct.
+2026-04-18T14:58:27.932Z [ERROR]: Orders_service: Error: Property "goods" was not found in "Order". Make sure your query is correct.
+2026-04-18T15:00:21.857Z [ERROR]: Orders_service: Error: Property "goods" was not found in "Order". Make sure your query is correct.
+2026-04-18T15:06:54.917Z [ERROR]: Orders_service: Error: Unknown column 'Order__Order_goodsOrders.id' in 'field list'
+2026-04-18T15:06:59.041Z [ERROR]: Orders_service: Error: Unknown column 'Order__Order_goodsOrders.id' in 'field list'
+2026-04-18T15:08:50.825Z [ERROR]: Orders_service: Error: Property "goods_orders" was not found in "Order". Make sure your query is correct.
+2026-04-18T15:10:23.910Z [ERROR]: Orders_service: Error: Property "goodsId" was not found in "GoodsOrders". Make sure your query is correct.
+2026-04-18T15:11:42.717Z [ERROR]: Orders_service: Error: Property "GoodsOrders" was not found in "Order". Make sure your query is correct.
+2026-04-18T15:14:03.161Z [ERROR]: Orders_service: Error: Unknown column 'Order__Order_goodsOrders.id' in 'field list'
+2026-04-18T15:28:36.015Z [ERROR]: Orders_service: Error: Unknown column 'goodsOrders.id' in 'field list'
+2026-04-18T15:29:30.666Z [ERROR]: Orders_service: Error: Unknown column 'goodsOrders.id' in 'field list'
+2026-04-18T15:31:18.574Z [ERROR]: Orders_service: Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ':orderId' at line 1
+2026-04-18T15:32:36.104Z [ERROR]: Orders_service: Error: Relation with property path goodsId in entity was not found.
+2026-04-18T15:34:24.573Z [ERROR]: Orders_service: Error: Unknown column 'goodsOrders.id' in 'field list'
+2026-04-18T15:38:46.306Z [ERROR]: Local-api: Failed to start server: connect ECONNREFUSED 172.20.0.2:5672
+2026-04-18T15:41:38.054Z [ERROR]: Local-api: Failed to start server: connect ECONNREFUSED 172.19.0.3:3306
+2026-04-18T15:42:05.715Z [ERROR]: Schedule_service: Failed to register consumer for local_schedule_queue: Operation failed: BasicConsume; 404 (NOT-FOUND) with message "NOT_FOUND - no queue 'local_schedule_queue' in vhost '/'"
+2026-04-18T15:42:05.722Z [ERROR]: Orders_service: Failed to register consumer for local_orders_queue: Operation failed: BasicConsume; 404 (NOT-FOUND) with message "NOT_FOUND - no queue 'local_orders_queue' in vhost '/'"
+2026-04-18T16:32:45.504Z [ERROR]: Local-api: Failed to start server: connect ECONNREFUSED 172.21.0.4:5672
+2026-04-18T17:37:32.667Z [ERROR]: Users service: Error: null is not an object (evaluating 'requestedUser.id')
+2026-04-18T17:37:36.909Z [ERROR]: Users service: Error: null is not an object (evaluating 'requestedUser.id')
+2026-04-18T17:39:21.323Z [ERROR]: Users service: Error: null is not an object (evaluating 'requestedUser.id')
+2026-04-18T17:41:38.776Z [ERROR]: Users service: Error: null is not an object (evaluating 'requestedUser.id')
+2026-04-18T17:43:08.155Z [ERROR]: Users service: Error: null is not an object (evaluating 'requestedUser.id')
+2026-04-18T17:44:20.409Z [ERROR]: Users service: Error: null is not an object (evaluating 'requestedUser.id')
+2026-04-18T17:46:46.058Z [ERROR]: 0
+2026-04-18T17:46:46.064Z [ERROR]: Users service: Error: null is not an object (evaluating 'requestedUser.id')
+2026-04-18T17:47:51.442Z [ERROR]: string
+2026-04-18T17:47:51.448Z [ERROR]: Users service: Error: null is not an object (evaluating 'requestedUser.id')
+2026-04-18T17:52:34.404Z [ERROR]: 0
+2026-04-18T17:52:43.494Z [ERROR]: undefined
+2026-04-18T17:52:58.765Z [ERROR]: Announces_service: Error: Announcement not found
+2026-04-18T17:53:06.207Z [ERROR]: Orders_service: Error: Order not found
+2026-04-18T17:53:12.988Z [ERROR]: Schedule_service: Error: Schedule not found
+2026-04-18T17:53:13.788Z [ERROR]: Goods_service: Error: Good not found
+2026-04-18T17:53:49.287Z [ERROR]: Orders_service: Error: Order not found
+2026-04-18T17:53:50.948Z [ERROR]: Schedule_service: Error: Schedule not found
+2026-04-18T17:54:33.865Z [ERROR]: Announces_service: Error: Announcement not found
+2026-04-18T17:54:34.575Z [ERROR]: undefined
+2026-04-18T17:54:36.348Z [ERROR]: undefined
+2026-04-18T17:55:41.541Z [ERROR]: Announces_service: Error: Announcement not found
+2026-04-18T17:56:49.705Z [ERROR]: undefined
+2026-04-18T17:56:55.207Z [ERROR]: 1
+2026-04-18T17:57:09.521Z [ERROR]: 1
+2026-04-18T17:59:41.678Z [ERROR]: 1
+2026-04-18T17:59:46.968Z [ERROR]: undefined
+2026-04-18T18:01:49.648Z [ERROR]: 0
+2026-04-18T18:01:49.652Z [ERROR]: Users service: Error: null is not an object (evaluating 'requestedUser.id')
+2026-04-18T18:03:57.148Z [ERROR]: 0
+2026-04-18T18:03:57.154Z [ERROR]: Users service: Error: null is not an object (evaluating 'requestedUser.id')
+2026-04-18T18:04:04.266Z [ERROR]: undefined
+2026-04-18T18:04:06.986Z [ERROR]: 0
+2026-04-18T18:04:06.989Z [ERROR]: Users service: Error: null is not an object (evaluating 'requestedUser.id')
+2026-04-18T18:04:08.757Z [ERROR]: undefined
+2026-04-18T18:04:09.809Z [ERROR]: 1
+2026-04-18T18:04:11.856Z [ERROR]: undefined
+2026-04-18T18:04:14.770Z [ERROR]: 0
+2026-04-18T18:04:14.772Z [ERROR]: Users service: Error: null is not an object (evaluating 'requestedUser.id')
+2026-04-18T18:04:47.556Z [ERROR]: undefined
+2026-04-18T18:04:52.653Z [ERROR]: 1
+2026-04-18T18:04:59.444Z [ERROR]: undefined
+2026-04-18T18:05:02.145Z [ERROR]: 0
+2026-04-18T18:05:02.148Z [ERROR]: Users service: Error: null is not an object (evaluating 'requestedUser.id')
+2026-04-18T18:06:14.488Z [ERROR]: false
+2026-04-18T18:06:14.494Z [ERROR]: Users service: Error: null is not an object (evaluating 'requestedUser.id')
+2026-04-18T18:06:21.922Z [ERROR]: true
+2026-04-18T18:06:24.649Z [ERROR]: false
+2026-04-18T18:06:37.364Z [ERROR]: true
+2026-04-18T18:06:39.748Z [ERROR]: false
+2026-04-18T18:06:39.750Z [ERROR]: Users service: Error: null is not an object (evaluating 'requestedUser.id')
+2026-04-18T18:10:14.758Z [ERROR]: true
+2026-04-18T18:10:14.763Z [ERROR]: Users service: Error: null is not an object (evaluating 'requestedUser.id')
+2026-04-18T18:11:04.011Z [ERROR]: true
+2026-04-18T18:12:18.907Z [ERROR]: 1
+2026-04-18T18:12:18.907Z [ERROR]: string
+2026-04-18T18:12:48.823Z [ERROR]: 0
+2026-04-18T18:12:48.824Z [ERROR]: string
+2026-04-18T18:12:48.826Z [ERROR]: Users service: Error: null is not an object (evaluating 'requestedUser.id')
+2026-04-18T18:24:31.540Z [ERROR]: number
+2026-04-18T18:24:31.541Z [ERROR]: 1
+2026-04-18T18:24:37.115Z [ERROR]: number
+2026-04-18T18:24:37.115Z [ERROR]: 0
+2026-04-18T18:27:16.845Z [ERROR]: number
+2026-04-18T18:27:16.846Z [ERROR]: 1
+2026-04-18T18:27:27.617Z [ERROR]: number
+2026-04-18T18:27:27.618Z [ERROR]: 1
+2026-04-18T18:27:32.810Z [ERROR]: number
+2026-04-18T18:27:32.810Z [ERROR]: 0
+2026-04-18T18:29:43.818Z [ERROR]: 1
+2026-04-18T18:29:43.826Z [ERROR]: 2
+2026-04-18T18:29:43.826Z [ERROR]: 3
+2026-04-18T18:29:43.828Z [ERROR]: 4

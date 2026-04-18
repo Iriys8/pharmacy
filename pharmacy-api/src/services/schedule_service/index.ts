@@ -5,7 +5,7 @@ import { randomGen } from '@pharmacy/src/shared/controllers/random_generator';
 import { connectDB } from '@pharmacy/src/shared/setup/db_connect';
 import { connectRedis, closeRedis } from '@pharmacy/src/shared/setup/redis_connect';
 import { connectBroker } from '@pharmacy/src/shared/setup/broker_connect';
-import { createSchedule, deleteSchedule, getSchedule, getScheduleByID, getScheduleDated, updateSchedule } from '@pharmacy/src/services/schedule_service/controller/controller';
+import { createSchedule, deleteSchedule, getSchedule, getScheduleByID, getScheduleDated, updateSchedule } from '@pharmacy/src/services/schedule_service/controller';
 import { ScheduleResponse } from '@pharmacy/src/shared/models/responses';
 import { Claims, Broker } from '@pharmacy/src/shared/models/models';
 import { Logger } from '@pharmacy/src/shared/controllers/logs_controller'
@@ -45,13 +45,7 @@ async function main(): Promise<void> {
   }
 }
 
-async function consumeMessages(
-  ch: Channel,
-  queueName: string,
-  redisDB: Redis,
-  dataSource: DataSource,
-  consumerName: string
-): Promise<void> {
+async function consumeMessages( ch: Channel, queueName: string, redisDB: Redis, dataSource: DataSource, consumerName: string): Promise<void> {
   try {
     await ch.consume(queueName, async (msg: Message | null) => {
       if (!msg) return;
@@ -85,13 +79,7 @@ async function consumeMessages(
               const claims = taskContext.Claims || taskContext.claims;
               
               if (!query.id || query.id === 0) {
-                result = await getSchedule(
-                  dataSource,
-                  query.q || '',
-                  query.page || '1',
-                  query.limit || '10',
-                  claims
-                );
+                result = await getSchedule(dataSource, query.q || '', query.page || '1', query.limit || '10', claims);
               } else {
                 result = await getScheduleByID(dataSource, query.id, claims);
               }
@@ -103,11 +91,7 @@ async function consumeMessages(
               const context = taskContext.Context || taskContext.context;
               const claims = taskContext.Claims || taskContext.claims;
               
-              const createResult = await createSchedule(
-                dataSource,
-                context as ScheduleResponse,
-                claims as Claims
-              );
+              const createResult = await createSchedule(dataSource, context as ScheduleResponse, claims as Claims);
               result = { Response: createResult };
               break;
             }
@@ -118,12 +102,7 @@ async function consumeMessages(
               const context = taskContext.Context || taskContext.context;
               const claims = taskContext.Claims || taskContext.claims;
               
-              const updateResult = await updateSchedule(
-                dataSource,
-                query.id,
-                context as ScheduleResponse,
-                claims as Claims
-              );
+              const updateResult = await updateSchedule(dataSource, query.id, context as ScheduleResponse, claims as Claims);
               result = { Response: updateResult };
               break;
             }
@@ -133,11 +112,7 @@ async function consumeMessages(
               const query = taskContext.Query || taskContext.query || {};
               const claims = taskContext.Claims || taskContext.claims;
               
-              const deleteResult = await deleteSchedule(
-                dataSource,
-                query.id,
-                claims as Claims
-              );
+              const deleteResult = await deleteSchedule(dataSource, query.id, claims as Claims);
               result = { Response: deleteResult };
               break;
             }
@@ -147,11 +122,7 @@ async function consumeMessages(
               const query = taskContext.Query || taskContext.query || {};
               const claims = taskContext.Claims || taskContext.claims;
               
-              const datedResult = await getScheduleDated(
-                dataSource,
-                query.start,
-                query.end
-              );
+              const datedResult = await getScheduleDated(dataSource, query.start, query.end);
               result = { Response: datedResult };
               break;
             }

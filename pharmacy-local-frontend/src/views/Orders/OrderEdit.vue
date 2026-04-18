@@ -76,7 +76,7 @@ const Create = async () => {
         alert("Error: Missing one of required fields");
         return;
     }
-    if (item.value.Email !== undefined && (!emailRegex.test(item.value.Email) || item.value.Email !== "")) {
+    if (!(item.value.Email !== undefined && (emailRegex.test(item.value.Email) || item.value.Email !== ""))) {
         alert("Error: Wrong email format");
         return;
     }
@@ -101,7 +101,7 @@ const Update = async () => {
         alert("Error: Missing one of required fields");
         return;
     }
-    if (item.value.Email !== undefined && (!emailRegex.test(item.value.Email) || item.value.Email !== "")) {
+    if (!(item.value.Email !== undefined && (emailRegex.test(item.value.Email) || item.value.Email !== ""))) {
         alert("Error: Wrong email format");
         return;
     }

@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToMany, ManyToMany, JoinTable, JoinColumn, DataSource } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToMany, ManyToMany, JoinTable, JoinColumn, DataSource, PrimaryColumn } from 'typeorm';
 import { Pharmacy1776354362570 } from '@pharmacy/src/migration/1776354362570-pharmacy';
 
 @Entity('schedules')
@@ -85,13 +85,10 @@ export class Tag {
 
 @Entity('goods_tags')
 export class GoodsTag {
-  @PrimaryGeneratedColumn()
-  id: number;
-
-  @Column()
+  @PrimaryColumn({ name: 'goodsId' })
   goodsId: number;
 
-  @Column()
+  @PrimaryColumn({ name: 'tagId' })
   tagId: number;
 
   @ManyToOne(() => Goods, goods => goods.goodsTags)
@@ -125,13 +122,10 @@ export class Order {
 
 @Entity('goods_orders')
 export class GoodsOrders {
-  @PrimaryGeneratedColumn()
-  id: number;
-
-  @Column()
+  @PrimaryColumn({ name: 'orderId' })
   orderId: number;
 
-  @Column()
+  @PrimaryColumn({ name: 'goodsId' })
   goodsId: number;
 
   @Column()

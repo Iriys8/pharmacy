@@ -85,6 +85,23 @@ export function makeTask(route: string, task: string, redisDB: Redis, channel: C
           query["id"] = isNaN(deleteId) ? undefined : deleteId;
           taskContext.query = query;
           break;
+
+        case "permissions":
+          const id = req.query.id as string;
+          if (id && isNaN(parseInt(id))) {
+            res.status(400).json({
+              error: "Invalid request body",
+            });
+            return;
+          }
+          
+          query["id"] = id ? parseInt(id) : undefined;
+          query["q"] = req.query.q || "";
+          query["page"] = req.query.page || "";
+          query["limit"] = req.query.limit || "";
+          
+          taskContext.query = query;
+          break;
       }
       
       const taskID = randomGen();

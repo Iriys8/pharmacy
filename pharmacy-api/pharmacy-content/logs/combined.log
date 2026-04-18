@@ -223,3 +223,1898 @@
 2026-04-17T11:22:31.524Z [INFO]: Schedule_service: Task public_task:ecf0e26efe8ff779 completed successfully with status: completed
 2026-04-17T11:22:31.537Z [INFO]: Goods_service: Received task: public_task:5796ed744c219733
 2026-04-17T11:22:31.540Z [INFO]: Goods_service: Task public_task:5796ed744c219733 completed successfully with status: completed
+2026-04-18T13:54:48.584Z [INFO]: Local-api: Database connected
+2026-04-18T13:54:48.590Z [INFO]: Local-api: Database initialized
+2026-04-18T13:54:48.597Z [INFO]: Local-api: Redis connected
+2026-04-18T13:54:48.602Z [ERROR]: Local-api: Failed to start server: connect ECONNREFUSED 172.20.0.3:5672
+2026-04-18T13:54:53.202Z [INFO]: Local-api: Database connected
+2026-04-18T13:54:53.208Z [INFO]: Local-api: Database initialized
+2026-04-18T13:54:53.215Z [INFO]: Local-api: Redis connected
+2026-04-18T13:54:53.222Z [INFO]: Local-api: RabbitMQ connected
+2026-04-18T13:54:53.253Z [INFO]: Local-api: RabbitMQ setup completed
+2026-04-18T13:54:53.258Z [INFO]: Local-api: Routers initialized
+2026-04-18T13:54:53.261Z [INFO]: Local-api: Local API server running on port 8080
+2026-04-18T13:54:53.262Z [INFO]: Local-api: Initialized
+2026-04-18T14:10:08.250Z [INFO]: Announces_service: Database connected
+2026-04-18T14:10:08.256Z [INFO]: Schedule_service: Database connected
+2026-04-18T14:10:08.260Z [INFO]: Announces_service: Redis connected
+2026-04-18T14:10:08.266Z [INFO]: Schedule_service: Redis connected
+2026-04-18T14:10:08.269Z [INFO]: Announces_service: RabbitMQ connected
+2026-04-18T14:10:08.270Z [INFO]: Announces_service: Service is running.
+2026-04-18T14:10:08.275Z [INFO]: Schedule_service: RabbitMQ connected
+2026-04-18T14:10:08.276Z [INFO]: Schedule_service: Service is running.
+2026-04-18T14:10:08.279Z [INFO]: Goods_service: Database connected
+2026-04-18T14:10:08.288Z [INFO]: Goods_service: Redis connected
+2026-04-18T14:10:08.295Z [INFO]: Goods_service: RabbitMQ connected
+2026-04-18T14:10:08.296Z [INFO]: Goods_service: Service is running.
+2026-04-18T14:13:31.570Z [INFO]: Local-api: Login [Admin]
+2026-04-18T14:13:31.604Z [INFO]: Announces_service: Received task: local_task:6b946f4842855f2b
+2026-04-18T14:13:31.628Z [INFO]: Announces_service: Task local_task:6b946f4842855f2b completed successfully with status: completed
+2026-04-18T14:13:41.965Z [INFO]: Announces_service: Received task: local_task:94711fc141aba710
+2026-04-18T14:13:41.969Z [INFO]: Announces_service: Task local_task:94711fc141aba710 completed successfully with status: completed
+2026-04-18T14:13:43.302Z [INFO]: Announces_service: Received task: local_task:1eb1232808fadc54
+2026-04-18T14:13:43.306Z [INFO]: Announces service: Announce GET [admin]
+2026-04-18T14:13:43.307Z [INFO]: Announces_service: Task local_task:1eb1232808fadc54 completed successfully with status: completed
+2026-04-18T14:13:45.880Z [INFO]: Announces_service: Received task: local_task:f66b2e3d9949b4fa
+2026-04-18T14:13:45.883Z [INFO]: Announces_service: Task local_task:f66b2e3d9949b4fa completed successfully with status: completed
+2026-04-18T14:14:07.587Z [INFO]: Announces_service: Received task: local_task:96d626e03729c515
+2026-04-18T14:14:07.589Z [INFO]: Announces service: Announce GET [admin]
+2026-04-18T14:14:07.590Z [INFO]: Announces_service: Task local_task:96d626e03729c515 completed successfully with status: completed
+2026-04-18T14:14:11.247Z [INFO]: Announces_service: Received task: local_task:eb1235c498d4fc2a
+2026-04-18T14:14:11.250Z [INFO]: Announces_service: Task local_task:eb1235c498d4fc2a completed successfully with status: completed
+2026-04-18T14:15:31.243Z [INFO]: Schedule_service: Database connected
+2026-04-18T14:15:31.253Z [INFO]: Schedule_service: Redis connected
+2026-04-18T14:15:31.263Z [INFO]: Schedule_service: RabbitMQ connected
+2026-04-18T14:15:31.264Z [INFO]: Schedule_service: Service is running.
+2026-04-18T14:15:31.271Z [INFO]: Goods_service: Database connected
+2026-04-18T14:15:31.278Z [INFO]: Announces_service: Database connected
+2026-04-18T14:15:31.281Z [INFO]: Goods_service: Redis connected
+2026-04-18T14:15:31.287Z [INFO]: Announces_service: Redis connected
+2026-04-18T14:15:31.290Z [INFO]: Goods_service: RabbitMQ connected
+2026-04-18T14:15:31.291Z [INFO]: Goods_service: Service is running.
+2026-04-18T14:15:31.296Z [INFO]: Announces_service: RabbitMQ connected
+2026-04-18T14:15:31.297Z [INFO]: Announces_service: Service is running.
+2026-04-18T14:15:36.789Z [INFO]: Announces_service: Received task: local_task:5ae9354db28d3a4d
+2026-04-18T14:15:36.797Z [INFO]: Announces_service: Task local_task:5ae9354db28d3a4d completed successfully with status: completed
+2026-04-18T14:15:53.863Z [INFO]: Announces_service: Received task: local_task:c4be24bd9963b59f
+2026-04-18T14:15:53.884Z [INFO]: Announces service: Announce POST [admin]
+2026-04-18T14:15:53.885Z [INFO]: Announces_service: Task local_task:c4be24bd9963b59f completed successfully with status: completed
+2026-04-18T14:15:55.218Z [INFO]: Announces_service: Received task: local_task:7432b6e98065f01f
+2026-04-18T14:15:55.220Z [INFO]: Announces_service: Task local_task:7432b6e98065f01f completed successfully with status: completed
+2026-04-18T14:15:58.040Z [INFO]: Announces_service: Received task: local_task:319bc36ac6e13b27
+2026-04-18T14:15:58.043Z [INFO]: Announces service: Announce GET [admin]
+2026-04-18T14:15:58.044Z [INFO]: Announces_service: Task local_task:319bc36ac6e13b27 completed successfully with status: completed
+2026-04-18T14:16:00.376Z [INFO]: Announces_service: Received task: local_task:311b837fa790efe6
+2026-04-18T14:16:00.427Z [INFO]: Announces service: Announce DELETE [admin]
+2026-04-18T14:16:00.429Z [INFO]: Announces_service: Task local_task:311b837fa790efe6 completed successfully with status: completed
+2026-04-18T14:16:01.188Z [INFO]: Announces_service: Received task: local_task:19a9fcf62b9a3b6e
+2026-04-18T14:16:01.190Z [INFO]: Announces_service: Task local_task:19a9fcf62b9a3b6e completed successfully with status: completed
+2026-04-18T14:42:23.379Z [INFO]: Announces_service: Database connected
+2026-04-18T14:42:23.392Z [INFO]: Announces_service: Redis connected
+2026-04-18T14:42:23.398Z [INFO]: Schedule_service: Database connected
+2026-04-18T14:42:23.410Z [INFO]: Announces_service: RabbitMQ connected
+2026-04-18T14:42:23.411Z [INFO]: Announces_service: Service is running.
+2026-04-18T14:42:23.413Z [INFO]: Schedule_service: Redis connected
+2026-04-18T14:42:23.424Z [INFO]: Schedule_service: RabbitMQ connected
+2026-04-18T14:42:23.425Z [INFO]: Schedule_service: Service is running.
+2026-04-18T14:42:23.435Z [INFO]: Orders_service: Database connected
+2026-04-18T14:42:23.446Z [INFO]: Orders_service: Redis connected
+2026-04-18T14:42:23.456Z [INFO]: Orders_service: RabbitMQ connected
+2026-04-18T14:42:23.457Z [INFO]: Orders_service: Service is running.
+2026-04-18T14:42:23.460Z [INFO]: Goods_service: Database connected
+2026-04-18T14:42:23.462Z [INFO]: Orders_service: Received task: local_task:02473e8287a26c96
+2026-04-18T14:42:23.463Z [INFO]: Orders_service: Task local_task:02473e8287a26c96 not found in Redis
+2026-04-18T14:42:23.471Z [INFO]: Goods_service: Redis connected
+2026-04-18T14:42:23.479Z [INFO]: Goods_service: RabbitMQ connected
+2026-04-18T14:42:23.479Z [INFO]: Goods_service: Service is running.
+2026-04-18T14:42:40.595Z [INFO]: Orders_service: Received task: local_task:b0ecbb4e033351ff
+2026-04-18T14:42:40.602Z [INFO]: Orders service: Orders GET [admin]
+2026-04-18T14:42:40.602Z [INFO]: Orders_service: Task local_task:b0ecbb4e033351ff completed successfully with status: completed
+2026-04-18T14:42:43.825Z [INFO]: Goods_service: Received task: local_task:83399c5e128d3f97
+2026-04-18T14:42:43.838Z [INFO]: Goods_service: Task local_task:83399c5e128d3f97 completed successfully with status: completed
+2026-04-18T14:42:47.224Z [INFO]: Orders_service: Received task: local_task:9325538f63613782
+2026-04-18T14:42:47.228Z [INFO]: Orders service: Orders GET [admin]
+2026-04-18T14:42:47.229Z [INFO]: Orders_service: Task local_task:9325538f63613782 completed successfully with status: completed
+2026-04-18T14:42:48.609Z [INFO]: Goods_service: Received task: local_task:ca98a1ad3781f5a9
+2026-04-18T14:42:48.615Z [INFO]: Goods_service: Task local_task:ca98a1ad3781f5a9 completed successfully with status: completed
+2026-04-18T14:42:52.523Z [INFO]: Orders_service: Received task: local_task:5a1b580b3bf72da5
+2026-04-18T14:42:52.527Z [INFO]: Orders service: Orders GET [admin]
+2026-04-18T14:42:52.527Z [INFO]: Orders_service: Task local_task:5a1b580b3bf72da5 completed successfully with status: completed
+2026-04-18T14:42:53.811Z [INFO]: Announces_service: Received task: local_task:47ad8f78d5fb39eb
+2026-04-18T14:42:53.818Z [INFO]: Announces_service: Task local_task:47ad8f78d5fb39eb completed successfully with status: completed
+2026-04-18T14:42:54.902Z [INFO]: Announces_service: Received task: local_task:8d02440a77df7f86
+2026-04-18T14:42:54.906Z [INFO]: Announces service: Announce GET [admin]
+2026-04-18T14:42:54.907Z [INFO]: Announces_service: Task local_task:8d02440a77df7f86 completed successfully with status: completed
+2026-04-18T14:42:56.306Z [INFO]: Announces_service: Received task: local_task:6e324e540e200d48
+2026-04-18T14:42:56.308Z [INFO]: Announces_service: Task local_task:6e324e540e200d48 completed successfully with status: completed
+2026-04-18T14:42:57.309Z [INFO]: Orders_service: Received task: local_task:4c07baf8ed5341b0
+2026-04-18T14:42:57.313Z [INFO]: Orders service: Orders GET [admin]
+2026-04-18T14:42:57.314Z [INFO]: Orders_service: Task local_task:4c07baf8ed5341b0 completed successfully with status: completed
+2026-04-18T14:43:01.949Z [INFO]: Goods_service: Received task: local_task:e8a65b5e336eee7f
+2026-04-18T14:43:01.954Z [INFO]: Goods_service: Task local_task:e8a65b5e336eee7f completed successfully with status: completed
+2026-04-18T14:43:34.905Z [INFO]: Orders_service: Received task: local_task:14b6373b5e647e0e
+2026-04-18T14:43:34.909Z [INFO]: Orders service: Orders GET [admin]
+2026-04-18T14:43:34.909Z [INFO]: Orders_service: Task local_task:14b6373b5e647e0e completed successfully with status: completed
+2026-04-18T14:43:36.381Z [INFO]: Goods_service: Received task: local_task:214e94074b226e8a
+2026-04-18T14:43:36.387Z [INFO]: Goods_service: Task local_task:214e94074b226e8a completed successfully with status: completed
+2026-04-18T14:43:41.126Z [INFO]: Orders_service: Received task: local_task:b96cf91bb5b845fe
+2026-04-18T14:43:41.129Z [INFO]: Orders service: Orders GET [admin]
+2026-04-18T14:43:41.130Z [INFO]: Orders_service: Task local_task:b96cf91bb5b845fe completed successfully with status: completed
+2026-04-18T14:43:58.079Z [INFO]: Goods_service: Received task: local_task:1263df193059186d
+2026-04-18T14:43:58.089Z [INFO]: Goods_service: Task local_task:1263df193059186d completed successfully with status: completed
+2026-04-18T14:54:54.087Z [INFO]: Orders_service: Received task: local_task:173962f341744fe3
+2026-04-18T14:54:54.097Z [INFO]: Orders service: Orders GET [admin]
+2026-04-18T14:54:54.098Z [INFO]: Orders_service: Task local_task:173962f341744fe3 completed successfully with status: completed
+2026-04-18T14:54:55.659Z [INFO]: Goods_service: Received task: local_task:621bd8bd06a82c50
+2026-04-18T14:54:55.667Z [INFO]: Goods_service: Task local_task:621bd8bd06a82c50 completed successfully with status: completed
+2026-04-18T14:55:09.618Z [INFO]: Schedule_service: Received task: public_task:980616c6aba6c512
+2026-04-18T14:55:09.618Z [INFO]: Announces_service: Received task: public_task:b9e29c7941c0f7ad
+2026-04-18T14:55:09.624Z [INFO]: Announces_service: Task public_task:b9e29c7941c0f7ad completed successfully with status: completed
+2026-04-18T14:55:09.624Z [INFO]: Goods_service: Received task: public_task:8815f7b2eec0dbfe
+2026-04-18T14:55:09.631Z [INFO]: Schedule_service: Task public_task:980616c6aba6c512 completed successfully with status: completed
+2026-04-18T14:55:09.631Z [INFO]: Goods_service: Task public_task:8815f7b2eec0dbfe completed successfully with status: completed
+2026-04-18T14:55:13.572Z [INFO]: Goods_service: Received task: public_task:baed6b515190d5ef
+2026-04-18T14:55:13.577Z [INFO]: Goods_service: Task public_task:baed6b515190d5ef completed successfully with status: completed
+2026-04-18T14:55:20.682Z [INFO]: Announces_service: Received task: local_task:a88f4f887d99d950
+2026-04-18T14:55:20.686Z [INFO]: Announces_service: Task local_task:a88f4f887d99d950 completed successfully with status: completed
+2026-04-18T14:55:24.141Z [INFO]: Orders_service: Received task: local_task:2abec78507727ae5
+2026-04-18T14:55:24.145Z [INFO]: Orders service: Orders GET [admin]
+2026-04-18T14:55:24.146Z [INFO]: Orders_service: Task local_task:2abec78507727ae5 completed successfully with status: completed
+2026-04-18T14:55:25.223Z [INFO]: Goods_service: Received task: local_task:2f0cd11b8e9e3677
+2026-04-18T14:55:25.229Z [INFO]: Goods_service: Task local_task:2f0cd11b8e9e3677 completed successfully with status: completed
+2026-04-18T14:55:29.304Z [INFO]: Orders_service: Received task: local_task:fee82936fa4e587b
+2026-04-18T14:55:29.307Z [INFO]: Orders service: Orders GET [admin]
+2026-04-18T14:55:29.308Z [INFO]: Orders_service: Task local_task:fee82936fa4e587b completed successfully with status: completed
+2026-04-18T14:55:30.470Z [INFO]: Goods_service: Received task: local_task:c8b6bd9bb46f7d4a
+2026-04-18T14:55:30.474Z [INFO]: Goods_service: Task local_task:c8b6bd9bb46f7d4a completed successfully with status: completed
+2026-04-18T14:56:30.505Z [INFO]: Announces_service: Received task: local_task:d8a2fef3d9f5aa73
+2026-04-18T14:56:30.508Z [INFO]: Announces_service: Task local_task:d8a2fef3d9f5aa73 completed successfully with status: completed
+2026-04-18T14:56:32.919Z [INFO]: Schedule_service: Received task: local_task:b6ccf18f36bdc2e9
+2026-04-18T14:56:32.925Z [INFO]: Schedule service: Schedule GET [admin]
+2026-04-18T14:56:32.925Z [INFO]: Schedule_service: Task local_task:b6ccf18f36bdc2e9 completed successfully with status: completed
+2026-04-18T14:56:34.324Z [INFO]: Orders_service: Received task: local_task:042ad97d1c9fa8c5
+2026-04-18T14:56:34.328Z [INFO]: Orders service: Orders GET [admin]
+2026-04-18T14:56:34.328Z [INFO]: Orders_service: Task local_task:042ad97d1c9fa8c5 completed successfully with status: completed
+2026-04-18T14:56:35.158Z [INFO]: Goods_service: Received task: local_task:d53f040cfb58fa76
+2026-04-18T14:56:35.159Z [INFO]: Orders_service: Received task: local_task:c977bae263ed0be9
+2026-04-18T14:56:35.162Z [ERROR]: Orders_service: Error: Property "goods" was not found in "Order". Make sure your query is correct.
+2026-04-18T14:56:35.163Z [INFO]: Orders_service: Task local_task:c977bae263ed0be9 completed successfully with status: error
+2026-04-18T14:56:35.167Z [INFO]: Goods_service: Task local_task:d53f040cfb58fa76 completed successfully with status: completed
+2026-04-18T14:56:37.657Z [INFO]: Goods_service: Received task: local_task:826e92b9202811a1
+2026-04-18T14:56:37.658Z [INFO]: Orders_service: Received task: local_task:dbcddeddda56da9d
+2026-04-18T14:56:37.659Z [ERROR]: Orders_service: Error: Property "goods" was not found in "Order". Make sure your query is correct.
+2026-04-18T14:56:37.660Z [INFO]: Orders_service: Task local_task:dbcddeddda56da9d completed successfully with status: error
+2026-04-18T14:56:37.662Z [INFO]: Goods_service: Task local_task:826e92b9202811a1 completed successfully with status: completed
+2026-04-18T14:57:33.853Z [INFO]: Announces_service: Database connected
+2026-04-18T14:57:33.868Z [INFO]: Announces_service: Redis connected
+2026-04-18T14:57:33.868Z [INFO]: Schedule_service: Database connected
+2026-04-18T14:57:33.879Z [INFO]: Announces_service: RabbitMQ connected
+2026-04-18T14:57:33.880Z [INFO]: Announces_service: Service is running.
+2026-04-18T14:57:33.880Z [INFO]: Schedule_service: Redis connected
+2026-04-18T14:57:33.889Z [INFO]: Schedule_service: RabbitMQ connected
+2026-04-18T14:57:33.890Z [INFO]: Schedule_service: Service is running.
+2026-04-18T14:57:33.909Z [INFO]: Orders_service: Database connected
+2026-04-18T14:57:33.913Z [INFO]: Goods_service: Database connected
+2026-04-18T14:57:33.919Z [INFO]: Orders_service: Redis connected
+2026-04-18T14:57:33.923Z [INFO]: Goods_service: Redis connected
+2026-04-18T14:57:33.928Z [INFO]: Orders_service: RabbitMQ connected
+2026-04-18T14:57:33.928Z [INFO]: Orders_service: Service is running.
+2026-04-18T14:57:33.932Z [INFO]: Goods_service: RabbitMQ connected
+2026-04-18T14:57:33.933Z [INFO]: Goods_service: Service is running.
+2026-04-18T14:58:26.758Z [INFO]: Orders_service: Received task: local_task:922895d6eee45331
+2026-04-18T14:58:26.763Z [INFO]: Orders service: Orders GET [admin]
+2026-04-18T14:58:26.764Z [INFO]: Orders_service: Task local_task:922895d6eee45331 completed successfully with status: completed
+2026-04-18T14:58:27.929Z [INFO]: Goods_service: Received task: local_task:ab7d1364486cd3b1
+2026-04-18T14:58:27.930Z [INFO]: Orders_service: Received task: local_task:9142cdec6b09c9f6
+2026-04-18T14:58:27.932Z [ERROR]: Orders_service: Error: Property "goods" was not found in "Order". Make sure your query is correct.
+2026-04-18T14:58:27.933Z [INFO]: Orders_service: Task local_task:9142cdec6b09c9f6 completed successfully with status: error
+2026-04-18T14:58:27.939Z [INFO]: Goods_service: Task local_task:ab7d1364486cd3b1 completed successfully with status: completed
+2026-04-18T15:00:21.848Z [INFO]: Goods_service: Received task: local_task:5ae77a86f2a8f812
+2026-04-18T15:00:21.853Z [INFO]: Orders_service: Received task: local_task:28e78885824cf72b
+2026-04-18T15:00:21.857Z [ERROR]: Orders_service: Error: Property "goods" was not found in "Order". Make sure your query is correct.
+2026-04-18T15:00:21.858Z [INFO]: Orders_service: Task local_task:28e78885824cf72b completed successfully with status: error
+2026-04-18T15:00:21.861Z [INFO]: Goods_service: Task local_task:5ae77a86f2a8f812 completed successfully with status: completed
+2026-04-18T15:04:07.067Z [INFO]: Schedule_service: Database connected
+2026-04-18T15:04:07.080Z [INFO]: Schedule_service: Redis connected
+2026-04-18T15:04:07.092Z [INFO]: Announces_service: Database connected
+2026-04-18T15:04:07.094Z [INFO]: Schedule_service: RabbitMQ connected
+2026-04-18T15:04:07.094Z [INFO]: Schedule_service: Service is running.
+2026-04-18T15:04:07.106Z [INFO]: Announces_service: Redis connected
+2026-04-18T15:04:07.117Z [INFO]: Announces_service: RabbitMQ connected
+2026-04-18T15:04:07.118Z [INFO]: Announces_service: Service is running.
+2026-04-18T15:04:07.134Z [INFO]: Orders_service: Database connected
+2026-04-18T15:04:07.139Z [INFO]: Goods_service: Database connected
+2026-04-18T15:04:07.145Z [INFO]: Orders_service: Redis connected
+2026-04-18T15:04:07.151Z [INFO]: Goods_service: Redis connected
+2026-04-18T15:04:07.154Z [INFO]: Orders_service: RabbitMQ connected
+2026-04-18T15:04:07.155Z [INFO]: Orders_service: Service is running.
+2026-04-18T15:04:07.160Z [INFO]: Goods_service: RabbitMQ connected
+2026-04-18T15:04:07.161Z [INFO]: Goods_service: Service is running.
+2026-04-18T15:06:53.830Z [INFO]: Orders_service: Received task: local_task:3150f5a1dc9e49a2
+2026-04-18T15:06:53.838Z [INFO]: Orders service: Orders GET [admin]
+2026-04-18T15:06:53.839Z [INFO]: Orders_service: Task local_task:3150f5a1dc9e49a2 completed successfully with status: completed
+2026-04-18T15:06:54.909Z [INFO]: Orders_service: Received task: local_task:ca4059f68aa7cb16
+2026-04-18T15:06:54.908Z [INFO]: Goods_service: Received task: local_task:bcfda267fd3c96a0
+2026-04-18T15:06:54.917Z [ERROR]: Orders_service: Error: Unknown column 'Order__Order_goodsOrders.id' in 'field list'
+2026-04-18T15:06:54.918Z [INFO]: Orders_service: Task local_task:ca4059f68aa7cb16 completed successfully with status: error
+2026-04-18T15:06:54.922Z [INFO]: Goods_service: Task local_task:bcfda267fd3c96a0 completed successfully with status: completed
+2026-04-18T15:06:59.036Z [INFO]: Goods_service: Received task: local_task:c4fead815e49d3f1
+2026-04-18T15:06:59.038Z [INFO]: Orders_service: Received task: local_task:8d45b0f884da3d15
+2026-04-18T15:06:59.041Z [ERROR]: Orders_service: Error: Unknown column 'Order__Order_goodsOrders.id' in 'field list'
+2026-04-18T15:06:59.042Z [INFO]: Orders_service: Task local_task:8d45b0f884da3d15 completed successfully with status: error
+2026-04-18T15:06:59.044Z [INFO]: Goods_service: Task local_task:c4fead815e49d3f1 completed successfully with status: completed
+2026-04-18T15:08:34.202Z [INFO]: Schedule_service: Database connected
+2026-04-18T15:08:34.202Z [INFO]: Announces_service: Database connected
+2026-04-18T15:08:34.217Z [INFO]: Schedule_service: Redis connected
+2026-04-18T15:08:34.218Z [INFO]: Announces_service: Redis connected
+2026-04-18T15:08:34.220Z [INFO]: Goods_service: Database connected
+2026-04-18T15:08:34.221Z [INFO]: Orders_service: Database connected
+2026-04-18T15:08:34.225Z [INFO]: Schedule_service: RabbitMQ connected
+2026-04-18T15:08:34.226Z [INFO]: Schedule_service: Service is running.
+2026-04-18T15:08:34.228Z [INFO]: Announces_service: RabbitMQ connected
+2026-04-18T15:08:34.229Z [INFO]: Announces_service: Service is running.
+2026-04-18T15:08:34.232Z [INFO]: Orders_service: Redis connected
+2026-04-18T15:08:34.235Z [INFO]: Goods_service: Redis connected
+2026-04-18T15:08:34.240Z [INFO]: Orders_service: RabbitMQ connected
+2026-04-18T15:08:34.241Z [INFO]: Orders_service: Service is running.
+2026-04-18T15:08:34.244Z [INFO]: Goods_service: RabbitMQ connected
+2026-04-18T15:08:34.244Z [INFO]: Goods_service: Service is running.
+2026-04-18T15:08:50.819Z [INFO]: Goods_service: Received task: local_task:3420e2614ea84f5e
+2026-04-18T15:08:50.821Z [INFO]: Orders_service: Received task: local_task:6f18d45d138db121
+2026-04-18T15:08:50.825Z [ERROR]: Orders_service: Error: Property "goods_orders" was not found in "Order". Make sure your query is correct.
+2026-04-18T15:08:50.826Z [INFO]: Orders_service: Task local_task:6f18d45d138db121 completed successfully with status: error
+2026-04-18T15:08:50.830Z [INFO]: Goods_service: Task local_task:3420e2614ea84f5e completed successfully with status: completed
+2026-04-18T15:10:20.566Z [INFO]: Announces_service: Database connected
+2026-04-18T15:10:20.577Z [INFO]: Announces_service: Redis connected
+2026-04-18T15:10:20.587Z [INFO]: Announces_service: RabbitMQ connected
+2026-04-18T15:10:20.587Z [INFO]: Announces_service: Service is running.
+2026-04-18T15:10:20.602Z [INFO]: Orders_service: Database connected
+2026-04-18T15:10:20.610Z [INFO]: Goods_service: Database connected
+2026-04-18T15:10:20.615Z [INFO]: Orders_service: Redis connected
+2026-04-18T15:10:20.621Z [INFO]: Goods_service: Redis connected
+2026-04-18T15:10:20.623Z [INFO]: Orders_service: RabbitMQ connected
+2026-04-18T15:10:20.624Z [INFO]: Orders_service: Service is running.
+2026-04-18T15:10:20.630Z [INFO]: Goods_service: RabbitMQ connected
+2026-04-18T15:10:20.631Z [INFO]: Goods_service: Service is running.
+2026-04-18T15:10:20.630Z [INFO]: Schedule_service: Database connected
+2026-04-18T15:10:20.640Z [INFO]: Schedule_service: Redis connected
+2026-04-18T15:10:20.648Z [INFO]: Schedule_service: RabbitMQ connected
+2026-04-18T15:10:20.648Z [INFO]: Schedule_service: Service is running.
+2026-04-18T15:10:23.905Z [INFO]: Goods_service: Received task: local_task:b7ebafbac50c1935
+2026-04-18T15:10:23.907Z [INFO]: Orders_service: Received task: local_task:a49fb68ce2e2f296
+2026-04-18T15:10:23.910Z [ERROR]: Orders_service: Error: Property "goodsId" was not found in "GoodsOrders". Make sure your query is correct.
+2026-04-18T15:10:23.911Z [INFO]: Orders_service: Task local_task:a49fb68ce2e2f296 completed successfully with status: error
+2026-04-18T15:10:23.916Z [INFO]: Goods_service: Task local_task:b7ebafbac50c1935 completed successfully with status: completed
+2026-04-18T15:11:34.649Z [INFO]: Announces_service: Database connected
+2026-04-18T15:11:34.660Z [INFO]: Announces_service: Redis connected
+2026-04-18T15:11:34.666Z [INFO]: Schedule_service: Database connected
+2026-04-18T15:11:34.669Z [INFO]: Announces_service: RabbitMQ connected
+2026-04-18T15:11:34.670Z [INFO]: Announces_service: Service is running.
+2026-04-18T15:11:34.677Z [INFO]: Schedule_service: Redis connected
+2026-04-18T15:11:34.685Z [INFO]: Schedule_service: RabbitMQ connected
+2026-04-18T15:11:34.686Z [INFO]: Schedule_service: Service is running.
+2026-04-18T15:11:34.691Z [INFO]: Goods_service: Database connected
+2026-04-18T15:11:34.696Z [INFO]: Orders_service: Database connected
+2026-04-18T15:11:34.701Z [INFO]: Goods_service: Redis connected
+2026-04-18T15:11:34.706Z [INFO]: Orders_service: Redis connected
+2026-04-18T15:11:34.710Z [INFO]: Goods_service: RabbitMQ connected
+2026-04-18T15:11:34.711Z [INFO]: Goods_service: Service is running.
+2026-04-18T15:11:34.715Z [INFO]: Orders_service: RabbitMQ connected
+2026-04-18T15:11:34.715Z [INFO]: Orders_service: Service is running.
+2026-04-18T15:11:42.711Z [INFO]: Goods_service: Received task: local_task:ea09a6c7860240f2
+2026-04-18T15:11:42.713Z [INFO]: Orders_service: Received task: local_task:edbac50c407f537b
+2026-04-18T15:11:42.717Z [ERROR]: Orders_service: Error: Property "GoodsOrders" was not found in "Order". Make sure your query is correct.
+2026-04-18T15:11:42.718Z [INFO]: Orders_service: Task local_task:edbac50c407f537b completed successfully with status: error
+2026-04-18T15:11:42.722Z [INFO]: Goods_service: Task local_task:ea09a6c7860240f2 completed successfully with status: completed
+2026-04-18T15:12:53.742Z [INFO]: Goods_service: Database connected
+2026-04-18T15:12:53.744Z [INFO]: Orders_service: Database connected
+2026-04-18T15:12:53.753Z [INFO]: Goods_service: Redis connected
+2026-04-18T15:12:53.755Z [INFO]: Orders_service: Redis connected
+2026-04-18T15:12:53.758Z [INFO]: Schedule_service: Database connected
+2026-04-18T15:12:53.764Z [INFO]: Goods_service: RabbitMQ connected
+2026-04-18T15:12:53.765Z [INFO]: Goods_service: Service is running.
+2026-04-18T15:12:53.766Z [INFO]: Orders_service: RabbitMQ connected
+2026-04-18T15:12:53.767Z [INFO]: Orders_service: Service is running.
+2026-04-18T15:12:53.770Z [INFO]: Schedule_service: Redis connected
+2026-04-18T15:12:53.778Z [INFO]: Schedule_service: RabbitMQ connected
+2026-04-18T15:12:53.779Z [INFO]: Schedule_service: Service is running.
+2026-04-18T15:12:53.783Z [INFO]: Announces_service: Database connected
+2026-04-18T15:12:53.793Z [INFO]: Announces_service: Redis connected
+2026-04-18T15:12:53.801Z [INFO]: Announces_service: RabbitMQ connected
+2026-04-18T15:12:53.801Z [INFO]: Announces_service: Service is running.
+2026-04-18T15:14:03.152Z [INFO]: Orders_service: Received task: local_task:0fc9714d9f4a30c3
+2026-04-18T15:14:03.151Z [INFO]: Goods_service: Received task: local_task:31c8e221fbbf6bf7
+2026-04-18T15:14:03.161Z [ERROR]: Orders_service: Error: Unknown column 'Order__Order_goodsOrders.id' in 'field list'
+2026-04-18T15:14:03.162Z [INFO]: Orders_service: Task local_task:0fc9714d9f4a30c3 completed successfully with status: error
+2026-04-18T15:14:03.166Z [INFO]: Goods_service: Task local_task:31c8e221fbbf6bf7 completed successfully with status: completed
+2026-04-18T15:17:22.005Z [INFO]: Announces_service: Database connected
+2026-04-18T15:17:22.017Z [INFO]: Announces_service: Redis connected
+2026-04-18T15:17:22.027Z [INFO]: Announces_service: RabbitMQ connected
+2026-04-18T15:17:22.028Z [INFO]: Announces_service: Service is running.
+2026-04-18T15:17:22.042Z [INFO]: Schedule_service: Database connected
+2026-04-18T15:17:22.056Z [INFO]: Schedule_service: Redis connected
+2026-04-18T15:17:22.056Z [INFO]: Orders_service: Database connected
+2026-04-18T15:17:22.066Z [INFO]: Schedule_service: RabbitMQ connected
+2026-04-18T15:17:22.067Z [INFO]: Schedule_service: Service is running.
+2026-04-18T15:17:22.069Z [INFO]: Orders_service: Redis connected
+2026-04-18T15:17:22.070Z [INFO]: Goods_service: Database connected
+2026-04-18T15:17:22.077Z [INFO]: Orders_service: RabbitMQ connected
+2026-04-18T15:17:22.078Z [INFO]: Orders_service: Service is running.
+2026-04-18T15:17:22.080Z [INFO]: Goods_service: Redis connected
+2026-04-18T15:17:22.088Z [INFO]: Goods_service: RabbitMQ connected
+2026-04-18T15:17:22.088Z [INFO]: Goods_service: Service is running.
+2026-04-18T15:28:36.005Z [INFO]: Goods_service: Received task: local_task:d000501085dbbee3
+2026-04-18T15:28:36.007Z [INFO]: Orders_service: Received task: local_task:e326ddd5c9e0442e
+2026-04-18T15:28:36.015Z [ERROR]: Orders_service: Error: Unknown column 'goodsOrders.id' in 'field list'
+2026-04-18T15:28:36.017Z [INFO]: Orders_service: Task local_task:e326ddd5c9e0442e completed successfully with status: error
+2026-04-18T15:28:36.019Z [INFO]: Goods_service: Task local_task:d000501085dbbee3 completed successfully with status: completed
+2026-04-18T15:28:51.674Z [INFO]: Goods_service: Database connected
+2026-04-18T15:28:51.689Z [INFO]: Goods_service: Redis connected
+2026-04-18T15:28:51.696Z [INFO]: Orders_service: Database connected
+2026-04-18T15:28:51.706Z [INFO]: Goods_service: RabbitMQ connected
+2026-04-18T15:28:51.708Z [INFO]: Goods_service: Service is running.
+2026-04-18T15:28:51.710Z [INFO]: Schedule_service: Database connected
+2026-04-18T15:28:51.712Z [INFO]: Orders_service: Redis connected
+2026-04-18T15:28:51.724Z [INFO]: Schedule_service: Redis connected
+2026-04-18T15:28:51.723Z [INFO]: Announces_service: Database connected
+2026-04-18T15:28:51.726Z [INFO]: Orders_service: RabbitMQ connected
+2026-04-18T15:28:51.727Z [INFO]: Orders_service: Service is running.
+2026-04-18T15:28:51.736Z [INFO]: Announces_service: Redis connected
+2026-04-18T15:28:51.738Z [INFO]: Schedule_service: RabbitMQ connected
+2026-04-18T15:28:51.739Z [INFO]: Schedule_service: Service is running.
+2026-04-18T15:28:51.746Z [INFO]: Announces_service: RabbitMQ connected
+2026-04-18T15:28:51.747Z [INFO]: Announces_service: Service is running.
+2026-04-18T15:29:30.659Z [INFO]: Goods_service: Received task: local_task:a20fc57bbb56972d
+2026-04-18T15:29:30.661Z [INFO]: Orders_service: Received task: local_task:7969995121ab594f
+2026-04-18T15:29:30.666Z [ERROR]: Orders_service: Error: Unknown column 'goodsOrders.id' in 'field list'
+2026-04-18T15:29:30.668Z [INFO]: Orders_service: Task local_task:7969995121ab594f completed successfully with status: error
+2026-04-18T15:29:30.670Z [INFO]: Goods_service: Task local_task:a20fc57bbb56972d completed successfully with status: completed
+2026-04-18T15:31:06.411Z [INFO]: Schedule_service: Database connected
+2026-04-18T15:31:06.427Z [INFO]: Schedule_service: Redis connected
+2026-04-18T15:31:06.439Z [INFO]: Orders_service: Database connected
+2026-04-18T15:31:06.440Z [INFO]: Schedule_service: RabbitMQ connected
+2026-04-18T15:31:06.441Z [INFO]: Schedule_service: Service is running.
+2026-04-18T15:31:06.442Z [INFO]: Goods_service: Database connected
+2026-04-18T15:31:06.454Z [INFO]: Goods_service: Redis connected
+2026-04-18T15:31:06.454Z [INFO]: Orders_service: Redis connected
+2026-04-18T15:31:06.456Z [INFO]: Announces_service: Database connected
+2026-04-18T15:31:06.464Z [INFO]: Goods_service: RabbitMQ connected
+2026-04-18T15:31:06.465Z [INFO]: Goods_service: Service is running.
+2026-04-18T15:31:06.466Z [INFO]: Orders_service: RabbitMQ connected
+2026-04-18T15:31:06.467Z [INFO]: Orders_service: Service is running.
+2026-04-18T15:31:06.471Z [INFO]: Announces_service: Redis connected
+2026-04-18T15:31:06.482Z [INFO]: Announces_service: RabbitMQ connected
+2026-04-18T15:31:06.483Z [INFO]: Announces_service: Service is running.
+2026-04-18T15:31:18.568Z [INFO]: Goods_service: Received task: local_task:ad8e09aed4efdb3b
+2026-04-18T15:31:18.569Z [INFO]: Orders_service: Received task: local_task:375083abd891aec7
+2026-04-18T15:31:18.574Z [ERROR]: Orders_service: Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ':orderId' at line 1
+2026-04-18T15:31:18.575Z [INFO]: Orders_service: Task local_task:375083abd891aec7 completed successfully with status: error
+2026-04-18T15:31:18.579Z [INFO]: Goods_service: Task local_task:ad8e09aed4efdb3b completed successfully with status: completed
+2026-04-18T15:32:32.664Z [INFO]: Goods_service: Database connected
+2026-04-18T15:32:32.676Z [INFO]: Goods_service: Redis connected
+2026-04-18T15:32:32.684Z [INFO]: Goods_service: RabbitMQ connected
+2026-04-18T15:32:32.685Z [INFO]: Goods_service: Service is running.
+2026-04-18T15:32:32.707Z [INFO]: Schedule_service: Database connected
+2026-04-18T15:32:32.718Z [INFO]: Announces_service: Database connected
+2026-04-18T15:32:32.720Z [INFO]: Schedule_service: Redis connected
+2026-04-18T15:32:32.730Z [INFO]: Announces_service: Redis connected
+2026-04-18T15:32:32.731Z [INFO]: Schedule_service: RabbitMQ connected
+2026-04-18T15:32:32.731Z [INFO]: Schedule_service: Service is running.
+2026-04-18T15:32:32.735Z [INFO]: Orders_service: Database connected
+2026-04-18T15:32:32.738Z [INFO]: Announces_service: RabbitMQ connected
+2026-04-18T15:32:32.739Z [INFO]: Announces_service: Service is running.
+2026-04-18T15:32:32.745Z [INFO]: Orders_service: Redis connected
+2026-04-18T15:32:32.752Z [INFO]: Orders_service: RabbitMQ connected
+2026-04-18T15:32:32.753Z [INFO]: Orders_service: Service is running.
+2026-04-18T15:32:36.098Z [INFO]: Goods_service: Received task: local_task:8ab1c91afdd93243
+2026-04-18T15:32:36.102Z [INFO]: Orders_service: Received task: local_task:d009e40bfd8a99e8
+2026-04-18T15:32:36.104Z [ERROR]: Orders_service: Error: Relation with property path goodsId in entity was not found.
+2026-04-18T15:32:36.106Z [INFO]: Orders_service: Task local_task:d009e40bfd8a99e8 completed successfully with status: error
+2026-04-18T15:32:36.110Z [INFO]: Goods_service: Task local_task:8ab1c91afdd93243 completed successfully with status: completed
+2026-04-18T15:33:50.287Z [INFO]: Orders_service: Database connected
+2026-04-18T15:33:50.298Z [INFO]: Orders_service: Redis connected
+2026-04-18T15:33:50.309Z [INFO]: Orders_service: RabbitMQ connected
+2026-04-18T15:33:50.310Z [INFO]: Orders_service: Service is running.
+2026-04-18T15:33:50.309Z [INFO]: Goods_service: Database connected
+2026-04-18T15:33:50.320Z [INFO]: Announces_service: Database connected
+2026-04-18T15:33:50.323Z [INFO]: Goods_service: Redis connected
+2026-04-18T15:33:50.322Z [INFO]: Schedule_service: Database connected
+2026-04-18T15:33:50.332Z [INFO]: Announces_service: Redis connected
+2026-04-18T15:33:50.335Z [INFO]: Goods_service: RabbitMQ connected
+2026-04-18T15:33:50.337Z [INFO]: Goods_service: Service is running.
+2026-04-18T15:33:50.340Z [INFO]: Schedule_service: Redis connected
+2026-04-18T15:33:50.344Z [INFO]: Announces_service: RabbitMQ connected
+2026-04-18T15:33:50.345Z [INFO]: Announces_service: Service is running.
+2026-04-18T15:33:50.353Z [INFO]: Schedule_service: RabbitMQ connected
+2026-04-18T15:33:50.354Z [INFO]: Schedule_service: Service is running.
+2026-04-18T15:34:24.561Z [INFO]: Goods_service: Received task: local_task:2780fd1e77689df8
+2026-04-18T15:34:24.568Z [INFO]: Orders_service: Received task: local_task:df7cb43e538e2670
+2026-04-18T15:34:24.570Z [INFO]: Goods_service: Task local_task:2780fd1e77689df8 completed successfully with status: completed
+2026-04-18T15:34:24.573Z [ERROR]: Orders_service: Error: Unknown column 'goodsOrders.id' in 'field list'
+2026-04-18T15:34:24.574Z [INFO]: Orders_service: Task local_task:df7cb43e538e2670 completed successfully with status: error
+2026-04-18T15:38:46.279Z [INFO]: Local-api: Database connected
+2026-04-18T15:38:46.289Z [INFO]: Local-api: Database initialized
+2026-04-18T15:38:46.299Z [INFO]: Local-api: Redis connected
+2026-04-18T15:38:46.306Z [ERROR]: Local-api: Failed to start server: connect ECONNREFUSED 172.20.0.2:5672
+2026-04-18T15:38:46.969Z [INFO]: Orders_service: Database connected
+2026-04-18T15:38:46.986Z [INFO]: Orders_service: Redis connected
+2026-04-18T15:38:47.018Z [INFO]: Announces_service: Database connected
+2026-04-18T15:38:47.034Z [INFO]: Announces_service: Redis connected
+2026-04-18T15:38:47.047Z [INFO]: Schedule_service: Database connected
+2026-04-18T15:38:47.066Z [INFO]: Schedule_service: Redis connected
+2026-04-18T15:38:47.162Z [INFO]: Goods_service: Database connected
+2026-04-18T15:38:47.181Z [INFO]: Goods_service: Redis connected
+2026-04-18T15:38:55.282Z [INFO]: Orders_service: Database connected
+2026-04-18T15:38:55.292Z [INFO]: Schedule_service: Database connected
+2026-04-18T15:38:55.294Z [INFO]: Orders_service: Redis connected
+2026-04-18T15:38:55.303Z [INFO]: Schedule_service: Redis connected
+2026-04-18T15:38:55.310Z [INFO]: Orders_service: RabbitMQ connected
+2026-04-18T15:38:55.311Z [INFO]: Orders_service: Service is running.
+2026-04-18T15:38:55.313Z [INFO]: Schedule_service: RabbitMQ connected
+2026-04-18T15:38:55.314Z [INFO]: Schedule_service: Service is running.
+2026-04-18T15:38:55.338Z [INFO]: Announces_service: Database connected
+2026-04-18T15:38:55.352Z [INFO]: Announces_service: Redis connected
+2026-04-18T15:38:55.361Z [INFO]: Announces_service: RabbitMQ connected
+2026-04-18T15:38:55.361Z [INFO]: Announces_service: Service is running.
+2026-04-18T15:38:55.363Z [INFO]: Goods_service: Database connected
+2026-04-18T15:38:55.373Z [INFO]: Goods_service: Redis connected
+2026-04-18T15:38:55.380Z [INFO]: Goods_service: RabbitMQ connected
+2026-04-18T15:38:55.381Z [INFO]: Goods_service: Service is running.
+2026-04-18T15:38:56.973Z [INFO]: Local-api: Database connected
+2026-04-18T15:38:56.978Z [INFO]: Local-api: Database initialized
+2026-04-18T15:38:56.987Z [INFO]: Local-api: Redis connected
+2026-04-18T15:38:56.995Z [INFO]: Local-api: RabbitMQ connected
+2026-04-18T15:38:57.034Z [INFO]: Local-api: RabbitMQ setup completed
+2026-04-18T15:38:57.039Z [INFO]: Local-api: Routers initialized
+2026-04-18T15:38:57.045Z [INFO]: Local-api: Local API server running on port 8080
+2026-04-18T15:38:57.045Z [INFO]: Local-api: Initialized
+2026-04-18T15:39:01.813Z [INFO]: Goods_service: Received task: local_task:13789d03bff0560e
+2026-04-18T15:39:01.825Z [INFO]: Goods_service: Task local_task:13789d03bff0560e completed successfully with status: completed
+2026-04-18T15:39:01.827Z [INFO]: Orders_service: Received task: local_task:14b6921aed94d8cd
+2026-04-18T15:39:01.837Z [INFO]: Orders service: Order GET [admin]
+2026-04-18T15:39:01.838Z [INFO]: Orders_service: Task local_task:14b6921aed94d8cd completed successfully with status: completed
+2026-04-18T15:41:38.054Z [ERROR]: Local-api: Failed to start server: connect ECONNREFUSED 172.19.0.3:3306
+2026-04-18T15:42:05.680Z [INFO]: Schedule_service: Database connected
+2026-04-18T15:42:05.685Z [INFO]: Orders_service: Database connected
+2026-04-18T15:42:05.687Z [INFO]: Local-api: Database connected
+2026-04-18T15:42:05.694Z [INFO]: Schedule_service: Redis connected
+2026-04-18T15:42:05.698Z [INFO]: Local-api: Database initialized
+2026-04-18T15:42:05.700Z [INFO]: Orders_service: Redis connected
+2026-04-18T15:42:05.710Z [INFO]: Schedule_service: RabbitMQ connected
+2026-04-18T15:42:05.711Z [INFO]: Schedule_service: Service is running.
+2026-04-18T15:42:05.713Z [INFO]: Local-api: Redis connected
+2026-04-18T15:42:05.715Z [ERROR]: Schedule_service: Failed to register consumer for local_schedule_queue: Operation failed: BasicConsume; 404 (NOT-FOUND) with message "NOT_FOUND - no queue 'local_schedule_queue' in vhost '/'"
+2026-04-18T15:42:05.716Z [INFO]: Orders_service: RabbitMQ connected
+2026-04-18T15:42:05.718Z [INFO]: Orders_service: Service is running.
+2026-04-18T15:42:05.730Z [INFO]: Local-api: RabbitMQ connected
+2026-04-18T15:42:05.766Z [INFO]: Goods_service: Database connected
+2026-04-18T15:42:05.776Z [INFO]: Announces_service: Database connected
+2026-04-18T15:42:05.779Z [INFO]: Goods_service: Redis connected
+2026-04-18T15:42:05.788Z [INFO]: Announces_service: Redis connected
+2026-04-18T15:42:05.788Z [INFO]: Goods_service: RabbitMQ connected
+2026-04-18T15:42:05.789Z [INFO]: Goods_service: Service is running.
+2026-04-18T15:42:05.797Z [INFO]: Announces_service: RabbitMQ connected
+2026-04-18T15:42:05.798Z [INFO]: Announces_service: Service is running.
+2026-04-18T15:42:05.806Z [INFO]: Local-api: RabbitMQ setup completed
+2026-04-18T15:42:05.812Z [INFO]: Local-api: Routers initialized
+2026-04-18T15:42:05.823Z [INFO]: Local-api: Local API server running on port 8080
+2026-04-18T15:42:05.824Z [INFO]: Local-api: Initialized
+2026-04-18T15:42:08.652Z [INFO]: Schedule_service: Database connected
+2026-04-18T15:42:08.659Z [INFO]: Schedule_service: Redis connected
+2026-04-18T15:42:08.669Z [INFO]: Schedule_service: RabbitMQ connected
+2026-04-18T15:42:08.670Z [INFO]: Schedule_service: Service is running.
+2026-04-18T15:42:09.616Z [INFO]: Orders_service: Database connected
+2026-04-18T15:42:09.623Z [INFO]: Orders_service: Redis connected
+2026-04-18T15:42:09.633Z [INFO]: Orders_service: RabbitMQ connected
+2026-04-18T15:42:09.634Z [INFO]: Orders_service: Service is running.
+2026-04-18T15:43:23.126Z [INFO]: Orders_service: Received task: local_task:b7426b6a6ddf1c3c
+2026-04-18T15:43:23.134Z [INFO]: Orders service: Orders GET [admin]
+2026-04-18T15:43:23.135Z [INFO]: Orders_service: Task local_task:b7426b6a6ddf1c3c completed successfully with status: completed
+2026-04-18T15:43:26.062Z [INFO]: Goods_service: Received task: local_task:957b9ce1ceb3b206
+2026-04-18T15:43:26.064Z [INFO]: Orders_service: Received task: local_task:62c6a20c3e1cb4aa
+2026-04-18T15:43:26.070Z [INFO]: Orders service: Order GET [admin]
+2026-04-18T15:43:26.071Z [INFO]: Orders_service: Task local_task:62c6a20c3e1cb4aa completed successfully with status: completed
+2026-04-18T15:43:26.074Z [INFO]: Goods_service: Task local_task:957b9ce1ceb3b206 completed successfully with status: completed
+2026-04-18T15:44:40.994Z [INFO]: Goods_service: Received task: local_task:078f213f9f873cd5
+2026-04-18T15:44:41.000Z [INFO]: Orders_service: Received task: local_task:c690c04433cc4bc6
+2026-04-18T15:44:41.004Z [INFO]: Orders service: Order GET [admin]
+2026-04-18T15:44:41.004Z [INFO]: Orders_service: Task local_task:c690c04433cc4bc6 completed successfully with status: completed
+2026-04-18T15:44:41.008Z [INFO]: Goods_service: Task local_task:078f213f9f873cd5 completed successfully with status: completed
+2026-04-18T15:44:56.799Z [INFO]: Goods_service: Received task: local_task:ac739f479d68c0db
+2026-04-18T15:44:56.802Z [INFO]: Orders_service: Received task: local_task:dc6ed8a9de5bc9b8
+2026-04-18T15:44:56.807Z [INFO]: Orders service: Order GET [admin]
+2026-04-18T15:44:56.808Z [INFO]: Orders_service: Task local_task:dc6ed8a9de5bc9b8 completed successfully with status: completed
+2026-04-18T15:44:56.810Z [INFO]: Goods_service: Task local_task:ac739f479d68c0db completed successfully with status: completed
+2026-04-18T15:44:59.444Z [INFO]: Goods_service: Received task: local_task:9cc87e314241b972
+2026-04-18T15:44:59.446Z [INFO]: Orders_service: Received task: local_task:e3165ca3942164fe
+2026-04-18T15:44:59.450Z [INFO]: Orders service: Order GET [admin]
+2026-04-18T15:44:59.451Z [INFO]: Orders_service: Task local_task:e3165ca3942164fe completed successfully with status: completed
+2026-04-18T15:44:59.452Z [INFO]: Goods_service: Task local_task:9cc87e314241b972 completed successfully with status: completed
+2026-04-18T15:45:04.661Z [INFO]: Goods_service: Received task: local_task:8e4cad19fb9eb049
+2026-04-18T15:45:04.664Z [INFO]: Orders_service: Received task: local_task:307b5e54a481eab2
+2026-04-18T15:45:04.667Z [INFO]: Orders service: Order GET [admin]
+2026-04-18T15:45:04.668Z [INFO]: Orders_service: Task local_task:307b5e54a481eab2 completed successfully with status: completed
+2026-04-18T15:45:04.668Z [INFO]: Goods_service: Task local_task:8e4cad19fb9eb049 completed successfully with status: completed
+2026-04-18T15:45:09.102Z [INFO]: Goods_service: Received task: local_task:f70d77cab3757869
+2026-04-18T15:45:09.107Z [INFO]: Orders_service: Received task: local_task:c1061578a372b960
+2026-04-18T15:45:09.109Z [INFO]: Goods_service: Task local_task:f70d77cab3757869 completed successfully with status: completed
+2026-04-18T15:45:09.111Z [INFO]: Orders service: Order GET [admin]
+2026-04-18T15:45:09.112Z [INFO]: Orders_service: Task local_task:c1061578a372b960 completed successfully with status: completed
+2026-04-18T15:45:25.641Z [INFO]: Goods_service: Received task: local_task:91b2767499737436
+2026-04-18T15:45:25.643Z [INFO]: Orders_service: Received task: local_task:1b0bfd17e20e967d
+2026-04-18T15:45:25.646Z [INFO]: Orders service: Order GET [admin]
+2026-04-18T15:45:25.647Z [INFO]: Orders_service: Task local_task:1b0bfd17e20e967d completed successfully with status: completed
+2026-04-18T15:45:25.647Z [INFO]: Goods_service: Task local_task:91b2767499737436 completed successfully with status: completed
+2026-04-18T15:45:32.542Z [INFO]: Goods_service: Received task: local_task:8b19c94bbbc0e53e
+2026-04-18T15:45:32.549Z [INFO]: Goods_service: Task local_task:8b19c94bbbc0e53e completed successfully with status: completed
+2026-04-18T15:45:32.551Z [INFO]: Orders_service: Received task: local_task:1bac5630eb9e6dc8
+2026-04-18T15:45:32.555Z [INFO]: Orders service: Order GET [admin]
+2026-04-18T15:45:32.555Z [INFO]: Orders_service: Task local_task:1bac5630eb9e6dc8 completed successfully with status: completed
+2026-04-18T15:45:42.573Z [INFO]: Goods_service: Received task: local_task:9879690e920e308f
+2026-04-18T15:45:42.577Z [INFO]: Orders_service: Received task: local_task:711a56f9e5639408
+2026-04-18T15:45:42.580Z [INFO]: Orders service: Order GET [admin]
+2026-04-18T15:45:42.582Z [INFO]: Orders_service: Task local_task:711a56f9e5639408 completed successfully with status: completed
+2026-04-18T15:45:42.582Z [INFO]: Goods_service: Task local_task:9879690e920e308f completed successfully with status: completed
+2026-04-18T15:45:55.463Z [INFO]: Goods_service: Received task: local_task:de223ea7af70419e
+2026-04-18T15:45:55.466Z [INFO]: Orders_service: Received task: local_task:3fe1d81ad9d8e609
+2026-04-18T15:45:55.470Z [INFO]: Orders service: Order GET [admin]
+2026-04-18T15:45:55.471Z [INFO]: Orders_service: Task local_task:3fe1d81ad9d8e609 completed successfully with status: completed
+2026-04-18T15:45:55.471Z [INFO]: Goods_service: Task local_task:de223ea7af70419e completed successfully with status: completed
+2026-04-18T15:46:16.340Z [INFO]: Goods_service: Received task: local_task:637699aaa8dbe666
+2026-04-18T15:46:16.343Z [INFO]: Orders_service: Received task: local_task:8fddde04d6c41299
+2026-04-18T15:46:16.347Z [INFO]: Goods_service: Task local_task:637699aaa8dbe666 completed successfully with status: completed
+2026-04-18T15:46:16.349Z [INFO]: Orders service: Order GET [admin]
+2026-04-18T15:46:16.350Z [INFO]: Orders_service: Task local_task:8fddde04d6c41299 completed successfully with status: completed
+2026-04-18T15:46:20.094Z [INFO]: Goods_service: Received task: local_task:7e761ad0a02d5878
+2026-04-18T15:46:20.096Z [INFO]: Orders_service: Received task: local_task:1d86be84d46ce010
+2026-04-18T15:46:20.100Z [INFO]: Orders service: Order GET [admin]
+2026-04-18T15:46:20.100Z [INFO]: Goods_service: Task local_task:7e761ad0a02d5878 completed successfully with status: completed
+2026-04-18T15:46:20.100Z [INFO]: Orders_service: Task local_task:1d86be84d46ce010 completed successfully with status: completed
+2026-04-18T15:46:27.904Z [INFO]: Goods_service: Received task: local_task:5ba82bcfa3765464
+2026-04-18T15:46:27.907Z [INFO]: Orders_service: Received task: local_task:64322293f6a9155e
+2026-04-18T15:46:27.910Z [INFO]: Orders service: Order GET [admin]
+2026-04-18T15:46:27.911Z [INFO]: Orders_service: Task local_task:64322293f6a9155e completed successfully with status: completed
+2026-04-18T15:46:27.913Z [INFO]: Goods_service: Task local_task:5ba82bcfa3765464 completed successfully with status: completed
+2026-04-18T15:46:32.840Z [INFO]: Goods_service: Received task: local_task:704b957e74ea2ebb
+2026-04-18T15:46:32.842Z [INFO]: Orders_service: Received task: local_task:0873d9c22e0732f4
+2026-04-18T15:46:32.844Z [INFO]: Orders service: Order GET [admin]
+2026-04-18T15:46:32.845Z [INFO]: Orders_service: Task local_task:0873d9c22e0732f4 completed successfully with status: completed
+2026-04-18T15:46:32.845Z [INFO]: Goods_service: Task local_task:704b957e74ea2ebb completed successfully with status: completed
+2026-04-18T15:46:44.633Z [INFO]: Goods_service: Received task: local_task:1f5c3451d39a069b
+2026-04-18T15:46:44.637Z [INFO]: Orders_service: Received task: local_task:97f3287e9bf25b3d
+2026-04-18T15:46:44.642Z [INFO]: Goods_service: Task local_task:1f5c3451d39a069b completed successfully with status: completed
+2026-04-18T15:46:44.643Z [INFO]: Orders service: Order GET [admin]
+2026-04-18T15:46:44.644Z [INFO]: Orders_service: Task local_task:97f3287e9bf25b3d completed successfully with status: completed
+2026-04-18T15:46:47.078Z [INFO]: Goods_service: Received task: local_task:4e26dce730df39d0
+2026-04-18T15:46:47.080Z [INFO]: Orders_service: Received task: local_task:ce24635dfc29bd08
+2026-04-18T15:46:47.083Z [INFO]: Orders service: Order GET [admin]
+2026-04-18T15:46:47.084Z [INFO]: Orders_service: Task local_task:ce24635dfc29bd08 completed successfully with status: completed
+2026-04-18T15:46:47.084Z [INFO]: Goods_service: Task local_task:4e26dce730df39d0 completed successfully with status: completed
+2026-04-18T15:46:56.926Z [INFO]: Goods_service: Received task: local_task:df949df6be87fc10
+2026-04-18T15:46:56.928Z [INFO]: Orders_service: Received task: local_task:d1cefa0d77f42fbb
+2026-04-18T15:46:56.932Z [INFO]: Orders service: Order GET [admin]
+2026-04-18T15:46:56.933Z [INFO]: Orders_service: Task local_task:d1cefa0d77f42fbb completed successfully with status: completed
+2026-04-18T15:46:56.934Z [INFO]: Goods_service: Task local_task:df949df6be87fc10 completed successfully with status: completed
+2026-04-18T15:47:00.350Z [INFO]: Goods_service: Received task: local_task:774c8b95251c8811
+2026-04-18T15:47:00.352Z [INFO]: Orders_service: Received task: local_task:867010864037e29e
+2026-04-18T15:47:00.355Z [INFO]: Orders service: Order GET [admin]
+2026-04-18T15:47:00.356Z [INFO]: Orders_service: Task local_task:867010864037e29e completed successfully with status: completed
+2026-04-18T15:47:00.356Z [INFO]: Goods_service: Task local_task:774c8b95251c8811 completed successfully with status: completed
+2026-04-18T15:47:13.413Z [INFO]: Goods_service: Received task: local_task:9459ea9cadedf252
+2026-04-18T15:47:13.415Z [INFO]: Orders_service: Received task: local_task:e414d559ee9c395a
+2026-04-18T15:47:13.418Z [INFO]: Orders service: Order GET [admin]
+2026-04-18T15:47:13.419Z [INFO]: Orders_service: Task local_task:e414d559ee9c395a completed successfully with status: completed
+2026-04-18T15:47:13.419Z [INFO]: Goods_service: Task local_task:9459ea9cadedf252 completed successfully with status: completed
+2026-04-18T15:47:41.452Z [INFO]: Goods_service: Received task: local_task:9b25c27a4a4ad4fc
+2026-04-18T15:47:41.457Z [INFO]: Goods_service: Task local_task:9b25c27a4a4ad4fc completed successfully with status: completed
+2026-04-18T15:47:41.458Z [INFO]: Orders_service: Received task: local_task:53d139682cd792b0
+2026-04-18T15:47:41.461Z [INFO]: Orders service: Order GET [admin]
+2026-04-18T15:47:41.461Z [INFO]: Orders_service: Task local_task:53d139682cd792b0 completed successfully with status: completed
+2026-04-18T15:47:52.097Z [INFO]: Goods_service: Received task: local_task:2be8da685ef99268
+2026-04-18T15:47:52.099Z [INFO]: Orders_service: Received task: local_task:dd6fe0d8c8f7be8c
+2026-04-18T15:47:52.101Z [INFO]: Orders service: Order GET [admin]
+2026-04-18T15:47:52.102Z [INFO]: Orders_service: Task local_task:dd6fe0d8c8f7be8c completed successfully with status: completed
+2026-04-18T15:47:52.102Z [INFO]: Goods_service: Task local_task:2be8da685ef99268 completed successfully with status: completed
+2026-04-18T15:47:56.535Z [INFO]: Goods_service: Received task: local_task:974636425b5901bc
+2026-04-18T15:47:56.537Z [INFO]: Orders_service: Received task: local_task:39752d76a6b0c25b
+2026-04-18T15:47:56.540Z [INFO]: Orders service: Order GET [admin]
+2026-04-18T15:47:56.541Z [INFO]: Goods_service: Task local_task:974636425b5901bc completed successfully with status: completed
+2026-04-18T15:47:56.541Z [INFO]: Orders_service: Task local_task:39752d76a6b0c25b completed successfully with status: completed
+2026-04-18T15:47:57.278Z [INFO]: Goods_service: Received task: local_task:4681f30a1ddc19ee
+2026-04-18T15:47:57.282Z [INFO]: Orders_service: Received task: local_task:c1039fb800eaf220
+2026-04-18T15:47:57.283Z [INFO]: Goods_service: Task local_task:4681f30a1ddc19ee completed successfully with status: completed
+2026-04-18T15:47:57.285Z [INFO]: Orders service: Order GET [admin]
+2026-04-18T15:47:57.286Z [INFO]: Orders_service: Task local_task:c1039fb800eaf220 completed successfully with status: completed
+2026-04-18T15:48:06.862Z [INFO]: Goods_service: Received task: local_task:25d1b2e17a2969c9
+2026-04-18T15:48:06.866Z [INFO]: Orders_service: Received task: local_task:50e19b785064df2c
+2026-04-18T15:48:06.867Z [INFO]: Goods_service: Task local_task:25d1b2e17a2969c9 completed successfully with status: completed
+2026-04-18T15:48:06.869Z [INFO]: Orders service: Order GET [admin]
+2026-04-18T15:48:06.869Z [INFO]: Orders_service: Task local_task:50e19b785064df2c completed successfully with status: completed
+2026-04-18T15:48:09.750Z [INFO]: Goods_service: Received task: local_task:e616ec35cd945c20
+2026-04-18T15:48:09.752Z [INFO]: Orders_service: Received task: local_task:2033b6da7eb5ef2a
+2026-04-18T15:48:09.754Z [INFO]: Orders service: Order GET [admin]
+2026-04-18T15:48:09.755Z [INFO]: Orders_service: Task local_task:2033b6da7eb5ef2a completed successfully with status: completed
+2026-04-18T15:48:09.756Z [INFO]: Goods_service: Task local_task:e616ec35cd945c20 completed successfully with status: completed
+2026-04-18T15:48:15.951Z [INFO]: Goods_service: Received task: local_task:697d207f5235780b
+2026-04-18T15:48:15.955Z [INFO]: Orders_service: Received task: local_task:9c69807e32d8ffdd
+2026-04-18T15:48:15.955Z [INFO]: Goods_service: Task local_task:697d207f5235780b completed successfully with status: completed
+2026-04-18T15:48:15.958Z [INFO]: Orders service: Order GET [admin]
+2026-04-18T15:48:15.959Z [INFO]: Orders_service: Task local_task:9c69807e32d8ffdd completed successfully with status: completed
+2026-04-18T15:48:29.079Z [INFO]: Goods_service: Received task: local_task:3f29214ce1f2e6db
+2026-04-18T15:48:29.083Z [INFO]: Goods_service: Task local_task:3f29214ce1f2e6db completed successfully with status: completed
+2026-04-18T15:48:29.085Z [INFO]: Orders_service: Received task: local_task:5ba9ab591c16a95f
+2026-04-18T15:48:29.088Z [INFO]: Orders service: Order GET [admin]
+2026-04-18T15:48:29.088Z [INFO]: Orders_service: Task local_task:5ba9ab591c16a95f completed successfully with status: completed
+2026-04-18T15:48:31.062Z [INFO]: Orders_service: Received task: local_task:6a5a8caf92e1dc05
+2026-04-18T15:48:31.111Z [INFO]: Orders service: Order PATCH [admin]
+2026-04-18T15:48:31.112Z [INFO]: Orders_service: Task local_task:6a5a8caf92e1dc05 completed successfully with status: completed
+2026-04-18T15:48:34.529Z [INFO]: Orders_service: Received task: local_task:fb86836b5f458deb
+2026-04-18T15:48:34.532Z [INFO]: Orders service: Orders GET [admin]
+2026-04-18T15:48:34.533Z [INFO]: Orders_service: Task local_task:fb86836b5f458deb completed successfully with status: completed
+2026-04-18T15:48:35.657Z [INFO]: Goods_service: Received task: local_task:5749222a824e4728
+2026-04-18T15:48:35.659Z [INFO]: Orders_service: Received task: local_task:204cc034f79d28df
+2026-04-18T15:48:35.661Z [INFO]: Orders service: Order GET [admin]
+2026-04-18T15:48:35.662Z [INFO]: Orders_service: Task local_task:204cc034f79d28df completed successfully with status: completed
+2026-04-18T15:48:35.662Z [INFO]: Goods_service: Task local_task:5749222a824e4728 completed successfully with status: completed
+2026-04-18T15:48:40.188Z [INFO]: Orders_service: Received task: local_task:af3c87d25dbad35b
+2026-04-18T15:48:40.224Z [INFO]: Orders service: Order PATCH [admin]
+2026-04-18T15:48:40.224Z [INFO]: Orders_service: Task local_task:af3c87d25dbad35b completed successfully with status: completed
+2026-04-18T15:48:41.086Z [INFO]: Orders_service: Received task: local_task:27243002aee18f9b
+2026-04-18T15:48:41.088Z [INFO]: Orders service: Orders GET [admin]
+2026-04-18T15:48:41.088Z [INFO]: Orders_service: Task local_task:27243002aee18f9b completed successfully with status: completed
+2026-04-18T15:48:42.133Z [INFO]: Goods_service: Received task: local_task:19b54d58b3ab024e
+2026-04-18T15:48:42.137Z [INFO]: Goods_service: Task local_task:19b54d58b3ab024e completed successfully with status: completed
+2026-04-18T15:48:42.138Z [INFO]: Orders_service: Received task: local_task:e0ad677b03c30bc3
+2026-04-18T15:48:42.140Z [INFO]: Orders service: Order GET [admin]
+2026-04-18T15:48:42.141Z [INFO]: Orders_service: Task local_task:e0ad677b03c30bc3 completed successfully with status: completed
+2026-04-18T15:48:54.595Z [INFO]: Orders_service: Received task: local_task:3aaab49ced73dcf0
+2026-04-18T15:48:54.597Z [INFO]: Orders service: Orders GET [admin]
+2026-04-18T15:48:54.597Z [INFO]: Orders_service: Task local_task:3aaab49ced73dcf0 completed successfully with status: completed
+2026-04-18T15:48:55.563Z [INFO]: Goods_service: Received task: local_task:7ee2de9b132382ab
+2026-04-18T15:48:55.567Z [INFO]: Goods_service: Task local_task:7ee2de9b132382ab completed successfully with status: completed
+2026-04-18T15:49:18.295Z [INFO]: Goods_service: Received task: local_task:9c2430bcac285cd9
+2026-04-18T15:49:18.302Z [INFO]: Goods_service: Task local_task:9c2430bcac285cd9 completed successfully with status: completed
+2026-04-18T15:49:34.302Z [INFO]: Orders_service: Received task: local_task:30b91bb987f74fff
+2026-04-18T15:49:34.346Z [INFO]: Orders_service: Task local_task:30b91bb987f74fff completed successfully with status: completed
+2026-04-18T15:49:35.509Z [INFO]: Orders_service: Received task: local_task:d465f25ed3f29c21
+2026-04-18T15:49:35.511Z [INFO]: Orders service: Orders GET [admin]
+2026-04-18T15:49:35.512Z [INFO]: Orders_service: Task local_task:d465f25ed3f29c21 completed successfully with status: completed
+2026-04-18T15:49:37.358Z [INFO]: Goods_service: Received task: local_task:f477e1476932f17c
+2026-04-18T15:49:37.362Z [INFO]: Orders_service: Received task: local_task:e951165168ab270c
+2026-04-18T15:49:37.363Z [INFO]: Goods_service: Task local_task:f477e1476932f17c completed successfully with status: completed
+2026-04-18T15:49:37.365Z [INFO]: Orders service: Order GET [admin]
+2026-04-18T15:49:37.365Z [INFO]: Orders_service: Task local_task:e951165168ab270c completed successfully with status: completed
+2026-04-18T15:49:40.645Z [INFO]: Orders_service: Received task: local_task:23a5a44bc5ce9d26
+2026-04-18T15:49:40.692Z [INFO]: Orders service: Order DELETE [admin]
+2026-04-18T15:49:40.693Z [INFO]: Orders_service: Task local_task:23a5a44bc5ce9d26 completed successfully with status: completed
+2026-04-18T15:49:41.625Z [INFO]: Orders_service: Received task: local_task:540083df1ebff165
+2026-04-18T15:49:41.627Z [INFO]: Orders service: Orders GET [admin]
+2026-04-18T15:49:41.627Z [INFO]: Orders_service: Task local_task:540083df1ebff165 completed successfully with status: completed
+2026-04-18T15:49:48.047Z [INFO]: Goods_service: Received task: local_task:1a8a3ffeec11f027
+2026-04-18T15:49:48.052Z [INFO]: Goods_service: Task local_task:1a8a3ffeec11f027 completed successfully with status: completed
+2026-04-18T15:49:49.255Z [INFO]: Goods_service: Received task: local_task:cffe7e1ef0d82730
+2026-04-18T15:49:49.262Z [INFO]: Goods_service: Task local_task:cffe7e1ef0d82730 completed successfully with status: completed
+2026-04-18T15:49:50.934Z [INFO]: Goods_service: Received task: local_task:29f7ba844aa6e314
+2026-04-18T15:49:50.939Z [INFO]: Goods_service: Task local_task:29f7ba844aa6e314 completed successfully with status: completed
+2026-04-18T15:49:53.667Z [INFO]: Schedule_service: Received task: local_task:6d42b353ad03df19
+2026-04-18T15:49:53.681Z [INFO]: Schedule service: Schedule GET [admin]
+2026-04-18T15:49:53.682Z [INFO]: Schedule_service: Task local_task:6d42b353ad03df19 completed successfully with status: completed
+2026-04-18T15:49:55.110Z [INFO]: Orders_service: Received task: local_task:c1c3bc39465495ad
+2026-04-18T15:49:55.112Z [INFO]: Orders service: Orders GET [admin]
+2026-04-18T15:49:55.112Z [INFO]: Orders_service: Task local_task:c1c3bc39465495ad completed successfully with status: completed
+2026-04-18T15:49:55.822Z [INFO]: Announces_service: Received task: local_task:551deee22e81ac4b
+2026-04-18T15:49:55.832Z [INFO]: Announces_service: Task local_task:551deee22e81ac4b completed successfully with status: completed
+2026-04-18T16:32:45.473Z [INFO]: Local-api: Database connected
+2026-04-18T16:32:45.486Z [INFO]: Local-api: Database initialized
+2026-04-18T16:32:45.496Z [INFO]: Local-api: Redis connected
+2026-04-18T16:32:45.504Z [ERROR]: Local-api: Failed to start server: connect ECONNREFUSED 172.21.0.4:5672
+2026-04-18T16:32:46.179Z [INFO]: Orders_service: Database connected
+2026-04-18T16:32:46.202Z [INFO]: Orders_service: Redis connected
+2026-04-18T16:32:46.211Z [INFO]: Goods_service: Database connected
+2026-04-18T16:32:46.229Z [INFO]: Goods_service: Redis connected
+2026-04-18T16:32:46.239Z [INFO]: Announces_service: Database connected
+2026-04-18T16:32:46.244Z [INFO]: Users service: Database connected
+2026-04-18T16:32:46.251Z [INFO]: Announces_service: Redis connected
+2026-04-18T16:32:46.260Z [INFO]: Users service: Redis connected
+2026-04-18T16:32:46.335Z [INFO]: Schedule_service: Database connected
+2026-04-18T16:32:46.346Z [INFO]: Schedule_service: Redis connected
+2026-04-18T16:32:54.129Z [INFO]: Local-api: Database connected
+2026-04-18T16:32:54.136Z [INFO]: Local-api: Database initialized
+2026-04-18T16:32:54.144Z [INFO]: Local-api: Redis connected
+2026-04-18T16:32:54.159Z [INFO]: Local-api: RabbitMQ connected
+2026-04-18T16:32:54.208Z [INFO]: Local-api: RabbitMQ setup completed
+2026-04-18T16:32:54.215Z [INFO]: Local-api: Routers initialized
+2026-04-18T16:32:54.220Z [INFO]: Local-api: Local API server running on port 8080
+2026-04-18T16:32:54.220Z [INFO]: Local-api: Initialized
+2026-04-18T16:32:58.771Z [INFO]: Announces_service: Database connected
+2026-04-18T16:32:58.784Z [INFO]: Announces_service: Redis connected
+2026-04-18T16:32:58.783Z [INFO]: Schedule_service: Database connected
+2026-04-18T16:32:58.796Z [INFO]: Schedule_service: Redis connected
+2026-04-18T16:32:58.796Z [INFO]: Announces_service: RabbitMQ connected
+2026-04-18T16:32:58.797Z [INFO]: Announces_service: Service is running.
+2026-04-18T16:32:58.806Z [INFO]: Schedule_service: RabbitMQ connected
+2026-04-18T16:32:58.806Z [INFO]: Schedule_service: Service is running.
+2026-04-18T16:32:58.831Z [INFO]: Orders_service: Database connected
+2026-04-18T16:32:58.831Z [INFO]: Users service: Database connected
+2026-04-18T16:32:58.842Z [INFO]: Orders_service: Redis connected
+2026-04-18T16:32:58.842Z [INFO]: Users service: Redis connected
+2026-04-18T16:32:58.852Z [INFO]: Users service: RabbitMQ connected
+2026-04-18T16:32:58.852Z [INFO]: Orders_service: RabbitMQ connected
+2026-04-18T16:32:58.853Z [INFO]: Orders_service: Service is running.
+2026-04-18T16:32:58.853Z [INFO]: Users service: Service is running.
+2026-04-18T16:32:58.862Z [INFO]: Goods_service: Database connected
+2026-04-18T16:32:58.871Z [INFO]: Goods_service: Redis connected
+2026-04-18T16:32:58.879Z [INFO]: Goods_service: RabbitMQ connected
+2026-04-18T16:32:58.880Z [INFO]: Goods_service: Service is running.
+2026-04-18T16:33:12.691Z [INFO]: Announces_service: Received task: local_task:366dc14f41ebb0d3
+2026-04-18T16:33:12.699Z [INFO]: Announces_service: Task local_task:366dc14f41ebb0d3 completed successfully with status: completed
+2026-04-18T16:33:18.796Z [INFO]: Announces_service: Received task: local_task:d9f38978ffa3e619
+2026-04-18T16:33:18.799Z [INFO]: Announces_service: Task local_task:d9f38978ffa3e619 completed successfully with status: completed
+2026-04-18T16:33:20.691Z [INFO]: Users service: Received task: local_task:2fdd0c4ebf342a48
+2026-04-18T16:33:20.699Z [INFO]: Users service: Users GET [admin]
+2026-04-18T16:33:20.700Z [INFO]: Users service: Task local_task:2fdd0c4ebf342a48 completed successfully with status: completed
+2026-04-18T16:33:21.410Z [INFO]: Announces_service: Received task: local_task:62be52da5963c5e0
+2026-04-18T16:33:21.413Z [INFO]: Announces_service: Task local_task:62be52da5963c5e0 completed successfully with status: completed
+2026-04-18T16:33:53.150Z [INFO]: Orders_service: Database connected
+2026-04-18T16:33:53.162Z [INFO]: Orders_service: Redis connected
+2026-04-18T16:33:53.175Z [INFO]: Orders_service: RabbitMQ connected
+2026-04-18T16:33:53.176Z [INFO]: Orders_service: Service is running.
+2026-04-18T16:33:53.216Z [INFO]: Goods_service: Database connected
+2026-04-18T16:33:53.219Z [INFO]: Schedule_service: Database connected
+2026-04-18T16:33:53.228Z [INFO]: Goods_service: Redis connected
+2026-04-18T16:33:53.227Z [INFO]: Announces_service: Database connected
+2026-04-18T16:33:53.232Z [INFO]: Users service: Database connected
+2026-04-18T16:33:53.233Z [INFO]: Schedule_service: Redis connected
+2026-04-18T16:33:53.237Z [INFO]: Goods_service: RabbitMQ connected
+2026-04-18T16:33:53.238Z [INFO]: Goods_service: Service is running.
+2026-04-18T16:33:53.240Z [INFO]: Announces_service: Redis connected
+2026-04-18T16:33:53.243Z [INFO]: Schedule_service: RabbitMQ connected
+2026-04-18T16:33:53.244Z [INFO]: Users service: Redis connected
+2026-04-18T16:33:53.244Z [INFO]: Schedule_service: Service is running.
+2026-04-18T16:33:53.249Z [INFO]: Announces_service: RabbitMQ connected
+2026-04-18T16:33:53.250Z [INFO]: Announces_service: Service is running.
+2026-04-18T16:33:53.253Z [INFO]: Users service: RabbitMQ connected
+2026-04-18T16:33:53.253Z [INFO]: Users service: Service is running.
+2026-04-18T16:33:53.255Z [INFO]: Users service: Received task: local_task:d919dc7614a7fbc4
+2026-04-18T16:33:53.255Z [INFO]: Users service: Received task: local_task:4c9a0c9c95c1261d
+2026-04-18T16:33:53.265Z [INFO]: Users service: Users GET [admin]
+2026-04-18T16:33:53.266Z [INFO]: Users service: Users GET [admin]
+2026-04-18T16:33:53.267Z [INFO]: Users service: Task local_task:d919dc7614a7fbc4 completed successfully with status: completed
+2026-04-18T16:33:53.268Z [INFO]: Users service: Task local_task:4c9a0c9c95c1261d completed successfully with status: completed
+2026-04-18T16:34:00.435Z [INFO]: Users service: Received task: local_task:c38cc6ae9a0d9a44
+2026-04-18T16:34:00.438Z [INFO]: Users service: Users GET [admin]
+2026-04-18T16:34:00.439Z [INFO]: Users service: Task local_task:c38cc6ae9a0d9a44 completed successfully with status: completed
+2026-04-18T16:34:07.351Z [INFO]: Users service: Received task: local_task:10c84f35366654e3
+2026-04-18T16:34:07.355Z [INFO]: Users service: Users GET [admin]
+2026-04-18T16:34:07.355Z [INFO]: Users service: Task local_task:10c84f35366654e3 completed successfully with status: completed
+2026-04-18T16:41:50.476Z [INFO]: Schedule_service: Received task: local_task:d3eaa4e678fb34e6
+2026-04-18T16:41:50.488Z [INFO]: Schedule service: Schedule GET [admin]
+2026-04-18T16:41:50.489Z [INFO]: Schedule_service: Task local_task:d3eaa4e678fb34e6 completed successfully with status: completed
+2026-04-18T16:41:51.658Z [INFO]: Users service: Received task: local_task:d0f6edfe1e97380a
+2026-04-18T16:41:51.665Z [INFO]: Users service: Users GET [admin]
+2026-04-18T16:41:51.666Z [INFO]: Users service: Task local_task:d0f6edfe1e97380a completed successfully with status: completed
+2026-04-18T16:42:55.565Z [INFO]: Users service: Received task: local_task:2314003aef0a51bb
+2026-04-18T16:42:55.571Z [INFO]: Users service: Users GET [admin]
+2026-04-18T16:42:55.572Z [INFO]: Users service: Task local_task:2314003aef0a51bb completed successfully with status: completed
+2026-04-18T16:43:12.236Z [INFO]: Users service: Received task: local_task:c8be1428338a9c0a
+2026-04-18T16:43:12.240Z [INFO]: Users service: Users GET [admin]
+2026-04-18T16:43:12.241Z [INFO]: Users service: Task local_task:c8be1428338a9c0a completed successfully with status: completed
+2026-04-18T16:44:02.165Z [INFO]: Users service: Received task: local_task:6a42d64b59e2aa4c
+2026-04-18T16:44:02.170Z [INFO]: Users service: Users GET [admin]
+2026-04-18T16:44:02.170Z [INFO]: Users service: Task local_task:6a42d64b59e2aa4c completed successfully with status: completed
+2026-04-18T16:44:03.426Z [INFO]: Users service: Received task: local_task:ec358b8e268cab6b
+2026-04-18T16:44:03.431Z [INFO]: Users service: Users GET [admin]
+2026-04-18T16:44:03.432Z [INFO]: Users service: Task local_task:ec358b8e268cab6b completed successfully with status: completed
+2026-04-18T16:44:04.521Z [INFO]: Users service: Received task: local_task:13c6ce131ebc454b
+2026-04-18T16:44:04.524Z [INFO]: Users service: Users GET [admin]
+2026-04-18T16:44:04.525Z [INFO]: Users service: Task local_task:13c6ce131ebc454b completed successfully with status: completed
+2026-04-18T16:44:10.503Z [INFO]: Users service: Received task: local_task:fced7ce81438b3fb
+2026-04-18T16:44:10.506Z [INFO]: Users service: Users GET [admin]
+2026-04-18T16:44:10.507Z [INFO]: Users service: Task local_task:fced7ce81438b3fb completed successfully with status: completed
+2026-04-18T16:44:17.957Z [INFO]: Users service: Received task: local_task:728667901c962b4e
+2026-04-18T16:44:17.960Z [INFO]: Users service: Users GET [admin]
+2026-04-18T16:44:17.961Z [INFO]: Users service: Task local_task:728667901c962b4e completed successfully with status: completed
+2026-04-18T16:44:22.996Z [INFO]: Users service: Received task: local_task:133bae9401a7f311
+2026-04-18T16:44:22.999Z [INFO]: Users service: Users GET [admin]
+2026-04-18T16:44:23.000Z [INFO]: Users service: Task local_task:133bae9401a7f311 completed successfully with status: completed
+2026-04-18T16:49:33.778Z [INFO]: Users service: Received task: local_task:7ea5c1e239a0a5a4
+2026-04-18T16:49:33.788Z [INFO]: Users service: User GET [admin]
+2026-04-18T16:49:33.788Z [INFO]: Users service: Task local_task:7ea5c1e239a0a5a4 completed successfully with status: completed
+2026-04-18T16:58:57.148Z [INFO]: Users service: Database connected
+2026-04-18T16:58:57.160Z [INFO]: Users service: Redis connected
+2026-04-18T16:58:57.171Z [INFO]: Users service: RabbitMQ connected
+2026-04-18T16:58:57.171Z [INFO]: Users service: Service is running.
+2026-04-18T16:58:57.175Z [INFO]: Goods_service: Database connected
+2026-04-18T16:58:57.187Z [INFO]: Goods_service: Redis connected
+2026-04-18T16:58:57.189Z [INFO]: Schedule_service: Database connected
+2026-04-18T16:58:57.197Z [INFO]: Goods_service: RabbitMQ connected
+2026-04-18T16:58:57.197Z [INFO]: Goods_service: Service is running.
+2026-04-18T16:58:57.203Z [INFO]: Schedule_service: Redis connected
+2026-04-18T16:58:57.212Z [INFO]: Schedule_service: RabbitMQ connected
+2026-04-18T16:58:57.212Z [INFO]: Schedule_service: Service is running.
+2026-04-18T16:58:57.214Z [INFO]: Announces_service: Database connected
+2026-04-18T16:58:57.225Z [INFO]: Announces_service: Redis connected
+2026-04-18T16:58:57.233Z [INFO]: Announces_service: RabbitMQ connected
+2026-04-18T16:58:57.232Z [INFO]: Orders_service: Database connected
+2026-04-18T16:58:57.233Z [INFO]: Announces_service: Service is running.
+2026-04-18T16:58:57.240Z [INFO]: Orders_service: Redis connected
+2026-04-18T16:58:57.251Z [INFO]: Orders_service: RabbitMQ connected
+2026-04-18T16:58:57.252Z [INFO]: Orders_service: Service is running.
+2026-04-18T16:59:03.035Z [INFO]: Users service: Received task: local_task:406ed715f9973bce
+2026-04-18T16:59:03.042Z [INFO]: Users service: Users GET [admin]
+2026-04-18T16:59:03.043Z [INFO]: Users service: Task local_task:406ed715f9973bce completed successfully with status: completed
+2026-04-18T16:59:40.738Z [INFO]: Users service: Received task: local_task:86a341bccf3ea55f
+2026-04-18T16:59:40.742Z [INFO]: Users service: Users GET [admin]
+2026-04-18T16:59:40.743Z [INFO]: Users service: Task local_task:86a341bccf3ea55f completed successfully with status: completed
+2026-04-18T16:59:46.577Z [INFO]: Users service: Received task: local_task:dc61a59f2d6bd0f6
+2026-04-18T16:59:46.581Z [INFO]: Users service: Users GET [admin]
+2026-04-18T16:59:46.582Z [INFO]: Users service: Task local_task:dc61a59f2d6bd0f6 completed successfully with status: completed
+2026-04-18T17:01:27.490Z [INFO]: Users service: Received task: local_task:a7a8de0b6324e059
+2026-04-18T17:01:27.504Z [INFO]: Users service: User GET [admin]
+2026-04-18T17:01:27.505Z [INFO]: Users service: Task local_task:a7a8de0b6324e059 completed successfully with status: completed
+2026-04-18T17:06:37.745Z [INFO]: Goods_service: Database connected
+2026-04-18T17:06:37.787Z [INFO]: Announces_service: Database connected
+2026-04-18T17:06:37.793Z [INFO]: Users service: Database connected
+2026-04-18T17:06:37.793Z [INFO]: Schedule_service: Database connected
+2026-04-18T17:06:37.757Z [INFO]: Goods_service: Redis connected
+2026-04-18T17:06:37.771Z [INFO]: Goods_service: RabbitMQ connected
+2026-04-18T17:06:37.772Z [INFO]: Goods_service: Service is running.
+2026-04-18T17:06:37.798Z [INFO]: Announces_service: Redis connected
+2026-04-18T17:06:37.804Z [INFO]: Schedule_service: Redis connected
+2026-04-18T17:06:37.805Z [INFO]: Users service: Redis connected
+2026-04-18T17:06:37.808Z [INFO]: Announces_service: RabbitMQ connected
+2026-04-18T17:06:37.809Z [INFO]: Announces_service: Service is running.
+2026-04-18T17:06:37.815Z [INFO]: Users service: RabbitMQ connected
+2026-04-18T17:06:37.816Z [INFO]: Users service: Service is running.
+2026-04-18T17:06:37.817Z [INFO]: Orders_service: Database connected
+2026-04-18T17:06:37.819Z [INFO]: Schedule_service: RabbitMQ connected
+2026-04-18T17:06:37.821Z [INFO]: Schedule_service: Service is running.
+2026-04-18T17:06:37.829Z [INFO]: Orders_service: Redis connected
+2026-04-18T17:06:37.838Z [INFO]: Orders_service: RabbitMQ connected
+2026-04-18T17:06:37.839Z [INFO]: Orders_service: Service is running.
+2026-04-18T17:06:40.634Z [INFO]: Users service: Received task: local_task:6fca0fe64b8d2785
+2026-04-18T17:06:40.641Z [INFO]: Users service: Users GET [admin]
+2026-04-18T17:06:40.642Z [INFO]: Users service: Task local_task:6fca0fe64b8d2785 completed successfully with status: completed
+2026-04-18T17:07:37.615Z [INFO]: Users service: Received task: local_task:c16e423f1b18b945
+2026-04-18T17:07:37.627Z [INFO]: Users service: User GET [admin]
+2026-04-18T17:07:37.628Z [INFO]: Users service: Task local_task:c16e423f1b18b945 completed successfully with status: completed
+2026-04-18T17:12:47.307Z [INFO]: Announces_service: Database connected
+2026-04-18T17:12:47.320Z [INFO]: Announces_service: Redis connected
+2026-04-18T17:12:47.330Z [INFO]: Announces_service: RabbitMQ connected
+2026-04-18T17:12:47.331Z [INFO]: Announces_service: Service is running.
+2026-04-18T17:12:47.338Z [INFO]: Goods_service: Database connected
+2026-04-18T17:12:47.349Z [INFO]: Goods_service: Redis connected
+2026-04-18T17:12:47.358Z [INFO]: Goods_service: RabbitMQ connected
+2026-04-18T17:12:47.359Z [INFO]: Goods_service: Service is running.
+2026-04-18T17:12:47.383Z [INFO]: Orders_service: Database connected
+2026-04-18T17:12:47.383Z [INFO]: Schedule_service: Database connected
+2026-04-18T17:12:47.391Z [INFO]: Users service: Database connected
+2026-04-18T17:12:47.394Z [INFO]: Schedule_service: Redis connected
+2026-04-18T17:12:47.394Z [INFO]: Orders_service: Redis connected
+2026-04-18T17:12:47.401Z [INFO]: Schedule_service: RabbitMQ connected
+2026-04-18T17:12:47.401Z [INFO]: Orders_service: RabbitMQ connected
+2026-04-18T17:12:47.402Z [INFO]: Orders_service: Service is running.
+2026-04-18T17:12:47.402Z [INFO]: Schedule_service: Service is running.
+2026-04-18T17:12:47.405Z [INFO]: Users service: Redis connected
+2026-04-18T17:12:47.413Z [INFO]: Users service: RabbitMQ connected
+2026-04-18T17:12:47.413Z [INFO]: Users service: Service is running.
+2026-04-18T17:12:51.545Z [INFO]: Users service: Received task: local_task:a951c09368aab29a
+2026-04-18T17:12:51.557Z [INFO]: Users service: User GET [admin]
+2026-04-18T17:12:51.558Z [INFO]: Users service: Task local_task:a951c09368aab29a completed successfully with status: completed
+2026-04-18T17:15:35.334Z [INFO]: Users service: Database connected
+2026-04-18T17:15:35.345Z [INFO]: Users service: Redis connected
+2026-04-18T17:15:35.362Z [INFO]: Users service: RabbitMQ connected
+2026-04-18T17:15:35.364Z [INFO]: Users service: Service is running.
+2026-04-18T17:15:35.411Z [INFO]: Announces_service: Database connected
+2026-04-18T17:15:35.413Z [INFO]: Schedule_service: Database connected
+2026-04-18T17:15:35.423Z [INFO]: Announces_service: Redis connected
+2026-04-18T17:15:35.424Z [INFO]: Schedule_service: Redis connected
+2026-04-18T17:15:35.430Z [INFO]: Goods_service: Database connected
+2026-04-18T17:15:35.433Z [INFO]: Schedule_service: RabbitMQ connected
+2026-04-18T17:15:35.433Z [INFO]: Announces_service: RabbitMQ connected
+2026-04-18T17:15:35.434Z [INFO]: Schedule_service: Service is running.
+2026-04-18T17:15:35.434Z [INFO]: Announces_service: Service is running.
+2026-04-18T17:15:35.433Z [INFO]: Orders_service: Database connected
+2026-04-18T17:15:35.443Z [INFO]: Goods_service: Redis connected
+2026-04-18T17:15:35.445Z [INFO]: Orders_service: Redis connected
+2026-04-18T17:15:35.451Z [INFO]: Goods_service: RabbitMQ connected
+2026-04-18T17:15:35.452Z [INFO]: Goods_service: Service is running.
+2026-04-18T17:15:35.454Z [INFO]: Orders_service: RabbitMQ connected
+2026-04-18T17:15:35.455Z [INFO]: Orders_service: Service is running.
+2026-04-18T17:15:45.716Z [INFO]: Users service: Received task: local_task:afaf48ed93d0196f
+2026-04-18T17:15:45.730Z [INFO]: Users service: User GET [admin]
+2026-04-18T17:15:45.731Z [INFO]: Users service: Task local_task:afaf48ed93d0196f completed successfully with status: completed
+2026-04-18T17:16:40.774Z [INFO]: Users service: Received task: local_task:204556432079b818
+2026-04-18T17:16:40.784Z [INFO]: Users service: User GET [admin]
+2026-04-18T17:16:40.784Z [INFO]: Users service: Task local_task:204556432079b818 completed successfully with status: completed
+2026-04-18T17:17:29.929Z [INFO]: Users service: Received task: local_task:49ced4bf9a037281
+2026-04-18T17:17:29.956Z [INFO]: Users service: User PATCH [admin]
+2026-04-18T17:17:29.958Z [INFO]: Users service: Task local_task:49ced4bf9a037281 completed successfully with status: completed
+2026-04-18T17:17:31.435Z [INFO]: Users service: Received task: local_task:d79f3da0931f889b
+2026-04-18T17:17:31.440Z [INFO]: Users service: Users GET [admin]
+2026-04-18T17:17:31.441Z [INFO]: Users service: Task local_task:d79f3da0931f889b completed successfully with status: completed
+2026-04-18T17:17:38.363Z [INFO]: Local-api: Login [Admin123]
+2026-04-18T17:17:38.432Z [INFO]: Announces_service: Received task: local_task:4400967d213e993b
+2026-04-18T17:17:38.444Z [INFO]: Announces_service: Task local_task:4400967d213e993b completed successfully with status: completed
+2026-04-18T17:17:41.562Z [INFO]: Users service: Received task: local_task:7c6cab84d7809deb
+2026-04-18T17:17:41.565Z [INFO]: Users service: Users GET [admin]
+2026-04-18T17:17:41.566Z [INFO]: Users service: Task local_task:7c6cab84d7809deb completed successfully with status: completed
+2026-04-18T17:37:32.663Z [INFO]: Users service: Received task: local_task:2421583422f2d428
+2026-04-18T17:37:32.667Z [ERROR]: Users service: Error: null is not an object (evaluating 'requestedUser.id')
+2026-04-18T17:37:32.667Z [INFO]: Users service: Task local_task:2421583422f2d428 completed successfully with status: error
+2026-04-18T17:37:36.907Z [INFO]: Users service: Received task: local_task:9592739dacf269fd
+2026-04-18T17:37:36.909Z [ERROR]: Users service: Error: null is not an object (evaluating 'requestedUser.id')
+2026-04-18T17:37:36.910Z [INFO]: Users service: Task local_task:9592739dacf269fd completed successfully with status: error
+2026-04-18T17:39:16.773Z [INFO]: Announces_service: Database connected
+2026-04-18T17:39:16.776Z [INFO]: Users service: Database connected
+2026-04-18T17:39:16.785Z [INFO]: Announces_service: Redis connected
+2026-04-18T17:39:16.789Z [INFO]: Users service: Redis connected
+2026-04-18T17:39:16.795Z [INFO]: Announces_service: RabbitMQ connected
+2026-04-18T17:39:16.796Z [INFO]: Announces_service: Service is running.
+2026-04-18T17:39:16.800Z [INFO]: Users service: RabbitMQ connected
+2026-04-18T17:39:16.801Z [INFO]: Users service: Service is running.
+2026-04-18T17:39:16.808Z [INFO]: Orders_service: Database connected
+2026-04-18T17:39:16.816Z [INFO]: Goods_service: Database connected
+2026-04-18T17:39:16.819Z [INFO]: Orders_service: Redis connected
+2026-04-18T17:39:16.827Z [INFO]: Orders_service: RabbitMQ connected
+2026-04-18T17:39:16.827Z [INFO]: Schedule_service: Database connected
+2026-04-18T17:39:16.829Z [INFO]: Goods_service: Redis connected
+2026-04-18T17:39:16.828Z [INFO]: Orders_service: Service is running.
+2026-04-18T17:39:16.837Z [INFO]: Goods_service: RabbitMQ connected
+2026-04-18T17:39:16.838Z [INFO]: Goods_service: Service is running.
+2026-04-18T17:39:16.839Z [INFO]: Schedule_service: Redis connected
+2026-04-18T17:39:16.847Z [INFO]: Schedule_service: RabbitMQ connected
+2026-04-18T17:39:16.848Z [INFO]: Schedule_service: Service is running.
+2026-04-18T17:39:21.317Z [INFO]: Users service: Received task: local_task:0afbcb724bd9854f
+2026-04-18T17:39:21.323Z [ERROR]: Users service: Error: null is not an object (evaluating 'requestedUser.id')
+2026-04-18T17:39:21.324Z [INFO]: Users service: Task local_task:0afbcb724bd9854f completed successfully with status: error
+2026-04-18T17:41:28.513Z [INFO]: Users service: Database connected
+2026-04-18T17:41:28.527Z [INFO]: Users service: Redis connected
+2026-04-18T17:41:28.530Z [INFO]: Orders_service: Database connected
+2026-04-18T17:41:28.540Z [INFO]: Users service: RabbitMQ connected
+2026-04-18T17:41:28.541Z [INFO]: Users service: Service is running.
+2026-04-18T17:41:28.543Z [INFO]: Orders_service: Redis connected
+2026-04-18T17:41:28.552Z [INFO]: Orders_service: RabbitMQ connected
+2026-04-18T17:41:28.552Z [INFO]: Orders_service: Service is running.
+2026-04-18T17:41:28.563Z [INFO]: Goods_service: Database connected
+2026-04-18T17:41:28.573Z [INFO]: Goods_service: Redis connected
+2026-04-18T17:41:28.579Z [INFO]: Announces_service: Database connected
+2026-04-18T17:41:28.582Z [INFO]: Goods_service: RabbitMQ connected
+2026-04-18T17:41:28.583Z [INFO]: Goods_service: Service is running.
+2026-04-18T17:41:28.584Z [INFO]: Schedule_service: Database connected
+2026-04-18T17:41:28.589Z [INFO]: Announces_service: Redis connected
+2026-04-18T17:41:28.595Z [INFO]: Schedule_service: Redis connected
+2026-04-18T17:41:28.597Z [INFO]: Announces_service: RabbitMQ connected
+2026-04-18T17:41:28.598Z [INFO]: Announces_service: Service is running.
+2026-04-18T17:41:28.602Z [INFO]: Schedule_service: RabbitMQ connected
+2026-04-18T17:41:28.603Z [INFO]: Schedule_service: Service is running.
+2026-04-18T17:41:37.770Z [INFO]: Users service: Received task: local_task:0863b5e5da4461d6
+2026-04-18T17:41:37.777Z [INFO]: Users service: Users GET [admin]
+2026-04-18T17:41:37.778Z [INFO]: Users service: Task local_task:0863b5e5da4461d6 completed successfully with status: completed
+2026-04-18T17:41:38.771Z [INFO]: Users service: Received task: local_task:144ee09c79b7f7b7
+2026-04-18T17:41:38.776Z [ERROR]: Users service: Error: null is not an object (evaluating 'requestedUser.id')
+2026-04-18T17:41:38.777Z [INFO]: Users service: Task local_task:144ee09c79b7f7b7 completed successfully with status: error
+2026-04-18T17:43:06.271Z [INFO]: Users service: Database connected
+2026-04-18T17:43:06.282Z [INFO]: Users service: Redis connected
+2026-04-18T17:43:06.294Z [INFO]: Users service: RabbitMQ connected
+2026-04-18T17:43:06.295Z [INFO]: Users service: Service is running.
+2026-04-18T17:43:06.337Z [INFO]: Orders_service: Database connected
+2026-04-18T17:43:06.338Z [INFO]: Goods_service: Database connected
+2026-04-18T17:43:06.350Z [INFO]: Orders_service: Redis connected
+2026-04-18T17:43:06.350Z [INFO]: Goods_service: Redis connected
+2026-04-18T17:43:06.359Z [INFO]: Goods_service: RabbitMQ connected
+2026-04-18T17:43:06.359Z [INFO]: Orders_service: RabbitMQ connected
+2026-04-18T17:43:06.360Z [INFO]: Goods_service: Service is running.
+2026-04-18T17:43:06.360Z [INFO]: Orders_service: Service is running.
+2026-04-18T17:43:06.374Z [INFO]: Announces_service: Database connected
+2026-04-18T17:43:06.384Z [INFO]: Announces_service: Redis connected
+2026-04-18T17:43:06.392Z [INFO]: Announces_service: RabbitMQ connected
+2026-04-18T17:43:06.393Z [INFO]: Announces_service: Service is running.
+2026-04-18T17:43:06.392Z [INFO]: Schedule_service: Database connected
+2026-04-18T17:43:06.402Z [INFO]: Schedule_service: Redis connected
+2026-04-18T17:43:06.409Z [INFO]: Schedule_service: RabbitMQ connected
+2026-04-18T17:43:06.410Z [INFO]: Schedule_service: Service is running.
+2026-04-18T17:43:08.149Z [INFO]: Users service: Received task: local_task:a4bcdc8f38236692
+2026-04-18T17:43:08.150Z [INFO]: 0
+2026-04-18T17:43:08.155Z [ERROR]: Users service: Error: null is not an object (evaluating 'requestedUser.id')
+2026-04-18T17:43:08.156Z [INFO]: Users service: Task local_task:a4bcdc8f38236692 completed successfully with status: error
+2026-04-18T17:44:18.343Z [INFO]: Users service: Database connected
+2026-04-18T17:44:18.356Z [INFO]: Users service: Redis connected
+2026-04-18T17:44:18.365Z [INFO]: Announces_service: Database connected
+2026-04-18T17:44:18.369Z [INFO]: Users service: RabbitMQ connected
+2026-04-18T17:44:18.370Z [INFO]: Users service: Service is running.
+2026-04-18T17:44:18.369Z [INFO]: Orders_service: Database connected
+2026-04-18T17:44:18.380Z [INFO]: Announces_service: Redis connected
+2026-04-18T17:44:18.384Z [INFO]: Orders_service: Redis connected
+2026-04-18T17:44:18.389Z [INFO]: Schedule_service: Database connected
+2026-04-18T17:44:18.391Z [INFO]: Announces_service: RabbitMQ connected
+2026-04-18T17:44:18.390Z [INFO]: Goods_service: Database connected
+2026-04-18T17:44:18.392Z [INFO]: Announces_service: Service is running.
+2026-04-18T17:44:18.395Z [INFO]: Orders_service: RabbitMQ connected
+2026-04-18T17:44:18.396Z [INFO]: Orders_service: Service is running.
+2026-04-18T17:44:18.402Z [INFO]: Schedule_service: Redis connected
+2026-04-18T17:44:18.402Z [INFO]: Goods_service: Redis connected
+2026-04-18T17:44:18.411Z [INFO]: Schedule_service: RabbitMQ connected
+2026-04-18T17:44:18.411Z [INFO]: Goods_service: RabbitMQ connected
+2026-04-18T17:44:18.411Z [INFO]: Schedule_service: Service is running.
+2026-04-18T17:44:18.412Z [INFO]: Goods_service: Service is running.
+2026-04-18T17:44:20.403Z [INFO]: Users service: Received task: local_task:542005fa4fa345b8
+2026-04-18T17:44:20.409Z [ERROR]: Users service: Error: null is not an object (evaluating 'requestedUser.id')
+2026-04-18T17:44:20.410Z [INFO]: Users service: Task local_task:542005fa4fa345b8 completed successfully with status: error
+2026-04-18T17:46:16.408Z [INFO]: Goods_service: Database connected
+2026-04-18T17:46:16.420Z [INFO]: Goods_service: Redis connected
+2026-04-18T17:46:16.434Z [INFO]: Goods_service: RabbitMQ connected
+2026-04-18T17:46:16.435Z [INFO]: Goods_service: Service is running.
+2026-04-18T17:46:16.449Z [INFO]: Users service: Database connected
+2026-04-18T17:46:16.458Z [INFO]: Orders_service: Database connected
+2026-04-18T17:46:16.461Z [INFO]: Users service: Redis connected
+2026-04-18T17:46:16.470Z [INFO]: Users service: RabbitMQ connected
+2026-04-18T17:46:16.471Z [INFO]: Users service: Service is running.
+2026-04-18T17:46:16.472Z [INFO]: Orders_service: Redis connected
+2026-04-18T17:46:16.485Z [INFO]: Orders_service: RabbitMQ connected
+2026-04-18T17:46:16.484Z [INFO]: Schedule_service: Database connected
+2026-04-18T17:46:16.486Z [INFO]: Orders_service: Service is running.
+2026-04-18T17:46:16.496Z [INFO]: Schedule_service: Redis connected
+2026-04-18T17:46:16.506Z [INFO]: Schedule_service: RabbitMQ connected
+2026-04-18T17:46:16.507Z [INFO]: Schedule_service: Service is running.
+2026-04-18T17:46:16.507Z [INFO]: Announces_service: Database connected
+2026-04-18T17:46:16.518Z [INFO]: Announces_service: Redis connected
+2026-04-18T17:46:16.525Z [INFO]: Announces_service: RabbitMQ connected
+2026-04-18T17:46:16.526Z [INFO]: Announces_service: Service is running.
+2026-04-18T17:46:46.057Z [INFO]: Users service: Received task: local_task:68707001d55cf2f9
+2026-04-18T17:46:46.058Z [ERROR]: 0
+2026-04-18T17:46:46.064Z [ERROR]: Users service: Error: null is not an object (evaluating 'requestedUser.id')
+2026-04-18T17:46:46.065Z [INFO]: Users service: Task local_task:68707001d55cf2f9 completed successfully with status: error
+2026-04-18T17:47:49.155Z [INFO]: Users service: Database connected
+2026-04-18T17:47:49.168Z [INFO]: Users service: Redis connected
+2026-04-18T17:47:49.171Z [INFO]: Schedule_service: Database connected
+2026-04-18T17:47:49.180Z [INFO]: Users service: RabbitMQ connected
+2026-04-18T17:47:49.182Z [INFO]: Users service: Service is running.
+2026-04-18T17:47:49.181Z [INFO]: Announces_service: Database connected
+2026-04-18T17:47:49.184Z [INFO]: Schedule_service: Redis connected
+2026-04-18T17:47:49.192Z [INFO]: Announces_service: Redis connected
+2026-04-18T17:47:49.193Z [INFO]: Schedule_service: RabbitMQ connected
+2026-04-18T17:47:49.194Z [INFO]: Schedule_service: Service is running.
+2026-04-18T17:47:49.202Z [INFO]: Announces_service: RabbitMQ connected
+2026-04-18T17:47:49.203Z [INFO]: Announces_service: Service is running.
+2026-04-18T17:47:49.205Z [INFO]: Goods_service: Database connected
+2026-04-18T17:47:49.216Z [INFO]: Goods_service: Redis connected
+2026-04-18T17:47:49.224Z [INFO]: Goods_service: RabbitMQ connected
+2026-04-18T17:47:49.224Z [INFO]: Goods_service: Service is running.
+2026-04-18T17:47:49.244Z [INFO]: Orders_service: Database connected
+2026-04-18T17:47:49.251Z [INFO]: Orders_service: Redis connected
+2026-04-18T17:47:49.262Z [INFO]: Orders_service: RabbitMQ connected
+2026-04-18T17:47:49.263Z [INFO]: Orders_service: Service is running.
+2026-04-18T17:47:51.441Z [INFO]: Users service: Received task: local_task:2c12e71d14928355
+2026-04-18T17:47:51.442Z [ERROR]: string
+2026-04-18T17:47:51.448Z [ERROR]: Users service: Error: null is not an object (evaluating 'requestedUser.id')
+2026-04-18T17:47:51.449Z [INFO]: Users service: Task local_task:2c12e71d14928355 completed successfully with status: error
+2026-04-18T17:51:49.089Z [INFO]: Local-api: Database connected
+2026-04-18T17:51:49.095Z [INFO]: Local-api: Database initialized
+2026-04-18T17:51:49.104Z [INFO]: Local-api: Redis connected
+2026-04-18T17:51:49.113Z [INFO]: Local-api: RabbitMQ connected
+2026-04-18T17:51:49.147Z [INFO]: Local-api: RabbitMQ setup completed
+2026-04-18T17:51:49.152Z [INFO]: Local-api: Routers initialized
+2026-04-18T17:51:49.157Z [INFO]: Local-api: Local API server running on port 8080
+2026-04-18T17:51:49.157Z [INFO]: Local-api: Initialized
+2026-04-18T17:52:09.788Z [INFO]: Schedule_service: Database connected
+2026-04-18T17:52:09.800Z [INFO]: Schedule_service: Redis connected
+2026-04-18T17:52:09.806Z [INFO]: Announces_service: Database connected
+2026-04-18T17:52:09.813Z [INFO]: Schedule_service: RabbitMQ connected
+2026-04-18T17:52:09.814Z [INFO]: Schedule_service: Service is running.
+2026-04-18T17:52:09.820Z [INFO]: Announces_service: Redis connected
+2026-04-18T17:52:09.833Z [INFO]: Announces_service: RabbitMQ connected
+2026-04-18T17:52:09.834Z [INFO]: Announces_service: Service is running.
+2026-04-18T17:52:09.841Z [INFO]: Goods_service: Database connected
+2026-04-18T17:52:09.852Z [INFO]: Goods_service: Redis connected
+2026-04-18T17:52:09.861Z [INFO]: Goods_service: RabbitMQ connected
+2026-04-18T17:52:09.862Z [INFO]: Goods_service: Service is running.
+2026-04-18T17:52:09.869Z [INFO]: Users service: Database connected
+2026-04-18T17:52:09.880Z [INFO]: Users service: Redis connected
+2026-04-18T17:52:09.883Z [INFO]: Orders_service: Database connected
+2026-04-18T17:52:09.888Z [INFO]: Users service: RabbitMQ connected
+2026-04-18T17:52:09.889Z [INFO]: Users service: Service is running.
+2026-04-18T17:52:09.894Z [INFO]: Orders_service: Redis connected
+2026-04-18T17:52:09.902Z [INFO]: Orders_service: RabbitMQ connected
+2026-04-18T17:52:09.903Z [INFO]: Orders_service: Service is running.
+2026-04-18T17:52:34.403Z [INFO]: Users service: Received task: local_task:50c54171925f5a40
+2026-04-18T17:52:34.404Z [ERROR]: 0
+2026-04-18T17:52:34.412Z [INFO]: Users service: Users GET [admin]
+2026-04-18T17:52:34.413Z [INFO]: Users service: Task local_task:50c54171925f5a40 completed successfully with status: completed
+2026-04-18T17:52:43.493Z [INFO]: Users service: Received task: local_task:9d308d602e3ebfff
+2026-04-18T17:52:43.494Z [ERROR]: undefined
+2026-04-18T17:52:43.497Z [INFO]: Users service: Users GET [admin]
+2026-04-18T17:52:43.498Z [INFO]: Users service: Task local_task:9d308d602e3ebfff completed successfully with status: completed
+2026-04-18T17:52:58.760Z [INFO]: Announces_service: Received task: local_task:2a5515465c64e6ba
+2026-04-18T17:52:58.765Z [ERROR]: Announces_service: Error: Announcement not found
+2026-04-18T17:52:58.766Z [INFO]: Announces_service: Task local_task:2a5515465c64e6ba completed successfully with status: error
+2026-04-18T17:53:06.202Z [INFO]: Orders_service: Received task: local_task:95fec4d3174729bd
+2026-04-18T17:53:06.207Z [ERROR]: Orders_service: Error: Order not found
+2026-04-18T17:53:06.208Z [INFO]: Orders_service: Task local_task:95fec4d3174729bd completed successfully with status: error
+2026-04-18T17:53:12.984Z [INFO]: Schedule_service: Received task: local_task:70230ae9c15f01ca
+2026-04-18T17:53:12.988Z [ERROR]: Schedule_service: Error: Schedule not found
+2026-04-18T17:53:12.989Z [INFO]: Schedule_service: Task local_task:70230ae9c15f01ca completed successfully with status: error
+2026-04-18T17:53:13.743Z [INFO]: Goods_service: Received task: local_task:19590503c3b82da6
+2026-04-18T17:53:13.788Z [ERROR]: Goods_service: Error: Good not found
+2026-04-18T17:53:13.789Z [INFO]: Goods_service: Task local_task:19590503c3b82da6 completed successfully with status: error
+2026-04-18T17:53:49.281Z [INFO]: Orders_service: Received task: local_task:02e8732a00e36620
+2026-04-18T17:53:49.287Z [ERROR]: Orders_service: Error: Order not found
+2026-04-18T17:53:49.288Z [INFO]: Orders_service: Task local_task:02e8732a00e36620 completed successfully with status: error
+2026-04-18T17:53:50.942Z [INFO]: Schedule_service: Received task: local_task:91d1bda3c95cca95
+2026-04-18T17:53:50.948Z [ERROR]: Schedule_service: Error: Schedule not found
+2026-04-18T17:53:50.949Z [INFO]: Schedule_service: Task local_task:91d1bda3c95cca95 completed successfully with status: error
+2026-04-18T17:54:33.859Z [INFO]: Announces_service: Received task: local_task:5e937fe491909947
+2026-04-18T17:54:33.865Z [ERROR]: Announces_service: Error: Announcement not found
+2026-04-18T17:54:33.865Z [INFO]: Announces_service: Task local_task:5e937fe491909947 completed successfully with status: error
+2026-04-18T17:54:34.573Z [INFO]: Users service: Received task: local_task:e42780757aa0e7e6
+2026-04-18T17:54:34.575Z [ERROR]: undefined
+2026-04-18T17:54:34.582Z [INFO]: Users service: Users GET [admin]
+2026-04-18T17:54:34.583Z [INFO]: Users service: Task local_task:e42780757aa0e7e6 completed successfully with status: completed
+2026-04-18T17:54:36.347Z [INFO]: Users service: Received task: local_task:c34cb9dc82446abe
+2026-04-18T17:54:36.348Z [ERROR]: undefined
+2026-04-18T17:54:36.351Z [INFO]: Users service: Users GET [admin]
+2026-04-18T17:54:36.352Z [INFO]: Users service: Task local_task:c34cb9dc82446abe completed successfully with status: completed
+2026-04-18T17:55:41.538Z [INFO]: Announces_service: Received task: local_task:50c7aa9ca600684d
+2026-04-18T17:55:41.541Z [ERROR]: Announces_service: Error: Announcement not found
+2026-04-18T17:55:41.541Z [INFO]: Announces_service: Task local_task:50c7aa9ca600684d completed successfully with status: error
+2026-04-18T17:56:39.217Z [INFO]: Local-api: Database connected
+2026-04-18T17:56:39.222Z [INFO]: Local-api: Database initialized
+2026-04-18T17:56:39.230Z [INFO]: Local-api: Redis connected
+2026-04-18T17:56:39.237Z [INFO]: Local-api: RabbitMQ connected
+2026-04-18T17:56:39.267Z [INFO]: Local-api: RabbitMQ setup completed
+2026-04-18T17:56:39.272Z [INFO]: Local-api: Routers initialized
+2026-04-18T17:56:39.277Z [INFO]: Local-api: Local API server running on port 8080
+2026-04-18T17:56:39.277Z [INFO]: Local-api: Initialized
+2026-04-18T17:56:47.283Z [INFO]: Orders_service: Received task: local_task:4a704c31cf1cc61c
+2026-04-18T17:56:47.289Z [INFO]: Orders service: Orders GET [admin]
+2026-04-18T17:56:47.290Z [INFO]: Orders_service: Task local_task:4a704c31cf1cc61c completed successfully with status: completed
+2026-04-18T17:56:48.760Z [INFO]: Announces_service: Received task: local_task:1e4d5bd363ef4333
+2026-04-18T17:56:48.767Z [INFO]: Announces_service: Task local_task:1e4d5bd363ef4333 completed successfully with status: completed
+2026-04-18T17:56:49.705Z [INFO]: Users service: Received task: local_task:5a2bd501263a530a
+2026-04-18T17:56:49.705Z [ERROR]: undefined
+2026-04-18T17:56:49.709Z [INFO]: Users service: Users GET [admin]
+2026-04-18T17:56:49.710Z [INFO]: Users service: Task local_task:5a2bd501263a530a completed successfully with status: completed
+2026-04-18T17:56:55.207Z [INFO]: Users service: Received task: local_task:f90b6f9adb0ac5c7
+2026-04-18T17:56:55.207Z [ERROR]: 1
+2026-04-18T17:56:55.210Z [INFO]: Users service: Users GET [admin]
+2026-04-18T17:56:55.211Z [INFO]: Users service: Task local_task:f90b6f9adb0ac5c7 completed successfully with status: completed
+2026-04-18T17:57:09.520Z [INFO]: Users service: Received task: local_task:15632f62a310e403
+2026-04-18T17:57:09.521Z [ERROR]: 1
+2026-04-18T17:57:09.524Z [INFO]: Users service: Users GET [admin]
+2026-04-18T17:57:09.525Z [INFO]: Users service: Task local_task:15632f62a310e403 completed successfully with status: completed
+2026-04-18T17:58:50.001Z [INFO]: Schedule_service: Database connected
+2026-04-18T17:58:50.008Z [INFO]: Announces_service: Database connected
+2026-04-18T17:58:50.014Z [INFO]: Schedule_service: Redis connected
+2026-04-18T17:58:50.025Z [INFO]: Announces_service: Redis connected
+2026-04-18T17:58:50.029Z [INFO]: Schedule_service: RabbitMQ connected
+2026-04-18T17:58:50.030Z [INFO]: Schedule_service: Service is running.
+2026-04-18T17:58:50.039Z [INFO]: Announces_service: RabbitMQ connected
+2026-04-18T17:58:50.040Z [INFO]: Announces_service: Service is running.
+2026-04-18T17:58:50.040Z [INFO]: Orders_service: Database connected
+2026-04-18T17:58:50.051Z [INFO]: Orders_service: Redis connected
+2026-04-18T17:58:50.051Z [INFO]: Goods_service: Database connected
+2026-04-18T17:58:50.060Z [INFO]: Orders_service: RabbitMQ connected
+2026-04-18T17:58:50.061Z [INFO]: Orders_service: Service is running.
+2026-04-18T17:58:50.062Z [INFO]: Goods_service: Redis connected
+2026-04-18T17:58:50.065Z [INFO]: Users service: Database connected
+2026-04-18T17:58:50.071Z [INFO]: Goods_service: RabbitMQ connected
+2026-04-18T17:58:50.071Z [INFO]: Goods_service: Service is running.
+2026-04-18T17:58:50.076Z [INFO]: Users service: Redis connected
+2026-04-18T17:58:50.084Z [INFO]: Users service: RabbitMQ connected
+2026-04-18T17:58:50.084Z [INFO]: Users service: Service is running.
+2026-04-18T17:59:41.677Z [INFO]: Users service: Received task: local_task:57617c058bf25630
+2026-04-18T17:59:41.678Z [ERROR]: 1
+2026-04-18T17:59:41.692Z [INFO]: Users service: User GET [admin]
+2026-04-18T17:59:41.693Z [INFO]: Users service: Task local_task:57617c058bf25630 completed successfully with status: completed
+2026-04-18T17:59:46.967Z [INFO]: Users service: Received task: local_task:06da104dcd992db2
+2026-04-18T17:59:46.968Z [ERROR]: undefined
+2026-04-18T17:59:46.974Z [INFO]: Users service: User GET [admin]
+2026-04-18T17:59:46.974Z [INFO]: Users service: Task local_task:06da104dcd992db2 completed successfully with status: completed
+2026-04-18T18:01:49.646Z [INFO]: Users service: Received task: local_task:52e1709b96f4988c
+2026-04-18T18:01:49.648Z [ERROR]: 0
+2026-04-18T18:01:49.652Z [ERROR]: Users service: Error: null is not an object (evaluating 'requestedUser.id')
+2026-04-18T18:01:49.653Z [INFO]: Users service: Task local_task:52e1709b96f4988c completed successfully with status: error
+2026-04-18T18:02:35.602Z [INFO]: Announces_service: Database connected
+2026-04-18T18:02:35.602Z [INFO]: Users service: Database connected
+2026-04-18T18:02:35.614Z [INFO]: Users service: Redis connected
+2026-04-18T18:02:35.614Z [INFO]: Announces_service: Redis connected
+2026-04-18T18:02:35.624Z [INFO]: Users service: RabbitMQ connected
+2026-04-18T18:02:35.625Z [INFO]: Users service: Service is running.
+2026-04-18T18:02:35.626Z [INFO]: Announces_service: RabbitMQ connected
+2026-04-18T18:02:35.627Z [INFO]: Announces_service: Service is running.
+2026-04-18T18:02:35.642Z [INFO]: Orders_service: Database connected
+2026-04-18T18:02:35.654Z [INFO]: Orders_service: Redis connected
+2026-04-18T18:02:35.663Z [INFO]: Orders_service: RabbitMQ connected
+2026-04-18T18:02:35.664Z [INFO]: Orders_service: Service is running.
+2026-04-18T18:02:35.665Z [INFO]: Goods_service: Database connected
+2026-04-18T18:02:35.674Z [INFO]: Goods_service: Redis connected
+2026-04-18T18:02:35.682Z [INFO]: Goods_service: RabbitMQ connected
+2026-04-18T18:02:35.683Z [INFO]: Goods_service: Service is running.
+2026-04-18T18:02:35.696Z [INFO]: Schedule_service: Database connected
+2026-04-18T18:02:35.703Z [INFO]: Schedule_service: Redis connected
+2026-04-18T18:02:35.712Z [INFO]: Schedule_service: RabbitMQ connected
+2026-04-18T18:02:35.712Z [INFO]: Schedule_service: Service is running.
+2026-04-18T18:03:57.145Z [INFO]: Users service: Received task: local_task:ab1a1df5bbbf8874
+2026-04-18T18:03:57.148Z [ERROR]: 0
+2026-04-18T18:03:57.154Z [ERROR]: Users service: Error: null is not an object (evaluating 'requestedUser.id')
+2026-04-18T18:03:57.155Z [INFO]: Users service: Task local_task:ab1a1df5bbbf8874 completed successfully with status: error
+2026-04-18T18:04:04.266Z [INFO]: Users service: Received task: local_task:1b3c69654d7eab95
+2026-04-18T18:04:04.266Z [ERROR]: undefined
+2026-04-18T18:04:04.271Z [INFO]: Users service: Users GET [admin]
+2026-04-18T18:04:04.272Z [INFO]: Users service: Task local_task:1b3c69654d7eab95 completed successfully with status: completed
+2026-04-18T18:04:06.985Z [INFO]: Users service: Received task: local_task:f6c6763faf0e2d13
+2026-04-18T18:04:06.986Z [ERROR]: 0
+2026-04-18T18:04:06.989Z [ERROR]: Users service: Error: null is not an object (evaluating 'requestedUser.id')
+2026-04-18T18:04:06.990Z [INFO]: Users service: Task local_task:f6c6763faf0e2d13 completed successfully with status: error
+2026-04-18T18:04:08.756Z [INFO]: Users service: Received task: local_task:ec1bd6a958c36fba
+2026-04-18T18:04:08.757Z [ERROR]: undefined
+2026-04-18T18:04:08.760Z [INFO]: Users service: Users GET [admin]
+2026-04-18T18:04:08.761Z [INFO]: Users service: Task local_task:ec1bd6a958c36fba completed successfully with status: completed
+2026-04-18T18:04:09.809Z [INFO]: Users service: Received task: local_task:04f1f863a8cd5ff3
+2026-04-18T18:04:09.809Z [ERROR]: 1
+2026-04-18T18:04:09.818Z [INFO]: Users service: User GET [admin]
+2026-04-18T18:04:09.818Z [INFO]: Users service: Task local_task:04f1f863a8cd5ff3 completed successfully with status: completed
+2026-04-18T18:04:11.856Z [INFO]: Users service: Received task: local_task:a5de494fd8d3df90
+2026-04-18T18:04:11.856Z [ERROR]: undefined
+2026-04-18T18:04:11.860Z [INFO]: Users service: Users GET [admin]
+2026-04-18T18:04:11.861Z [INFO]: Users service: Task local_task:a5de494fd8d3df90 completed successfully with status: completed
+2026-04-18T18:04:14.769Z [INFO]: Users service: Received task: local_task:7d02ac38e6021ad1
+2026-04-18T18:04:14.770Z [ERROR]: 0
+2026-04-18T18:04:14.772Z [ERROR]: Users service: Error: null is not an object (evaluating 'requestedUser.id')
+2026-04-18T18:04:14.773Z [INFO]: Users service: Task local_task:7d02ac38e6021ad1 completed successfully with status: error
+2026-04-18T18:04:47.553Z [INFO]: Users service: Received task: local_task:17a8cd3c21fcb095
+2026-04-18T18:04:47.556Z [ERROR]: undefined
+2026-04-18T18:04:47.562Z [INFO]: Users service: Users GET [admin]
+2026-04-18T18:04:47.562Z [INFO]: Users service: Task local_task:17a8cd3c21fcb095 completed successfully with status: completed
+2026-04-18T18:04:52.653Z [INFO]: Users service: Received task: local_task:bc6cbb5dc8c68a99
+2026-04-18T18:04:52.653Z [ERROR]: 1
+2026-04-18T18:04:52.660Z [INFO]: Users service: User GET [admin]
+2026-04-18T18:04:52.661Z [INFO]: Users service: Task local_task:bc6cbb5dc8c68a99 completed successfully with status: completed
+2026-04-18T18:04:59.443Z [INFO]: Users service: Received task: local_task:9e321e5eb301d1c2
+2026-04-18T18:04:59.444Z [ERROR]: undefined
+2026-04-18T18:04:59.447Z [INFO]: Users service: Users GET [admin]
+2026-04-18T18:04:59.448Z [INFO]: Users service: Task local_task:9e321e5eb301d1c2 completed successfully with status: completed
+2026-04-18T18:05:02.144Z [INFO]: Users service: Received task: local_task:37170f077ea87d19
+2026-04-18T18:05:02.145Z [ERROR]: 0
+2026-04-18T18:05:02.148Z [ERROR]: Users service: Error: null is not an object (evaluating 'requestedUser.id')
+2026-04-18T18:05:02.149Z [INFO]: Users service: Task local_task:37170f077ea87d19 completed successfully with status: error
+2026-04-18T18:05:55.724Z [INFO]: Users service: Database connected
+2026-04-18T18:05:55.739Z [INFO]: Users service: Redis connected
+2026-04-18T18:05:55.753Z [INFO]: Users service: RabbitMQ connected
+2026-04-18T18:05:55.754Z [INFO]: Users service: Service is running.
+2026-04-18T18:05:55.790Z [INFO]: Goods_service: Database connected
+2026-04-18T18:05:55.800Z [INFO]: Announces_service: Database connected
+2026-04-18T18:05:55.804Z [INFO]: Goods_service: Redis connected
+2026-04-18T18:05:55.815Z [INFO]: Announces_service: Redis connected
+2026-04-18T18:05:55.816Z [INFO]: Goods_service: RabbitMQ connected
+2026-04-18T18:05:55.818Z [INFO]: Goods_service: Service is running.
+2026-04-18T18:05:55.824Z [INFO]: Schedule_service: Database connected
+2026-04-18T18:05:55.827Z [INFO]: Announces_service: RabbitMQ connected
+2026-04-18T18:05:55.828Z [INFO]: Announces_service: Service is running.
+2026-04-18T18:05:55.837Z [INFO]: Schedule_service: Redis connected
+2026-04-18T18:05:55.841Z [INFO]: Orders_service: Database connected
+2026-04-18T18:05:55.849Z [INFO]: Schedule_service: RabbitMQ connected
+2026-04-18T18:05:55.850Z [INFO]: Schedule_service: Service is running.
+2026-04-18T18:05:55.853Z [INFO]: Orders_service: Redis connected
+2026-04-18T18:05:55.861Z [INFO]: Orders_service: RabbitMQ connected
+2026-04-18T18:05:55.862Z [INFO]: Orders_service: Service is running.
+2026-04-18T18:06:14.487Z [INFO]: Users service: Received task: local_task:ad16d00db1c60962
+2026-04-18T18:06:14.488Z [ERROR]: false
+2026-04-18T18:06:14.494Z [ERROR]: Users service: Error: null is not an object (evaluating 'requestedUser.id')
+2026-04-18T18:06:14.495Z [INFO]: Users service: Task local_task:ad16d00db1c60962 completed successfully with status: error
+2026-04-18T18:06:21.921Z [INFO]: Users service: Received task: local_task:9dacfafd9d156d4f
+2026-04-18T18:06:21.922Z [ERROR]: true
+2026-04-18T18:06:21.927Z [INFO]: Users service: Users GET [admin]
+2026-04-18T18:06:21.928Z [INFO]: Users service: Task local_task:9dacfafd9d156d4f completed successfully with status: completed
+2026-04-18T18:06:24.648Z [INFO]: Users service: Received task: local_task:02c56a6530c6df75
+2026-04-18T18:06:24.649Z [ERROR]: false
+2026-04-18T18:06:24.657Z [INFO]: Users service: User GET [admin]
+2026-04-18T18:06:24.658Z [INFO]: Users service: Task local_task:02c56a6530c6df75 completed successfully with status: completed
+2026-04-18T18:06:37.363Z [INFO]: Users service: Received task: local_task:79f43dd4de319ed4
+2026-04-18T18:06:37.364Z [ERROR]: true
+2026-04-18T18:06:37.367Z [INFO]: Users service: Users GET [admin]
+2026-04-18T18:06:37.368Z [INFO]: Users service: Task local_task:79f43dd4de319ed4 completed successfully with status: completed
+2026-04-18T18:06:39.747Z [INFO]: Users service: Received task: local_task:64c890a8caaa8ace
+2026-04-18T18:06:39.748Z [ERROR]: false
+2026-04-18T18:06:39.750Z [ERROR]: Users service: Error: null is not an object (evaluating 'requestedUser.id')
+2026-04-18T18:06:39.751Z [INFO]: Users service: Task local_task:64c890a8caaa8ace completed successfully with status: error
+2026-04-18T18:08:50.450Z [INFO]: Goods_service: Database connected
+2026-04-18T18:08:50.463Z [INFO]: Goods_service: Redis connected
+2026-04-18T18:08:50.476Z [INFO]: Goods_service: RabbitMQ connected
+2026-04-18T18:08:50.477Z [INFO]: Goods_service: Service is running.
+2026-04-18T18:08:50.486Z [INFO]: Announces_service: Database connected
+2026-04-18T18:08:50.499Z [INFO]: Announces_service: Redis connected
+2026-04-18T18:08:50.501Z [INFO]: Orders_service: Database connected
+2026-04-18T18:08:50.513Z [INFO]: Announces_service: RabbitMQ connected
+2026-04-18T18:08:50.514Z [INFO]: Announces_service: Service is running.
+2026-04-18T18:08:50.515Z [INFO]: Orders_service: Redis connected
+2026-04-18T18:08:50.527Z [INFO]: Orders_service: RabbitMQ connected
+2026-04-18T18:08:50.528Z [INFO]: Orders_service: Service is running.
+2026-04-18T18:08:50.529Z [INFO]: Users service: Database connected
+2026-04-18T18:08:50.540Z [INFO]: Users service: Redis connected
+2026-04-18T18:08:50.548Z [INFO]: Users service: RabbitMQ connected
+2026-04-18T18:08:50.548Z [INFO]: Users service: Service is running.
+2026-04-18T18:08:50.561Z [INFO]: Schedule_service: Database connected
+2026-04-18T18:08:50.571Z [INFO]: Schedule_service: Redis connected
+2026-04-18T18:08:50.578Z [INFO]: Schedule_service: RabbitMQ connected
+2026-04-18T18:08:50.579Z [INFO]: Schedule_service: Service is running.
+2026-04-18T18:10:14.757Z [INFO]: Users service: Received task: local_task:7948c68d955350a4
+2026-04-18T18:10:14.758Z [ERROR]: true
+2026-04-18T18:10:14.763Z [ERROR]: Users service: Error: null is not an object (evaluating 'requestedUser.id')
+2026-04-18T18:10:14.765Z [INFO]: Users service: Task local_task:7948c68d955350a4 completed successfully with status: error
+2026-04-18T18:11:02.506Z [INFO]: Users service: Received task: local_task:f463586a41ec51d5
+2026-04-18T18:11:02.515Z [INFO]: Users service: Users GET [admin]
+2026-04-18T18:11:02.516Z [INFO]: Users service: Task local_task:f463586a41ec51d5 completed successfully with status: completed
+2026-04-18T18:11:04.010Z [INFO]: Users service: Received task: local_task:6c642961cc85babe
+2026-04-18T18:11:04.011Z [ERROR]: true
+2026-04-18T18:11:04.019Z [INFO]: Users service: User GET [admin]
+2026-04-18T18:11:04.020Z [INFO]: Users service: Task local_task:6c642961cc85babe completed successfully with status: completed
+2026-04-18T18:12:08.452Z [INFO]: Orders_service: Database connected
+2026-04-18T18:12:08.468Z [INFO]: Orders_service: Redis connected
+2026-04-18T18:12:08.483Z [INFO]: Orders_service: RabbitMQ connected
+2026-04-18T18:12:08.484Z [INFO]: Orders_service: Service is running.
+2026-04-18T18:12:08.509Z [INFO]: Goods_service: Database connected
+2026-04-18T18:12:08.516Z [INFO]: Schedule_service: Database connected
+2026-04-18T18:12:08.524Z [INFO]: Goods_service: Redis connected
+2026-04-18T18:12:08.529Z [INFO]: Announces_service: Database connected
+2026-04-18T18:12:08.533Z [INFO]: Schedule_service: Redis connected
+2026-04-18T18:12:08.537Z [INFO]: Goods_service: RabbitMQ connected
+2026-04-18T18:12:08.538Z [INFO]: Goods_service: Service is running.
+2026-04-18T18:12:08.538Z [INFO]: Users service: Database connected
+2026-04-18T18:12:08.543Z [INFO]: Announces_service: Redis connected
+2026-04-18T18:12:08.546Z [INFO]: Schedule_service: RabbitMQ connected
+2026-04-18T18:12:08.547Z [INFO]: Schedule_service: Service is running.
+2026-04-18T18:12:08.551Z [INFO]: Users service: Redis connected
+2026-04-18T18:12:08.555Z [INFO]: Announces_service: RabbitMQ connected
+2026-04-18T18:12:08.556Z [INFO]: Announces_service: Service is running.
+2026-04-18T18:12:08.560Z [INFO]: Users service: RabbitMQ connected
+2026-04-18T18:12:08.561Z [INFO]: Users service: Service is running.
+2026-04-18T18:12:08.565Z [INFO]: Users service: Received task: local_task:e7615c4615150d0e
+2026-04-18T18:12:08.572Z [INFO]: Users service: Users GET [admin]
+2026-04-18T18:12:08.573Z [INFO]: Users service: Task local_task:e7615c4615150d0e completed successfully with status: completed
+2026-04-18T18:12:15.948Z [INFO]: Announces_service: Received task: local_task:d251c2ef749cfbac
+2026-04-18T18:12:15.954Z [INFO]: Announces_service: Task local_task:d251c2ef749cfbac completed successfully with status: completed
+2026-04-18T18:12:16.604Z [INFO]: Users service: Received task: local_task:a142bba1561c0978
+2026-04-18T18:12:16.607Z [INFO]: Users service: Users GET [admin]
+2026-04-18T18:12:16.608Z [INFO]: Users service: Task local_task:a142bba1561c0978 completed successfully with status: completed
+2026-04-18T18:12:18.906Z [INFO]: Users service: Received task: local_task:c816156787b5b292
+2026-04-18T18:12:18.907Z [ERROR]: 1
+2026-04-18T18:12:18.907Z [ERROR]: string
+2026-04-18T18:12:18.917Z [INFO]: Users service: User GET [admin]
+2026-04-18T18:12:18.918Z [INFO]: Users service: Task local_task:c816156787b5b292 completed successfully with status: completed
+2026-04-18T18:12:47.894Z [INFO]: Users service: Received task: local_task:c28b2f8deab55c40
+2026-04-18T18:12:47.897Z [INFO]: Users service: Users GET [admin]
+2026-04-18T18:12:47.898Z [INFO]: Users service: Task local_task:c28b2f8deab55c40 completed successfully with status: completed
+2026-04-18T18:12:48.823Z [INFO]: Users service: Received task: local_task:1db55e863a389408
+2026-04-18T18:12:48.823Z [ERROR]: 0
+2026-04-18T18:12:48.824Z [ERROR]: string
+2026-04-18T18:12:48.826Z [ERROR]: Users service: Error: null is not an object (evaluating 'requestedUser.id')
+2026-04-18T18:12:48.827Z [INFO]: Users service: Task local_task:1db55e863a389408 completed successfully with status: error
+2026-04-18T18:22:48.245Z [INFO]: Goods_service: Database connected
+2026-04-18T18:22:48.257Z [INFO]: Goods_service: Redis connected
+2026-04-18T18:22:48.264Z [INFO]: Schedule_service: Database connected
+2026-04-18T18:22:48.267Z [INFO]: Goods_service: RabbitMQ connected
+2026-04-18T18:22:48.268Z [INFO]: Goods_service: Service is running.
+2026-04-18T18:22:48.279Z [INFO]: Schedule_service: Redis connected
+2026-04-18T18:22:48.284Z [INFO]: Announces_service: Database connected
+2026-04-18T18:22:48.289Z [INFO]: Schedule_service: RabbitMQ connected
+2026-04-18T18:22:48.289Z [INFO]: Schedule_service: Service is running.
+2026-04-18T18:22:48.290Z [INFO]: Orders_service: Database connected
+2026-04-18T18:22:48.295Z [INFO]: Announces_service: Redis connected
+2026-04-18T18:22:48.301Z [INFO]: Orders_service: Redis connected
+2026-04-18T18:22:48.303Z [INFO]: Announces_service: RabbitMQ connected
+2026-04-18T18:22:48.304Z [INFO]: Announces_service: Service is running.
+2026-04-18T18:22:48.310Z [INFO]: Orders_service: RabbitMQ connected
+2026-04-18T18:22:48.310Z [INFO]: Orders_service: Service is running.
+2026-04-18T18:22:48.323Z [INFO]: Users service: Database connected
+2026-04-18T18:22:48.331Z [INFO]: Users service: Redis connected
+2026-04-18T18:22:48.340Z [INFO]: Users service: RabbitMQ connected
+2026-04-18T18:22:48.341Z [INFO]: Users service: Service is running.
+2026-04-18T18:22:50.674Z [INFO]: Announces_service: Received task: local_task:e88ed612ebcafa0c
+2026-04-18T18:22:50.681Z [INFO]: Announces_service: Task local_task:e88ed612ebcafa0c completed successfully with status: completed
+2026-04-18T18:22:51.753Z [INFO]: Users service: Received task: local_task:44a11825c6860dae
+2026-04-18T18:22:51.760Z [INFO]: Users service: Users GET [admin]
+2026-04-18T18:22:51.761Z [INFO]: Users service: Task local_task:44a11825c6860dae completed successfully with status: completed
+2026-04-18T18:22:52.835Z [INFO]: Users service: Received task: local_task:9cd26afb37a3dc80
+2026-04-18T18:22:52.846Z [INFO]: Users service: User GET [admin]
+2026-04-18T18:22:52.847Z [INFO]: Users service: Task local_task:9cd26afb37a3dc80 completed successfully with status: completed
+2026-04-18T18:22:54.349Z [INFO]: Users service: Received task: local_task:60b29c8c97e8653a
+2026-04-18T18:22:54.353Z [INFO]: Users service: Users GET [admin]
+2026-04-18T18:22:54.354Z [INFO]: Users service: Task local_task:60b29c8c97e8653a completed successfully with status: completed
+2026-04-18T18:22:55.226Z [INFO]: Users service: Received task: local_task:94f51dde6171b463
+2026-04-18T18:22:55.231Z [INFO]: Users service: User GET [admin]
+2026-04-18T18:22:55.232Z [INFO]: Users service: Task local_task:94f51dde6171b463 completed successfully with status: completed
+2026-04-18T18:23:16.998Z [INFO]: Users service: Received task: local_task:e75d8637c1ba0eed
+2026-04-18T18:23:17.002Z [INFO]: Users service: Users GET [admin]
+2026-04-18T18:23:17.003Z [INFO]: Users service: Task local_task:e75d8637c1ba0eed completed successfully with status: completed
+2026-04-18T18:23:21.747Z [INFO]: Users service: Received task: local_task:87958709a5c57a7e
+2026-04-18T18:23:21.753Z [INFO]: Users service: User GET [admin]
+2026-04-18T18:23:21.754Z [INFO]: Users service: Task local_task:87958709a5c57a7e completed successfully with status: completed
+2026-04-18T18:24:24.481Z [INFO]: Announces_service: Database connected
+2026-04-18T18:24:24.494Z [INFO]: Announces_service: Redis connected
+2026-04-18T18:24:24.507Z [INFO]: Announces_service: RabbitMQ connected
+2026-04-18T18:24:24.507Z [INFO]: Announces_service: Service is running.
+2026-04-18T18:24:24.532Z [INFO]: Orders_service: Database connected
+2026-04-18T18:24:24.539Z [INFO]: Schedule_service: Database connected
+2026-04-18T18:24:24.545Z [INFO]: Orders_service: Redis connected
+2026-04-18T18:24:24.546Z [INFO]: Users service: Database connected
+2026-04-18T18:24:24.552Z [INFO]: Schedule_service: Redis connected
+2026-04-18T18:24:24.555Z [INFO]: Orders_service: RabbitMQ connected
+2026-04-18T18:24:24.556Z [INFO]: Orders_service: Service is running.
+2026-04-18T18:24:24.558Z [INFO]: Users service: Redis connected
+2026-04-18T18:24:24.561Z [INFO]: Schedule_service: RabbitMQ connected
+2026-04-18T18:24:24.562Z [INFO]: Schedule_service: Service is running.
+2026-04-18T18:24:24.567Z [INFO]: Users service: RabbitMQ connected
+2026-04-18T18:24:24.568Z [INFO]: Users service: Service is running.
+2026-04-18T18:24:24.580Z [INFO]: Goods_service: Database connected
+2026-04-18T18:24:24.588Z [INFO]: Goods_service: Redis connected
+2026-04-18T18:24:24.597Z [INFO]: Goods_service: RabbitMQ connected
+2026-04-18T18:24:24.597Z [INFO]: Goods_service: Service is running.
+2026-04-18T18:24:27.795Z [INFO]: Users service: Received task: local_task:e118db007bc5ed30
+2026-04-18T18:24:27.802Z [INFO]: Users service: Users GET [admin]
+2026-04-18T18:24:27.803Z [INFO]: Users service: Task local_task:e118db007bc5ed30 completed successfully with status: completed
+2026-04-18T18:24:31.539Z [INFO]: Users service: Received task: local_task:6d35043b080e4822
+2026-04-18T18:24:31.540Z [ERROR]: number
+2026-04-18T18:24:31.541Z [ERROR]: 1
+2026-04-18T18:24:31.551Z [INFO]: Users service: User GET [admin]
+2026-04-18T18:24:31.552Z [INFO]: Users service: Task local_task:6d35043b080e4822 completed successfully with status: completed
+2026-04-18T18:24:36.136Z [INFO]: Users service: Received task: local_task:7156cbee9772c98b
+2026-04-18T18:24:36.140Z [INFO]: Users service: Users GET [admin]
+2026-04-18T18:24:36.141Z [INFO]: Users service: Task local_task:7156cbee9772c98b completed successfully with status: completed
+2026-04-18T18:24:37.114Z [INFO]: Users service: Received task: local_task:ebd4e3a857f1e7a3
+2026-04-18T18:24:37.115Z [ERROR]: number
+2026-04-18T18:24:37.115Z [ERROR]: 0
+2026-04-18T18:24:37.120Z [INFO]: Users service: User GET [admin]
+2026-04-18T18:24:37.121Z [INFO]: Users service: Task local_task:ebd4e3a857f1e7a3 completed successfully with status: completed
+2026-04-18T18:27:00.854Z [INFO]: Schedule_service: Database connected
+2026-04-18T18:27:00.857Z [INFO]: Announces_service: Database connected
+2026-04-18T18:27:00.869Z [INFO]: Schedule_service: Redis connected
+2026-04-18T18:27:00.871Z [INFO]: Announces_service: Redis connected
+2026-04-18T18:27:00.883Z [INFO]: Orders_service: Database connected
+2026-04-18T18:27:00.886Z [INFO]: Schedule_service: RabbitMQ connected
+2026-04-18T18:27:00.887Z [INFO]: Announces_service: RabbitMQ connected
+2026-04-18T18:27:00.887Z [INFO]: Schedule_service: Service is running.
+2026-04-18T18:27:00.888Z [INFO]: Announces_service: Service is running.
+2026-04-18T18:27:00.895Z [INFO]: Orders_service: Redis connected
+2026-04-18T18:27:00.910Z [INFO]: Orders_service: RabbitMQ connected
+2026-04-18T18:27:00.911Z [INFO]: Orders_service: Service is running.
+2026-04-18T18:27:00.933Z [INFO]: Users service: Database connected
+2026-04-18T18:27:00.944Z [INFO]: Users service: Redis connected
+2026-04-18T18:27:00.952Z [INFO]: Goods_service: Database connected
+2026-04-18T18:27:00.953Z [INFO]: Users service: RabbitMQ connected
+2026-04-18T18:27:00.954Z [INFO]: Users service: Service is running.
+2026-04-18T18:27:00.963Z [INFO]: Goods_service: Redis connected
+2026-04-18T18:27:00.975Z [INFO]: Goods_service: RabbitMQ connected
+2026-04-18T18:27:00.976Z [INFO]: Goods_service: Service is running.
+2026-04-18T18:27:15.555Z [INFO]: Users service: Received task: local_task:4cbb330cf47ef555
+2026-04-18T18:27:15.562Z [INFO]: Users service: Users GET [admin]
+2026-04-18T18:27:15.563Z [INFO]: Users service: Task local_task:4cbb330cf47ef555 completed successfully with status: completed
+2026-04-18T18:27:16.840Z [INFO]: Users service: Received task: local_task:95fbe019d45996ba
+2026-04-18T18:27:16.845Z [ERROR]: number
+2026-04-18T18:27:16.846Z [ERROR]: 1
+2026-04-18T18:27:16.852Z [INFO]: Users service: User GET [admin]
+2026-04-18T18:27:16.853Z [INFO]: Users service: Task local_task:95fbe019d45996ba completed successfully with status: completed
+2026-04-18T18:27:25.395Z [INFO]: Users service: Received task: local_task:e0e25dfb1c52de8d
+2026-04-18T18:27:25.398Z [INFO]: Users service: Users GET [admin]
+2026-04-18T18:27:25.399Z [INFO]: Users service: Task local_task:e0e25dfb1c52de8d completed successfully with status: completed
+2026-04-18T18:27:27.614Z [INFO]: Users service: Received task: local_task:59c6a651f6ea91d9
+2026-04-18T18:27:27.617Z [ERROR]: number
+2026-04-18T18:27:27.618Z [ERROR]: 1
+2026-04-18T18:27:27.622Z [INFO]: Users service: User GET [admin]
+2026-04-18T18:27:27.622Z [INFO]: Users service: Task local_task:59c6a651f6ea91d9 completed successfully with status: completed
+2026-04-18T18:27:31.274Z [INFO]: Users service: Received task: local_task:5ef41f7aae830040
+2026-04-18T18:27:31.277Z [INFO]: Users service: Users GET [admin]
+2026-04-18T18:27:31.278Z [INFO]: Users service: Task local_task:5ef41f7aae830040 completed successfully with status: completed
+2026-04-18T18:27:32.809Z [INFO]: Users service: Received task: local_task:5a0b82b4f503a022
+2026-04-18T18:27:32.810Z [ERROR]: number
+2026-04-18T18:27:32.810Z [ERROR]: 0
+2026-04-18T18:27:32.815Z [INFO]: Users service: User GET [admin]
+2026-04-18T18:27:32.815Z [INFO]: Users service: Task local_task:5a0b82b4f503a022 completed successfully with status: completed
+2026-04-18T18:29:07.233Z [INFO]: Goods_service: Database connected
+2026-04-18T18:29:07.247Z [INFO]: Goods_service: Redis connected
+2026-04-18T18:29:07.249Z [INFO]: Schedule_service: Database connected
+2026-04-18T18:29:07.258Z [INFO]: Orders_service: Database connected
+2026-04-18T18:29:07.262Z [INFO]: Goods_service: RabbitMQ connected
+2026-04-18T18:29:07.263Z [INFO]: Schedule_service: Redis connected
+2026-04-18T18:29:07.263Z [INFO]: Goods_service: Service is running.
+2026-04-18T18:29:07.264Z [INFO]: Announces_service: Database connected
+2026-04-18T18:29:07.273Z [INFO]: Orders_service: Redis connected
+2026-04-18T18:29:07.276Z [INFO]: Schedule_service: RabbitMQ connected
+2026-04-18T18:29:07.277Z [INFO]: Schedule_service: Service is running.
+2026-04-18T18:29:07.281Z [INFO]: Announces_service: Redis connected
+2026-04-18T18:29:07.286Z [INFO]: Orders_service: RabbitMQ connected
+2026-04-18T18:29:07.287Z [INFO]: Orders_service: Service is running.
+2026-04-18T18:29:07.293Z [INFO]: Announces_service: RabbitMQ connected
+2026-04-18T18:29:07.294Z [INFO]: Announces_service: Service is running.
+2026-04-18T18:29:07.302Z [INFO]: Users service: Database connected
+2026-04-18T18:29:07.316Z [INFO]: Users service: Redis connected
+2026-04-18T18:29:07.324Z [INFO]: Users service: RabbitMQ connected
+2026-04-18T18:29:07.325Z [INFO]: Users service: Service is running.
+2026-04-18T18:29:43.817Z [INFO]: Users service: Received task: local_task:ad19dd117ff2e2ce
+2026-04-18T18:29:43.818Z [ERROR]: 1
+2026-04-18T18:29:43.826Z [ERROR]: 2
+2026-04-18T18:29:43.826Z [ERROR]: 3
+2026-04-18T18:29:43.828Z [ERROR]: 4
+2026-04-18T18:29:43.829Z [INFO]: Users service: User GET [admin]
+2026-04-18T18:29:43.830Z [INFO]: Users service: Task local_task:ad19dd117ff2e2ce completed successfully with status: completed
+2026-04-18T18:31:18.457Z [INFO]: Schedule_service: Database connected
+2026-04-18T18:31:18.465Z [INFO]: Users service: Database connected
+2026-04-18T18:31:18.469Z [INFO]: Schedule_service: Redis connected
+2026-04-18T18:31:18.475Z [INFO]: Goods_service: Database connected
+2026-04-18T18:31:18.478Z [INFO]: Users service: Redis connected
+2026-04-18T18:31:18.479Z [INFO]: Schedule_service: RabbitMQ connected
+2026-04-18T18:31:18.480Z [INFO]: Schedule_service: Service is running.
+2026-04-18T18:31:18.487Z [INFO]: Goods_service: Redis connected
+2026-04-18T18:31:18.488Z [INFO]: Users service: RabbitMQ connected
+2026-04-18T18:31:18.489Z [INFO]: Users service: Service is running.
+2026-04-18T18:31:18.494Z [INFO]: Announces_service: Database connected
+2026-04-18T18:31:18.500Z [INFO]: Goods_service: RabbitMQ connected
+2026-04-18T18:31:18.501Z [INFO]: Goods_service: Service is running.
+2026-04-18T18:31:18.503Z [INFO]: Orders_service: Database connected
+2026-04-18T18:31:18.505Z [INFO]: Announces_service: Redis connected
+2026-04-18T18:31:18.513Z [INFO]: Orders_service: Redis connected
+2026-04-18T18:31:18.514Z [INFO]: Announces_service: RabbitMQ connected
+2026-04-18T18:31:18.514Z [INFO]: Announces_service: Service is running.
+2026-04-18T18:31:18.521Z [INFO]: Orders_service: RabbitMQ connected
+2026-04-18T18:31:18.522Z [INFO]: Orders_service: Service is running.
+2026-04-18T18:31:41.346Z [INFO]: Users service: Received task: local_task:bda00489524fe357
+2026-04-18T18:31:41.357Z [INFO]: Users service: User GET [admin]
+2026-04-18T18:31:41.358Z [INFO]: Users service: Task local_task:bda00489524fe357 completed successfully with status: completed
+2026-04-18T18:32:03.088Z [INFO]: Schedule_service: Received task: local_task:75c0526b1a6808bc
+2026-04-18T18:32:03.095Z [INFO]: Schedule service: Schedule GET [admin]
+2026-04-18T18:32:03.096Z [INFO]: Schedule_service: Task local_task:75c0526b1a6808bc completed successfully with status: completed
+2026-04-18T18:32:05.427Z [INFO]: Orders_service: Received task: local_task:a61d3d40dbf14328
+2026-04-18T18:32:05.431Z [INFO]: Orders service: Orders GET [admin]
+2026-04-18T18:32:05.432Z [INFO]: Orders_service: Task local_task:a61d3d40dbf14328 completed successfully with status: completed
+2026-04-18T18:32:06.284Z [INFO]: Goods_service: Received task: local_task:867a47cc7a4e07fa
+2026-04-18T18:32:06.298Z [INFO]: Goods_service: Task local_task:867a47cc7a4e07fa completed successfully with status: completed
+2026-04-18T18:32:07.139Z [INFO]: Announces_service: Received task: local_task:07639a3033d971c6
+2026-04-18T18:32:07.147Z [INFO]: Announces_service: Task local_task:07639a3033d971c6 completed successfully with status: completed
+2026-04-18T18:32:08.812Z [INFO]: Goods_service: Received task: local_task:7ad71abcabb9ccff
+2026-04-18T18:32:08.819Z [INFO]: Goods_service: Task local_task:7ad71abcabb9ccff completed successfully with status: completed
+2026-04-18T18:32:10.599Z [INFO]: Users service: Received task: local_task:3b7781dcf001de48
+2026-04-18T18:32:10.605Z [INFO]: Users service: Users GET [admin]
+2026-04-18T18:32:10.606Z [INFO]: Users service: Task local_task:3b7781dcf001de48 completed successfully with status: completed
+2026-04-18T18:32:11.291Z [INFO]: Users service: Received task: local_task:5c9fb30396959e25
+2026-04-18T18:32:11.297Z [INFO]: Users service: User GET [admin]
+2026-04-18T18:32:11.298Z [INFO]: Users service: Task local_task:5c9fb30396959e25 completed successfully with status: completed
+2026-04-18T18:32:46.198Z [INFO]: Users service: Received task: local_task:a06f17f1909c8b59
+2026-04-18T18:32:46.207Z [INFO]: Users service: User GET [admin]
+2026-04-18T18:32:46.208Z [INFO]: Users service: Task local_task:a06f17f1909c8b59 completed successfully with status: completed
+2026-04-18T18:32:49.563Z [INFO]: Users service: Received task: local_task:14338e70a5cf1df4
+2026-04-18T18:32:49.567Z [INFO]: Users service: User GET [admin]
+2026-04-18T18:32:49.568Z [INFO]: Users service: Task local_task:14338e70a5cf1df4 completed successfully with status: completed
+2026-04-18T18:32:53.317Z [INFO]: Users service: Received task: local_task:8fb3906994bd161b
+2026-04-18T18:32:53.322Z [INFO]: Users service: User GET [admin]
+2026-04-18T18:32:53.323Z [INFO]: Users service: Task local_task:8fb3906994bd161b completed successfully with status: completed
+2026-04-18T18:32:57.120Z [INFO]: Users service: Received task: local_task:7359eae703c2d0f0
+2026-04-18T18:32:57.125Z [INFO]: Users service: User GET [admin]
+2026-04-18T18:32:57.125Z [INFO]: Users service: Task local_task:7359eae703c2d0f0 completed successfully with status: completed
+2026-04-18T18:32:59.117Z [INFO]: Users service: Received task: local_task:d24d206a6c77bafd
+2026-04-18T18:32:59.122Z [INFO]: Users service: User GET [admin]
+2026-04-18T18:32:59.123Z [INFO]: Users service: Task local_task:d24d206a6c77bafd completed successfully with status: completed
+2026-04-18T18:33:02.306Z [INFO]: Users service: Received task: local_task:eb762a05b23b3241
+2026-04-18T18:33:02.314Z [INFO]: Users service: User GET [admin]
+2026-04-18T18:33:02.315Z [INFO]: Users service: Task local_task:eb762a05b23b3241 completed successfully with status: completed
+2026-04-18T18:33:12.607Z [INFO]: Users service: Received task: local_task:f5939a990d1ca570
+2026-04-18T18:33:12.611Z [INFO]: Users service: User GET [admin]
+2026-04-18T18:33:12.612Z [INFO]: Users service: Task local_task:f5939a990d1ca570 completed successfully with status: completed
+2026-04-18T18:33:16.442Z [INFO]: Users service: Received task: local_task:ab2ff9b7db55e5cf
+2026-04-18T18:33:16.447Z [INFO]: Users service: User GET [admin]
+2026-04-18T18:33:16.448Z [INFO]: Users service: Task local_task:ab2ff9b7db55e5cf completed successfully with status: completed
+2026-04-18T18:33:22.944Z [INFO]: Users service: Received task: local_task:054a36ab8bb7b7ae
+2026-04-18T18:33:22.948Z [INFO]: Users service: User GET [admin]
+2026-04-18T18:33:22.949Z [INFO]: Users service: Task local_task:054a36ab8bb7b7ae completed successfully with status: completed
+2026-04-18T18:33:29.053Z [INFO]: Users service: Received task: local_task:0653b582f9afe91b
+2026-04-18T18:33:29.057Z [INFO]: Users service: User GET [admin]
+2026-04-18T18:33:29.058Z [INFO]: Users service: Task local_task:0653b582f9afe91b completed successfully with status: completed
+2026-04-18T18:33:32.274Z [INFO]: Users service: Received task: local_task:231916a8c8cc0b76
+2026-04-18T18:33:32.278Z [INFO]: Users service: User GET [admin]
+2026-04-18T18:33:32.279Z [INFO]: Users service: Task local_task:231916a8c8cc0b76 completed successfully with status: completed
+2026-04-18T18:34:00.648Z [INFO]: Users service: Received task: local_task:03d78e936df1b615
+2026-04-18T18:34:00.652Z [INFO]: Users service: User GET [admin]
+2026-04-18T18:34:00.653Z [INFO]: Users service: Task local_task:03d78e936df1b615 completed successfully with status: completed
+2026-04-18T18:35:28.356Z [INFO]: Users service: Received task: local_task:3ac3d45274889012
+2026-04-18T18:35:28.361Z [INFO]: Users service: User GET [admin]
+2026-04-18T18:35:28.361Z [INFO]: Users service: Task local_task:3ac3d45274889012 completed successfully with status: completed
+2026-04-18T18:35:35.312Z [INFO]: Users service: Received task: local_task:544d070507be477a
+2026-04-18T18:35:35.318Z [INFO]: Users service: User GET [admin]
+2026-04-18T18:35:35.319Z [INFO]: Users service: Task local_task:544d070507be477a completed successfully with status: completed
+2026-04-18T18:53:43.393Z [INFO]: Orders_service: Database connected
+2026-04-18T18:53:43.408Z [INFO]: Orders_service: Redis connected
+2026-04-18T18:53:43.419Z [INFO]: Orders_service: RabbitMQ connected
+2026-04-18T18:53:43.420Z [INFO]: Orders_service: Service is running.
+2026-04-18T18:53:43.429Z [INFO]: Goods_service: Database connected
+2026-04-18T18:53:43.441Z [INFO]: Goods_service: Redis connected
+2026-04-18T18:53:43.449Z [INFO]: Goods_service: RabbitMQ connected
+2026-04-18T18:53:43.450Z [INFO]: Goods_service: Service is running.
+2026-04-18T18:53:43.458Z [INFO]: Schedule_service: Database connected
+2026-04-18T18:53:43.469Z [INFO]: Schedule_service: Redis connected
+2026-04-18T18:53:43.480Z [INFO]: Schedule_service: RabbitMQ connected
+2026-04-18T18:53:43.481Z [INFO]: Schedule_service: Service is running.
+2026-04-18T18:53:43.481Z [INFO]: Announces_service: Database connected
+2026-04-18T18:53:43.487Z [INFO]: Users service: Database connected
+2026-04-18T18:53:43.491Z [INFO]: Announces_service: Redis connected
+2026-04-18T18:53:43.497Z [INFO]: Users service: Redis connected
+2026-04-18T18:53:43.500Z [INFO]: Announces_service: RabbitMQ connected
+2026-04-18T18:53:43.500Z [INFO]: Announces_service: Service is running.
+2026-04-18T18:53:43.505Z [INFO]: Users service: RabbitMQ connected
+2026-04-18T18:53:43.505Z [INFO]: Users service: Service is running.
+2026-04-18T18:54:29.817Z [INFO]: Users service: Received task: local_task:991dff242518cbdc
+2026-04-18T18:54:29.825Z [INFO]: Users service: Users GET [admin]
+2026-04-18T18:54:29.826Z [INFO]: Users service: Task local_task:991dff242518cbdc completed successfully with status: completed
+2026-04-18T18:56:41.425Z [INFO]: Local-api: Database connected
+2026-04-18T18:56:41.432Z [INFO]: Local-api: Database initialized
+2026-04-18T18:56:41.441Z [INFO]: Local-api: Redis connected
+2026-04-18T18:56:41.452Z [INFO]: Local-api: RabbitMQ connected
+2026-04-18T18:56:41.487Z [INFO]: Local-api: RabbitMQ setup completed
+2026-04-18T18:56:41.492Z [INFO]: Local-api: Routers initialized
+2026-04-18T18:56:41.497Z [INFO]: Local-api: Local API server running on port 8080
+2026-04-18T18:56:41.497Z [INFO]: Local-api: Initialized
+2026-04-18T18:57:01.019Z [INFO]: Schedule_service: Database connected
+2026-04-18T18:57:01.032Z [INFO]: Schedule_service: Redis connected
+2026-04-18T18:57:01.032Z [INFO]: Announces_service: Database connected
+2026-04-18T18:57:01.044Z [INFO]: Schedule_service: RabbitMQ connected
+2026-04-18T18:57:01.043Z [INFO]: Goods_service: Database connected
+2026-04-18T18:57:01.045Z [INFO]: Schedule_service: Service is running.
+2026-04-18T18:57:01.047Z [INFO]: Announces_service: Redis connected
+2026-04-18T18:57:01.058Z [INFO]: Goods_service: Redis connected
+2026-04-18T18:57:01.062Z [INFO]: Announces_service: RabbitMQ connected
+2026-04-18T18:57:01.063Z [INFO]: Announces_service: Service is running.
+2026-04-18T18:57:01.072Z [INFO]: Goods_service: RabbitMQ connected
+2026-04-18T18:57:01.073Z [INFO]: Goods_service: Service is running.
+2026-04-18T18:57:01.090Z [INFO]: Orders_service: Database connected
+2026-04-18T18:57:01.102Z [INFO]: Orders_service: Redis connected
+2026-04-18T18:57:01.112Z [INFO]: Orders_service: RabbitMQ connected
+2026-04-18T18:57:01.113Z [INFO]: Orders_service: Service is running.
+2026-04-18T18:57:01.122Z [INFO]: Roles service: Database connected
+2026-04-18T18:57:01.134Z [INFO]: Roles service: Redis connected
+2026-04-18T18:57:01.142Z [INFO]: Roles service: RabbitMQ connected
+2026-04-18T18:57:01.143Z [INFO]: Roles service: Service is running.
+2026-04-18T18:57:01.149Z [INFO]: Roles service: Received task: local_task:e35fa867b83861ac
+2026-04-18T18:57:01.149Z [INFO]: Roles service: Received task: local_task:25d254c0c2b33192
+2026-04-18T18:57:01.149Z [INFO]: Roles service: Received task: local_task:a2531a58eec66888
+2026-04-18T18:57:01.150Z [INFO]: Roles service: Received task: local_task:6767ba338d772ba4
+2026-04-18T18:57:01.150Z [INFO]: Roles service: Received task: local_task:e9ab68a6fcd287df
+2026-04-18T18:57:01.151Z [INFO]: Roles service: Received task: local_task:16e3472c559cff83
+2026-04-18T18:57:01.151Z [INFO]: Roles service: Received task: local_task:a4cc7181cac99c9f
+2026-04-18T18:57:01.152Z [INFO]: Roles service: Task local_task:e35fa867b83861ac not found in Redis
+2026-04-18T18:57:01.152Z [INFO]: Roles service: Task local_task:25d254c0c2b33192 not found in Redis
+2026-04-18T18:57:01.152Z [INFO]: Roles service: Task local_task:a2531a58eec66888 not found in Redis
+2026-04-18T18:57:01.152Z [INFO]: Roles service: Task local_task:6767ba338d772ba4 not found in Redis
+2026-04-18T18:57:01.153Z [INFO]: Roles service: Task local_task:e9ab68a6fcd287df not found in Redis
+2026-04-18T18:57:01.153Z [INFO]: Roles service: Task local_task:16e3472c559cff83 not found in Redis
+2026-04-18T18:57:01.161Z [INFO]: Roles service: Roles GET [admin]
+2026-04-18T18:57:01.164Z [INFO]: Roles service: Task local_task:a4cc7181cac99c9f completed successfully with status: completed
+2026-04-18T18:57:01.168Z [INFO]: Users service: Database connected
+2026-04-18T18:57:01.178Z [INFO]: Users service: Redis connected
+2026-04-18T18:57:01.186Z [INFO]: Users service: RabbitMQ connected
+2026-04-18T18:57:01.186Z [INFO]: Users service: Service is running.
+2026-04-18T18:57:17.246Z [INFO]: Users service: Received task: local_task:6630d4cf146fc5a6
+2026-04-18T18:57:17.253Z [INFO]: Users service: Users GET [admin]
+2026-04-18T18:57:17.254Z [INFO]: Users service: Task local_task:6630d4cf146fc5a6 completed successfully with status: completed
+2026-04-18T18:57:18.040Z [INFO]: Roles service: Received task: local_task:35539a1cb3c22733
+2026-04-18T18:57:18.044Z [INFO]: Roles service: Roles GET [admin]
+2026-04-18T18:57:18.045Z [INFO]: Roles service: Task local_task:35539a1cb3c22733 completed successfully with status: completed
+2026-04-18T18:57:38.705Z [INFO]: Roles service: Received task: local_task:565dc711fff8237d
+2026-04-18T18:57:38.710Z [INFO]: Roles service: Roles GET [admin]
+2026-04-18T18:57:38.710Z [INFO]: Roles service: Task local_task:565dc711fff8237d completed successfully with status: completed
+2026-04-18T18:59:45.186Z [INFO]: Announces_service: Database connected
+2026-04-18T18:59:45.200Z [INFO]: Announces_service: Redis connected
+2026-04-18T18:59:45.213Z [INFO]: Announces_service: RabbitMQ connected
+2026-04-18T18:59:45.214Z [INFO]: Announces_service: Service is running.
+2026-04-18T18:59:45.216Z [INFO]: Roles service: Database connected
+2026-04-18T18:59:45.228Z [INFO]: Roles service: Redis connected
+2026-04-18T18:59:45.240Z [INFO]: Roles service: RabbitMQ connected
+2026-04-18T18:59:45.241Z [INFO]: Roles service: Service is running.
+2026-04-18T18:59:45.248Z [INFO]: Users service: Database connected
+2026-04-18T18:59:45.252Z [INFO]: Goods_service: Database connected
+2026-04-18T18:59:45.253Z [INFO]: Orders_service: Database connected
+2026-04-18T18:59:45.260Z [INFO]: Users service: Redis connected
+2026-04-18T18:59:45.264Z [INFO]: Goods_service: Redis connected
+2026-04-18T18:59:45.271Z [INFO]: Orders_service: Redis connected
+2026-04-18T18:59:45.272Z [INFO]: Users service: RabbitMQ connected
+2026-04-18T18:59:45.273Z [INFO]: Users service: Service is running.
+2026-04-18T18:59:45.273Z [INFO]: Goods_service: RabbitMQ connected
+2026-04-18T18:59:45.274Z [INFO]: Goods_service: Service is running.
+2026-04-18T18:59:45.281Z [INFO]: Orders_service: RabbitMQ connected
+2026-04-18T18:59:45.282Z [INFO]: Orders_service: Service is running.
+2026-04-18T18:59:45.307Z [INFO]: Schedule_service: Database connected
+2026-04-18T18:59:45.315Z [INFO]: Schedule_service: Redis connected
+2026-04-18T18:59:45.325Z [INFO]: Schedule_service: RabbitMQ connected
+2026-04-18T18:59:45.326Z [INFO]: Schedule_service: Service is running.
+2026-04-18T18:59:59.590Z [INFO]: Roles service: Received task: local_task:9db535e40d24afd0
+2026-04-18T18:59:59.598Z [INFO]: Roles service: Roles GET [admin]
+2026-04-18T18:59:59.599Z [INFO]: Roles service: Task local_task:9db535e40d24afd0 completed successfully with status: completed
+2026-04-18T19:06:51.990Z [INFO]: Schedule_service: Database connected
+2026-04-18T19:06:52.009Z [INFO]: Schedule_service: Redis connected
+2026-04-18T19:06:52.026Z [INFO]: Schedule_service: RabbitMQ connected
+2026-04-18T19:06:52.027Z [INFO]: Schedule_service: Service is running.
+2026-04-18T19:06:52.044Z [INFO]: Orders_service: Database connected
+2026-04-18T19:06:52.070Z [INFO]: Orders_service: Redis connected
+2026-04-18T19:06:52.088Z [INFO]: Orders_service: RabbitMQ connected
+2026-04-18T19:06:52.090Z [INFO]: Orders_service: Service is running.
+2026-04-18T19:06:52.098Z [INFO]: Roles service: Database connected
+2026-04-18T19:06:52.100Z [INFO]: Goods_service: Database connected
+2026-04-18T19:06:52.104Z [INFO]: Users service: Database connected
+2026-04-18T19:06:52.111Z [INFO]: Roles service: Redis connected
+2026-04-18T19:06:52.114Z [INFO]: Goods_service: Redis connected
+2026-04-18T19:06:52.120Z [INFO]: Users service: Redis connected
+2026-04-18T19:06:52.126Z [INFO]: Roles service: RabbitMQ connected
+2026-04-18T19:06:52.127Z [INFO]: Roles service: Service is running.
+2026-04-18T19:06:52.131Z [INFO]: Goods_service: RabbitMQ connected
+2026-04-18T19:06:52.132Z [INFO]: Goods_service: Service is running.
+2026-04-18T19:06:52.137Z [INFO]: Users service: RabbitMQ connected
+2026-04-18T19:06:52.138Z [INFO]: Users service: Service is running.
+2026-04-18T19:06:52.199Z [INFO]: Announces_service: Database connected
+2026-04-18T19:06:52.210Z [INFO]: Announces_service: Redis connected
+2026-04-18T19:06:52.219Z [INFO]: Announces_service: RabbitMQ connected
+2026-04-18T19:06:52.220Z [INFO]: Announces_service: Service is running.
+2026-04-18T19:07:09.641Z [INFO]: Users service: Received task: local_task:506b576b34b8a773
+2026-04-18T19:07:09.650Z [INFO]: Users service: Users GET [admin]
+2026-04-18T19:07:09.651Z [INFO]: Users service: Task local_task:506b576b34b8a773 completed successfully with status: completed
+2026-04-18T19:07:10.474Z [INFO]: Roles service: Received task: local_task:a6261f67cbfef347
+2026-04-18T19:07:10.482Z [INFO]: Roles service: Roles GET [admin]
+2026-04-18T19:07:10.483Z [INFO]: Roles service: Task local_task:a6261f67cbfef347 completed successfully with status: completed
+2026-04-18T19:07:14.214Z [INFO]: Roles service: Received task: local_task:6f8520a6b36dd252
+2026-04-18T19:07:14.220Z [INFO]: Roles service: Role GET [admin]
+2026-04-18T19:07:14.221Z [INFO]: Roles service: Task local_task:6f8520a6b36dd252 completed successfully with status: completed
+2026-04-18T19:07:14.285Z [INFO]: Roles service: Received task: local_task:c77cae8f82a015d3
+2026-04-18T19:07:14.289Z [INFO]: Roles service: Roles GET [admin]
+2026-04-18T19:07:14.290Z [INFO]: Roles service: Task local_task:c77cae8f82a015d3 completed successfully with status: completed
+2026-04-18T19:12:59.419Z [INFO]: Roles service: Database connected
+2026-04-18T19:12:59.434Z [INFO]: Roles service: Redis connected
+2026-04-18T19:12:59.448Z [INFO]: Roles service: RabbitMQ connected
+2026-04-18T19:12:59.449Z [INFO]: Roles service: Service is running.
+2026-04-18T19:12:59.474Z [INFO]: Schedule_service: Database connected
+2026-04-18T19:12:59.486Z [INFO]: Schedule_service: Redis connected
+2026-04-18T19:12:59.500Z [INFO]: Schedule_service: RabbitMQ connected
+2026-04-18T19:12:59.501Z [INFO]: Schedule_service: Service is running.
+2026-04-18T19:12:59.518Z [INFO]: Announces_service: Database connected
+2026-04-18T19:12:59.518Z [INFO]: Goods_service: Database connected
+2026-04-18T19:12:59.530Z [INFO]: Announces_service: Redis connected
+2026-04-18T19:12:59.533Z [INFO]: Goods_service: Redis connected
+2026-04-18T19:12:59.543Z [INFO]: Announces_service: RabbitMQ connected
+2026-04-18T19:12:59.544Z [INFO]: Announces_service: Service is running.
+2026-04-18T19:12:59.548Z [INFO]: Goods_service: RabbitMQ connected
+2026-04-18T19:12:59.549Z [INFO]: Goods_service: Service is running.
+2026-04-18T19:12:59.547Z [INFO]: Orders_service: Database connected
+2026-04-18T19:12:59.560Z [INFO]: Orders_service: Redis connected
+2026-04-18T19:12:59.573Z [INFO]: Orders_service: RabbitMQ connected
+2026-04-18T19:12:59.574Z [INFO]: Orders_service: Service is running.
+2026-04-18T19:12:59.576Z [INFO]: Users service: Database connected
+2026-04-18T19:12:59.589Z [INFO]: Users service: Redis connected
+2026-04-18T19:12:59.598Z [INFO]: Users service: RabbitMQ connected
+2026-04-18T19:12:59.598Z [INFO]: Users service: Service is running.
+2026-04-18T19:13:12.309Z [INFO]: Users service: Received task: local_task:0ad720e3eaac4956
+2026-04-18T19:13:12.317Z [INFO]: Users service: Users GET [admin]
+2026-04-18T19:13:12.318Z [INFO]: Users service: Task local_task:0ad720e3eaac4956 completed successfully with status: completed
+2026-04-18T19:13:13.049Z [INFO]: Roles service: Received task: local_task:cc7cf69211e6f22f
+2026-04-18T19:13:13.057Z [INFO]: Roles service: Roles GET [admin]
+2026-04-18T19:13:13.058Z [INFO]: Roles service: Task local_task:cc7cf69211e6f22f completed successfully with status: completed
+2026-04-18T19:13:14.497Z [INFO]: Roles service: Received task: local_task:c466fab0a110d4ae
+2026-04-18T19:13:14.504Z [INFO]: Roles service: Role GET [admin]
+2026-04-18T19:13:14.505Z [INFO]: Roles service: Task local_task:c466fab0a110d4ae completed successfully with status: completed
+2026-04-18T19:13:14.520Z [INFO]: Roles service: Received task: local_task:745200ddb12f77c5
+2026-04-18T19:13:14.524Z [INFO]: Roles service: Roles GET [admin]
+2026-04-18T19:13:14.525Z [INFO]: Roles service: Task local_task:745200ddb12f77c5 completed successfully with status: completed
+2026-04-18T19:13:20.833Z [INFO]: Roles service: Received task: local_task:069b55b7da44b831
+2026-04-18T19:13:20.837Z [INFO]: Roles service: Role GET [admin]
+2026-04-18T19:13:20.838Z [INFO]: Roles service: Task local_task:069b55b7da44b831 completed successfully with status: completed
+2026-04-18T19:13:20.860Z [INFO]: Roles service: Received task: local_task:8cba5b386881e511
+2026-04-18T19:13:20.865Z [INFO]: Roles service: Roles GET [admin]
+2026-04-18T19:13:20.866Z [INFO]: Roles service: Task local_task:8cba5b386881e511 completed successfully with status: completed
+2026-04-18T19:13:51.448Z [INFO]: Roles service: Received task: local_task:37db13ffcf601e11
+2026-04-18T19:13:51.452Z [INFO]: Roles service: Role GET [admin]
+2026-04-18T19:13:51.453Z [INFO]: Roles service: Task local_task:37db13ffcf601e11 completed successfully with status: completed
+2026-04-18T19:13:51.519Z [INFO]: Roles service: Received task: local_task:4385b3b8b59a7a44
+2026-04-18T19:13:51.522Z [INFO]: Roles service: Roles GET [admin]
+2026-04-18T19:13:51.523Z [INFO]: Roles service: Task local_task:4385b3b8b59a7a44 completed successfully with status: completed
+2026-04-18T19:15:05.816Z [INFO]: Roles service: Received task: local_task:b0fab88ccd9feb7c
+2026-04-18T19:15:05.825Z [INFO]: Roles service: Role GET [admin]
+2026-04-18T19:15:05.826Z [INFO]: Roles service: Task local_task:b0fab88ccd9feb7c completed successfully with status: completed
+2026-04-18T19:15:05.840Z [INFO]: Roles service: Received task: local_task:f548858032c0942f
+2026-04-18T19:15:05.843Z [INFO]: Roles service: Roles GET [admin]
+2026-04-18T19:15:05.844Z [INFO]: Roles service: Task local_task:f548858032c0942f completed successfully with status: completed
+2026-04-18T19:15:11.774Z [INFO]: Roles service: Received task: local_task:6c2601ed3698f792
+2026-04-18T19:15:11.777Z [INFO]: Roles service: Role GET [admin]
+2026-04-18T19:15:11.778Z [INFO]: Roles service: Task local_task:6c2601ed3698f792 completed successfully with status: completed
+2026-04-18T19:15:11.858Z [INFO]: Roles service: Received task: local_task:f18a015a7cae6e2e
+2026-04-18T19:15:11.862Z [INFO]: Roles service: Roles GET [admin]
+2026-04-18T19:15:11.862Z [INFO]: Roles service: Task local_task:f18a015a7cae6e2e completed successfully with status: completed
+2026-04-18T19:15:24.029Z [INFO]: Roles service: Received task: local_task:9c91d0a60d0c0446
+2026-04-18T19:15:24.033Z [INFO]: Roles service: Role GET [admin]
+2026-04-18T19:15:24.034Z [INFO]: Roles service: Task local_task:9c91d0a60d0c0446 completed successfully with status: completed
+2026-04-18T19:15:24.065Z [INFO]: Roles service: Received task: local_task:efdff965772fc039
+2026-04-18T19:15:24.068Z [INFO]: Roles service: Roles GET [admin]
+2026-04-18T19:15:24.069Z [INFO]: Roles service: Task local_task:efdff965772fc039 completed successfully with status: completed
+2026-04-18T19:15:48.983Z [INFO]: Roles service: Received task: local_task:5b33d24bc71b174f
+2026-04-18T19:15:48.987Z [INFO]: Roles service: Role GET [admin]
+2026-04-18T19:15:48.988Z [INFO]: Roles service: Task local_task:5b33d24bc71b174f completed successfully with status: completed
+2026-04-18T19:15:49.056Z [INFO]: Roles service: Received task: local_task:151986045472349c
+2026-04-18T19:15:49.059Z [INFO]: Roles service: Roles GET [admin]
+2026-04-18T19:15:49.060Z [INFO]: Roles service: Task local_task:151986045472349c completed successfully with status: completed
+2026-04-18T19:18:46.051Z [INFO]: Users service: Database connected
+2026-04-18T19:18:46.062Z [INFO]: Users service: Redis connected
+2026-04-18T19:18:46.072Z [INFO]: Users service: RabbitMQ connected
+2026-04-18T19:18:46.073Z [INFO]: Users service: Service is running.
+2026-04-18T19:18:46.093Z [INFO]: Schedule_service: Database connected
+2026-04-18T19:18:46.107Z [INFO]: Schedule_service: Redis connected
+2026-04-18T19:18:46.106Z [INFO]: Orders_service: Database connected
+2026-04-18T19:18:46.120Z [INFO]: Orders_service: Redis connected
+2026-04-18T19:18:46.120Z [INFO]: Schedule_service: RabbitMQ connected
+2026-04-18T19:18:46.121Z [INFO]: Schedule_service: Service is running.
+2026-04-18T19:18:46.135Z [INFO]: Orders_service: RabbitMQ connected
+2026-04-18T19:18:46.136Z [INFO]: Orders_service: Service is running.
+2026-04-18T19:18:46.175Z [INFO]: Announces_service: Database connected
+2026-04-18T19:18:46.189Z [INFO]: Announces_service: Redis connected
+2026-04-18T19:18:46.196Z [INFO]: Goods_service: Database connected
+2026-04-18T19:18:46.199Z [INFO]: Roles service: Database connected
+2026-04-18T19:18:46.202Z [INFO]: Announces_service: RabbitMQ connected
+2026-04-18T19:18:46.203Z [INFO]: Announces_service: Service is running.
+2026-04-18T19:18:46.213Z [INFO]: Roles service: Redis connected
+2026-04-18T19:18:46.215Z [INFO]: Goods_service: Redis connected
+2026-04-18T19:18:46.225Z [INFO]: Roles service: RabbitMQ connected
+2026-04-18T19:18:46.226Z [INFO]: Roles service: Service is running.
+2026-04-18T19:18:46.231Z [INFO]: Goods_service: RabbitMQ connected
+2026-04-18T19:18:46.232Z [INFO]: Goods_service: Service is running.
+2026-04-18T19:18:49.331Z [INFO]: Roles service: Received task: local_task:421f865735c9d796
+2026-04-18T19:18:49.340Z [INFO]: Roles service: Role GET [admin]
+2026-04-18T19:18:49.341Z [INFO]: Roles service: Task local_task:421f865735c9d796 completed successfully with status: completed
+2026-04-18T19:18:49.367Z [INFO]: Roles service: Received task: local_task:1c79b8f99862b570
+2026-04-18T19:18:49.372Z [INFO]: Roles service: Permissions GET [admin]
+2026-04-18T19:18:49.374Z [INFO]: Roles service: Task local_task:1c79b8f99862b570 completed successfully with status: completed
+2026-04-18T19:18:55.058Z [INFO]: Roles service: Received task: local_task:5c56d1e9eda2c6a2
+2026-04-18T19:18:55.063Z [INFO]: Roles service: Roles GET [admin]
+2026-04-18T19:18:55.063Z [INFO]: Roles service: Task local_task:5c56d1e9eda2c6a2 completed successfully with status: completed
+2026-04-18T19:18:55.828Z [INFO]: Roles service: Received task: local_task:e845561c67c3acf1
+2026-04-18T19:18:55.832Z [INFO]: Roles service: Permissions GET [admin]
+2026-04-18T19:18:55.833Z [INFO]: Roles service: Task local_task:e845561c67c3acf1 completed successfully with status: completed
+2026-04-18T19:19:06.053Z [INFO]: Roles service: Received task: local_task:76bcccd4c553af9a
+2026-04-18T19:19:06.055Z [INFO]: Roles service: Permissions GET [admin]
+2026-04-18T19:19:06.056Z [INFO]: Roles service: Task local_task:76bcccd4c553af9a completed successfully with status: completed
+2026-04-18T19:19:11.657Z [INFO]: Roles service: Received task: local_task:83a578d74328aa33
+2026-04-18T19:19:11.660Z [INFO]: Roles service: Permissions GET [admin]
+2026-04-18T19:19:11.661Z [INFO]: Roles service: Task local_task:83a578d74328aa33 completed successfully with status: completed
+2026-04-18T19:19:14.229Z [INFO]: Roles service: Received task: local_task:ed7d2d3b1d981a4b
+2026-04-18T19:19:14.269Z [INFO]: Roles service: Role POST [admin]
+2026-04-18T19:19:14.270Z [INFO]: Roles service: Task local_task:ed7d2d3b1d981a4b completed successfully with status: completed
+2026-04-18T19:19:15.488Z [INFO]: Roles service: Received task: local_task:2095cd7af32ea2e4
+2026-04-18T19:19:15.492Z [INFO]: Roles service: Roles GET [admin]
+2026-04-18T19:19:15.492Z [INFO]: Roles service: Task local_task:2095cd7af32ea2e4 completed successfully with status: completed
+2026-04-18T19:19:18.946Z [INFO]: Roles service: Received task: local_task:d084c04c5f0f68eb
+2026-04-18T19:19:18.950Z [INFO]: Roles service: Role GET [admin]
+2026-04-18T19:19:18.950Z [INFO]: Roles service: Task local_task:d084c04c5f0f68eb completed successfully with status: completed
+2026-04-18T19:19:18.959Z [INFO]: Roles service: Received task: local_task:f143dffdf4f0abe8
+2026-04-18T19:19:18.963Z [INFO]: Roles service: Permissions GET [admin]
+2026-04-18T19:19:18.966Z [INFO]: Roles service: Task local_task:f143dffdf4f0abe8 completed successfully with status: completed
+2026-04-18T19:19:23.348Z [INFO]: Roles service: Received task: local_task:950eb1038e9c9fe9
+2026-04-18T19:19:23.369Z [INFO]: Roles service: Role PATCH [admin]
+2026-04-18T19:19:23.369Z [INFO]: Roles service: Task local_task:950eb1038e9c9fe9 completed successfully with status: completed
+2026-04-18T19:19:24.605Z [INFO]: Roles service: Received task: local_task:fdd4a0fa2d946a43
+2026-04-18T19:19:24.608Z [INFO]: Roles service: Roles GET [admin]
+2026-04-18T19:19:24.609Z [INFO]: Roles service: Task local_task:fdd4a0fa2d946a43 completed successfully with status: completed
+2026-04-18T19:19:27.008Z [INFO]: Roles service: Received task: local_task:375d7c17cf33af5c
+2026-04-18T19:19:27.012Z [INFO]: Roles service: Role GET [admin]
+2026-04-18T19:19:27.012Z [INFO]: Roles service: Task local_task:375d7c17cf33af5c completed successfully with status: completed
+2026-04-18T19:19:27.030Z [INFO]: Roles service: Received task: local_task:0af017e994137bd1
+2026-04-18T19:19:27.033Z [INFO]: Roles service: Permissions GET [admin]
+2026-04-18T19:19:27.034Z [INFO]: Roles service: Task local_task:0af017e994137bd1 completed successfully with status: completed
+2026-04-18T19:19:29.196Z [INFO]: Roles service: Received task: local_task:e08d160d4e07f1b9
+2026-04-18T19:19:29.257Z [INFO]: Roles service: Role DELETE [admin]
+2026-04-18T19:19:29.257Z [INFO]: Roles service: Task local_task:e08d160d4e07f1b9 completed successfully with status: completed
+2026-04-18T19:19:30.068Z [INFO]: Roles service: Received task: local_task:a68ae187b1c02e14
+2026-04-18T19:19:30.072Z [INFO]: Roles service: Roles GET [admin]
+2026-04-18T19:19:30.073Z [INFO]: Roles service: Task local_task:a68ae187b1c02e14 completed successfully with status: completed
+2026-04-18T19:19:40.938Z [INFO]: Users service: Received task: local_task:6937d4636b37d173
+2026-04-18T19:19:40.945Z [INFO]: Users service: Users GET [admin]
+2026-04-18T19:19:40.946Z [INFO]: Users service: Task local_task:6937d4636b37d173 completed successfully with status: completed
+2026-04-18T19:19:43.125Z [INFO]: Users service: Received task: local_task:67b55e529ea42d3f
+2026-04-18T19:19:43.138Z [INFO]: Users service: User GET [admin]
+2026-04-18T19:19:43.139Z [INFO]: Users service: Task local_task:67b55e529ea42d3f completed successfully with status: completed
+2026-04-18T19:19:46.478Z [INFO]: Users service: Received task: local_task:2d8e27c24ca17f7c
+2026-04-18T19:19:46.504Z [INFO]: Users service: User PATCH [admin]
+2026-04-18T19:19:46.505Z [INFO]: Users service: Task local_task:2d8e27c24ca17f7c completed successfully with status: completed
+2026-04-18T19:19:47.921Z [INFO]: Users service: Received task: local_task:70e2c5eb7bea1015
+2026-04-18T19:19:47.925Z [INFO]: Users service: Users GET [admin]
+2026-04-18T19:19:47.925Z [INFO]: Users service: Task local_task:70e2c5eb7bea1015 completed successfully with status: completed

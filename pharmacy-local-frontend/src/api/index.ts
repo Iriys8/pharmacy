@@ -133,7 +133,7 @@ export const orderAPI = {
 	},
 
 	getOrderByID: async (id: number): Promise<Order> => {
-		const response = await executeWithPickup<Order>(api.get<KeyResponse>(`/order/${id}`))
+		const response = await executeWithPickup<Order>(api.get<KeyResponse>(`/order?id=${id}`))
 		response.Items = response.Items.map(item => ({
     	  ...item,
     	  Type: "OrderedItem"

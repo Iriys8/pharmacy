@@ -23,11 +23,7 @@ function parseTimeString(timeStr: string): string {
   return '09:00:00';
 }
 
-export async function getScheduleDated(
-  dataSource: DataSource,
-  startDate: string,
-  endDate: string
-): Promise<ScheduleResponse[]> {
+export async function getScheduleDated(dataSource: DataSource, startDate: string, endDate: string): Promise<ScheduleResponse[]> {
   const scheduleRepository = dataSource.getRepository(Schedule);
   
   const startParsed = new Date(startDate);
@@ -85,13 +81,7 @@ export async function getScheduleDated(
   return response;
 }
 
-export async function getSchedule(
-  dataSource: DataSource,
-  query: string,
-  pageStr: string,
-  limitStr: string,
-  claims: Claims
-): Promise<{ Items: ScheduleResponse[]; TotalPages: number; CurrentPage: number }> {
+export async function getSchedule(dataSource: DataSource, query: string, pageStr: string, limitStr: string, claims: Claims): Promise<{ Items: ScheduleResponse[]; TotalPages: number; CurrentPage: number }> {
   const scheduleRepository = dataSource.getRepository(Schedule);
   
   let limit = parseInt(limitStr);
@@ -149,11 +139,7 @@ export async function getSchedule(
   };
 }
 
-export async function getScheduleByID(
-  dataSource: DataSource,
-  id: number,
-  claims: Claims
-): Promise<ScheduleResponse> {
+export async function getScheduleByID(dataSource: DataSource, id: number, claims: Claims): Promise<ScheduleResponse> {
   const scheduleRepository = dataSource.getRepository(Schedule);
   
   const schedule = await scheduleRepository.findOne({
@@ -177,11 +163,7 @@ export async function getScheduleByID(
   return response;
 }
 
-export async function createSchedule(
-  dataSource: DataSource,
-  scheduleData: ScheduleResponse,
-  claims: Claims
-): Promise<string> {
+export async function createSchedule(dataSource: DataSource, scheduleData: ScheduleResponse, claims: Claims): Promise<string> {
   const scheduleRepository = dataSource.getRepository(Schedule);
   
   const schedule = new Schedule();
@@ -197,12 +179,7 @@ export async function createSchedule(
   return 'schedule created';
 }
 
-export async function updateSchedule(
-  dataSource: DataSource,
-  id: number,
-  scheduleData: ScheduleResponse,
-  claims: Claims
-): Promise<string> {
+export async function updateSchedule(dataSource: DataSource, id: number, scheduleData: ScheduleResponse, claims: Claims): Promise<string> {
   const scheduleRepository = dataSource.getRepository(Schedule);
   
   const schedule = await scheduleRepository.findOne({
@@ -225,11 +202,7 @@ export async function updateSchedule(
   return 'schedule updated';
 }
 
-export async function deleteSchedule(
-  dataSource: DataSource,
-  id: number,
-  claims: Claims
-): Promise<string> {
+export async function deleteSchedule(dataSource: DataSource, id: number, claims: Claims): Promise<string> {
   const scheduleRepository = dataSource.getRepository(Schedule);
   
   const result = await scheduleRepository.delete(id);

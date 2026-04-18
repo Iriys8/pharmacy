@@ -34,6 +34,15 @@ onMounted(async () => {
     await getItem();
     if (Number(route.params.id) === 0) {
         isPasswordChange.value = true
+        item.value.User = {
+            ID: 0,
+            Login: "",
+            UserName: "",
+            RoleID: 0,
+            Role: undefined,
+            Password: "",
+            Type: "User"
+        }
     }
 });
 
@@ -64,10 +73,6 @@ const Update = async () => {
     try {
         if (!item.value || item.value.User.ID === 0) {
             alert("Error: Item does not exist");
-            return;
-        }
-        if (item.value.User.Password.length < 4 && isPasswordChange) {
-            alert("Error: To short password");
             return;
         }
         await usersAPI.updateUserByID(item.value.User);
